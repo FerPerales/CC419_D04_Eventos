@@ -3,7 +3,7 @@
 <p>Integrantes</p>
 <ul>
 	<li>Antonio Gauregui - https://github.com/hawreghi</li>
-	<li></li>
+	<li>Manuel Meza - https://github.com/slifer-x</li>
 	<li>Fernando Perales - https://github.com/ferperales</li>
 	<li>Por definir</li>
 </ul>
