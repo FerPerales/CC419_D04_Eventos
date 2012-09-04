@@ -1,4 +1,5 @@
-<p>Repositorio del proyecto final de la materia de programación web</p>
+<h1>Repositorio del proyecto final de la materia de programación web</h1>
+<h2>Calendario de eventos tecnológicos</h2>
 
 <p>Integrantes</p>
 <ul>
