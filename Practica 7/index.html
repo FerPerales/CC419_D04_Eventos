@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Practica 7</title>
+	</head>
+	<body>
+		<header>
+			<h1> Página Principal </h1>
+			<h4> Información: </h4>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html"> Inicio </a></li>
+				<li><a href="vision.html"> Vision </a></li>
+				<li><a href="mision.html"> Mision </a></li>
+				<li><a href="FAQ.html"> Preguntas Frecuentes </a></li>
+			</ul>
+		</nav>
+		<article>
+			<h3>Articulo</h3>
+			<section>
+				<p>	Imágenes de partida 
+					
+					Podemos ver la imagen que hemos creado y que vamos a intentar maquetar lo más parecido posible. No es el objetivo de este manual ofrecer las técnicas para realizar esta imagen, aunque en otros manuales de DesarrolloWeb.com podemos ver tutoriales para aprender algunos de los trucos de diseño utilizados. 
+					Se trata de un diseño sencillo, pero en el que se encuentran elementos distintos y variados con los que trabajar. 
+					De esta imagen hemos extraído algunos gráficos, que utilizaremos a la hora de maquetar el diseño. Sería interesante descargarlo para poder realizar el ejercicio por vuestra cuenta. 
+					Para los impacientes, tenemos un enlace a la página resultado que vamos a conseguir realizar al final del artículo. Puede ser bueno verla para hacerse una idea de donde queremos llegar.
+					<br /> 
+					Desarrollo de la página y la hoja de estilos 
+					Vamos a generar los archivos HTML y CSS a la vez, pero paso a paso, de modo que podamos explicar las etiquetas y estilos que hemos utilizado para cada parte de la página. 
+					Como primer paso, en la cabecera head del documento HTML, enlazaremos con una hoja de estilos externa. 
+					En la declaración de estilos CSS, para el cuerpo de la página, hemos definido una imagen de fondo "fondo.gif", que se repetirá por toda la página en un mosaico. También se definen unos márgenes y el alineamiento del texto, en este caso centrado, para que el contenido de la página aparezca en el centro (esto es necesario para Internet Explorer, el centrado en Mozilla y otros navegadores se realiza en la capa principal con el atributo "margin" definido como "auto"). 
+					Además se definen otros atributos para el cuerpo de la página, que luego heredarán otros elementos, como el tipo de letra o el color del texto. 
+					
+					
+					<pre>
+						<cite>body { 
+							background : #C0D9D9 url(images/fondo.gif) repeat; 
+							font : 8pt Verdana, Geneva, Arial, Helvetica, sans-serif; 						
+							color : #666666;
+							margin : 20px 0px 20px 0px;
+							text-align: center;
+						}</cite>
+					</pre>
+					
+					La capa contenedor 
+						
+					Generalmente, se utiliza una capa principal, a la que hemos llamado contenedor. Dentro de esta capa se colocan todos los elementos que va a tener la página. 
+					En esta capa definimos el alineamiento del texto a la izquierda (porque en el cuerpo habíamos centrado el texto, para que Internet Explorer centre la capa contenedor y deseamos que la alineación por defecto sea a izquierda). También definimos una anchura de 700px, un color de fondo blanco y el margen, con el atributo "margin", lo definimos como "auto", para que Mozilla y otros navegadores centren la capa. 
+					<br /><br />
+					#contenedor{<br /> 
+						text-align: left;<br /> 
+						width: 700px; <br />
+						background-color : #ffffff;<br /> 
+						margin: auto; <br />
+					} <br /><br />
+						
+					Por cierto, nos hemos dejado deliberadamente el borde de la capa, que habíamos definido en el diseño original. Se podría haber definido el atributo "border", pero eso nos repercute negativamente en la maquetación en Explorer. Veremos más adelante cómo colocarlo para que se vea correctamente en todos los navegadores. 
+					Este ejercicio lo vamos a ver en varios pasos. En el siguiente bloque mostraremos cómo se maqueta la cabecera y la barra de navegación.
+				</p>
+
+			</section>
+		</article>
+			
+			<aside>
+				<ul>
+					<li> Noticias </li>
+					<li> Información</li>
+					<li> Tecnología</li>
+					<li> Becas</li>
+					<li> Universidad</li>
+					<li> Maestrías</li>
+					<li> Doctorados</li>
+				</ul>
+			</aside>
+			
+			<footer>
+				<div>
+					<img src="HTML5.png" width="100" height="100" alt="HTML 5" />
+				</div>
+				<div>
+					<p>
+						Pebla #143, Colonia Roma Norte, Delegación Cuauhtémoc, 06700 México, D.F. Tel. (55)3601 8210 y 16, 01800 2283 400 Comentarios sobre este Sitio de Internet  
+INSTITUTO NACIONAL DEL DERECHO DE AUTOR, MÉXICO - ALGUNOS DERECHOS RESERVADOS © 2010 - POLÍTICAS DE PRIVACIDAD
+					</p>
+				</div>
+			</footer>
+	</body>
+</html>
