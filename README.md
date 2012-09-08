@@ -45,7 +45,7 @@ Para conectar esa librería con los datos de la base de datos se hace por medio 
 <p>Para el manejo de comentarios se utiliza el recurso Disqus</p>
 
 <hr/>
-<h2>Integrantes<//h2>
+<h2>Integrantes</h2>
 <ul>
   <li>Antonio Gauregui - http://github.com/hawreghi</li>
 	<li>Manuel Meza - http://github.com/slifer-x</li>
