@@ -42,4 +42,13 @@
 
 <p>El manejo de las vistas de calendario se hace por medio de una librería de jQuery
 Para conectar esa librería con los datos de la base de datos se hace por medio de JSON</p>
-Para el manejo de comentarios se utiliza el recurso Disqus
+<p>Para el manejo de comentarios se utiliza el recurso Disqus</p>
+
+<hr/>
+<h2>Integrantes<//h2>
+<ul>
+  <li>Antonio Gauregui - http://github.com/hawreghi</li>
+	<li>Manuel Meza - http://github.com/slifer-x</li>
+	<li>Fernando Perales - http://github.com/ferperales</li>
+	<li>Zahib Valenzuela - http://github.com/zahib</li>
+</ul>
