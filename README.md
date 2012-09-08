@@ -1,4 +1,4 @@
-<h1>Repositorio del proyecto final de la mat
+<h1>CC419 Programación web :: Proyecto final</h1>
 <h2>Registro de eventos en linea</h2>
 
 <p>Se encuentra la problemática de tener control de los eventos registrados para una comunidad tecnológica de trabajo colaborativo, llamado Hacker Garage.</p>
