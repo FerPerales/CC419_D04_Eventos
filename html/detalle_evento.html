@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación, Web">
+		<meta name="author" content="Equipo Duke. Programación WEB CC419 D04">
+		<meta name="description" content="Registro de eventos de programación en linea">
 		<title>Detalle de evento</title>
 	</head>
 
@@ -10,12 +13,12 @@
 			
 		</header>
 		<nav class="navegacion">
-			<ul id="MenuPrincipal">
-				<li><a href="todos_eventos.html">Inicio</a></li>
-				<li><a href="">Calendario</a></li>
-				<li><a href="">Enviar Evento</a></li>
+			<ul class="menu" class="main-menu">
+				<li id="inicio"><a href="todos_eventos.html">Inicio</a></li>
+				<li id="cal"><a href="">Calendario</a></li>
+				<li id="env-event"><a href="">Enviar Evento</a></li>
+				<li id="RSS"><img src="img/rss.png" alt="RSS" width="30" height="30" /></li>
 			</ul>
-			<div id="RSS" class="RSS"><img src="img/rss.png" alt="RSS" width="30" height="30" /></div>
 		</nav>
 		<article class="articulo">
 			<section class="evento">
@@ -26,13 +29,11 @@
 						Hackers &amp; founders es una comunidad tecnológica basada en la pregunta ¿Qué Necesitas? 
 						Conoce a tus futuros socios, solicita ayuda, aprende y emprende. Nos reunimos el último Jueves del mes.
 					</p>
-					<p>
-						Cuando: Jueves 30 de Agosto de 2012 19:00 hrs <br />
-						Donde: HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.
-					</p>
 				</div>
-				<div class="info">
-					<strong>Precio:</strong> $50.00 <strong>Capacidad:</strong> 50 <strong>Categoría:</strong> Conferencia Publicado el 23/09/12 por <a href="" >@levhita</a>
+				<div class="info" id="event-det">
+					Cuando: <span class="place" id="when">Jueves 30 de Agosto de 2012 19:00 hrs</span><br />
+					Donde: <span class="place" id="where">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span>
+					<span class="place" id="more-inf">Precio: $50.00</span> Capacidad: 50 Categoría: Conferencia Publicado el 23/09/12 por <a href="" >@levhita</a>
 				</div><br />
 			
 			<div class="disqus_commit">
