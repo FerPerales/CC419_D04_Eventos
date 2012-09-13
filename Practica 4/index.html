@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Practica 4</title>
+	</head>
+
+	<body>
+		<form method="post" action="index.html">
+			<label for="nombre">Indique su nombre: </label>
+			<input type="text" id="nombre" name="nombre" /><br />
+			
+			<label for="correo">Indique su e-mail: </label>
+			<input type="email" id="correo" name="correo" placeholder="nombre@host.com" /><br />
+			
+			<label for="telefono">Indique su telefono: </label>
+			<input type="tel" id="telefono" name="telefono" placeholder="De 8 a 10 digitos" maxlength="10" /><br />
+			
+			<label for="estado">Estado: </label>
+			<select name="estado" id="estado">
+				<option value="1">Aguascalientes
+				<option value="2">Baja California
+				<option value="3">Baja California Sur
+				<option value="4">Campeche
+				<option value="5">Chiapas
+				<option value="6">Chihuahua
+				<option value="7">Coahuila
+				<option value="8">Colima
+				<option value="9">Distrito Federal
+				<option value="10">Durango
+				<option value="11">Estado de México
+				<option value="12">Guanajuato
+				<option value="13">Guerrero
+				<option value="14">Hidalgo
+				<option value="15">Jalisco
+				<option value="16">Michoacán
+				<option value="17">Morelos
+				<option value="18">Nayarit
+				<option value="19">Nuevo León
+				<option value="20">Oaxaca
+				<option value="21">Puebla
+				<option value="22">Querétaro
+				<option value="23">Quintana Roo
+				<option value="24">San Luis Potosí
+				<option value="25">Sinaloa
+				<option value="26">Sonora
+				<option value="27">Tabasco
+				<option value="28">Tamaulipas
+				<option value="29">Tlaxcala
+				<option value="30">Veracruz
+				<option value="31">Yucatán
+				<option value="32">Zacatecas
+			</select><br />
+			
+			<label for="col">Indique su colonia: </label>
+			<input type="text" id="col" name="col" /><br /><br />
+			
+			<fieldset>
+				<legend> Motivo del contacto: </legend>
+				<input type="checkbox" name="temas" value="mantenimiento" /> Mantenimiento de equipo <br />
+				<input type="checkbox" name="temas" value="dudas" /> Dudas con el equipo <br />
+				<input type="checkbox" name="temas" value="sugerencias" /> Sugerencias <br />
+				<input type="checkbox" name="temas" value="garantia" /> Garantia de equipo 
+			</fieldset><br /><br />
+			
+			<label for="comentarios">Agregue sus comentarios</label><br />
+			<textarea id="comentarios" rows="8" cols="40" wrap="hard"> Escriba aquí </textarea><br />
+			
+			<button type="submit">Enviar</button>
+			<button type="reset">Limpiar</button> 
+		</form>
+	</body>
+</html>

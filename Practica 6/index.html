@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title> Practica 6 </title>
+	</head>
+
+	<body>
+		<form method="post" action="index.html">
+			<fieldset>
+				<legend> Datos de registro </legend>
+				<label for="usuario">Usuario: </label>
+				<input type="text" id="usuario" name="usuario" value="Slifer-x" disabled /><br />
+				
+				<label for="correo">E-mail: </label>
+				<input type="email" id="correo" name="correo" value="manuelolmedo18@gmail.com" disabled /><br />
+			</fieldset>
+			
+			<fieldset>
+				<legend> Intereses </legend>
+				<select name="intereses" size="5" multiple="multiple">
+					<option value="1"> Programacion en web</option>
+					<option value="2"> Programacion en C</option>
+					<option value="3"> Programacion en Java</option>
+					<option value="4"> Programacion en C#</option>
+					<option value="5"> Programacion en C++</option>
+					<option value="6"> Programacion en Python</option>
+				</select>
+			</fieldset>
+			
+			<fieldset>
+				<legend>General</legend>
+				<label for="imagen">Tu foto: </label>
+				<input type="file" id="imagen" accept="image/*" /><br />
+				
+				<label for="passwd"> Confirma tu contraseña </label>
+				<input type="password" id="passwd" name="passwd" />
+			</fieldset>
+			
+			<fieldset>
+				<legend> Datos básicos </legend>
+				<label for="nombre"> Nombre: </label>
+				<input type="text" name="nombre" id="nombre" /><br />
+				
+				<label for="direccion"> Direccion: </label>
+				<input type="text" name="direccion" id="direccion" /><br />
+				
+				<label for="telefono"> Telefono: </label>
+				<input type="tel" name="telefono" id="telefono" /><br />
+				
+				<label for="bd"> Fecha de nacimiento </label>
+				<input type="date" id="bd" name="bd" />
+				
+				<fieldset>
+					<legend> Sexo: </legend>
+					<input type="radio" name="sexo" value="M" /> Masculino <br />
+					<input type="radio" name="sexo" value="F" /> Femenino
+				</fieldset>
+			</fieldset>
+			
+			<button type="reset"> Limpiar </button>
+			<button type="submit"> Enviar </button> 	
+		</form>
+	</body>
+</html>
