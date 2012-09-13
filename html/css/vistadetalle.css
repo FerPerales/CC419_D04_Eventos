@@ -24,6 +24,11 @@ section > div
 	border-style: solid;
 	border-color: gray;
 }
+div#event-det {
+	margin: 0 0;
+	border-style: none;
+	border-color: none;
+}
 section div img 
 { 
 	width:  100%;
