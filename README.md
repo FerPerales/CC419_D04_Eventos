@@ -47,7 +47,7 @@ Para conectar esa librería con los datos de la base de datos se hace por medio 
 <hr/>
 <h2>Integrantes</h2>
 <ul>
-  <li>Antonio Gauregui - http://github.com/hawreghi</li>
+  <li>Jorge Avila- http://github.com/hawreghi</li>
 	<li>Manuel Meza - http://github.com/slifer-x</li>
 	<li>Fernando Perales - http://github.com/ferperales</li>
 	<li>Zahib Valenzuela - http://github.com/zahib</li>
