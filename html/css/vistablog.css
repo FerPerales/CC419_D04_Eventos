@@ -1,0 +1,55 @@
+nav
+{
+	width: 50%;
+	margin: 0 auto;
+	
+}
+nav ul
+{ 
+	float: right;	
+	background-color: green; 
+}
+nav ul li{	display: inline;}
+nav ul li a { text-decoration: none;}
+header
+{
+	width: 50%;
+	height: 0px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
+	margin: 0 auto;
+	border-style: solid;	
+}
+
+article
+{
+	clear: both;
+}
+article > div
+{
+	width: 50%;
+	margin: 0 auto;
+}
+article > div > button + button
+{
+	float: right;
+}
+section
+{
+	width: 50%;
+	margin: 10px auto;
+	border-style: solid;
+	border-color: gray;
+}
+section img 
+{ 
+	width:  100%;
+}
+section p
+{
+	font-size: .8em;
+}
+
+footer
+{
+	width: 50%;
+	margin: 0 auto;
+}
