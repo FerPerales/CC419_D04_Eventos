@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="js/fullcalendar.min.js"></script>
         
+        <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
 		<header>
         <title>HackerGarage::Calendario</title>
 		</header>
@@ -29,9 +30,17 @@
             Enviar Evento
         </button>
 		</div>
-		<article>
+		<section id="calendar">
        
-		</article>
+		</section>
     </body>
 	<footer><p align=rigth> los derechos reservados HackerGarage Septiembre 2012</p></footer>
+	
+	
+	<script>
+		$(document).ready(function() {
+		    $('#calendar').fullCalendar({
+		    })		
+		});
+	</script>
 </html>
