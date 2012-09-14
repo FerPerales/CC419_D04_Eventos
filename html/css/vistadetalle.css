@@ -1,0 +1,42 @@
+nav
+{
+	width: 50%;
+	margin: 0 auto;
+}
+nav ul
+{ 
+	float: right;	 
+}
+nav ul li{	display: inline;}
+nav ul li a { text-decoration: none;}
+article
+{
+	clear: both;
+}
+section
+{
+	width: 50%;
+	margin: 0 auto;
+}
+section > div > div
+{
+	margin: 0 auto;
+	border-style: solid;
+	border-color: gray;
+}
+/*
+div#event-det {
+	margin: 0 0;
+	border-style: none;
+	border-color: none;
+}
+*/
+
+section div img 
+{ 
+	width:  100%;
+}
+section p
+{
+	font-size: .8em;
+}
