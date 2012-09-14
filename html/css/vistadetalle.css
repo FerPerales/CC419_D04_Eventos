@@ -18,17 +18,20 @@ section
 	width: 50%;
 	margin: 0 auto;
 }
-section > div
+section > div > div
 {
 	margin: 0 auto;
 	border-style: solid;
 	border-color: gray;
 }
+/*
 div#event-det {
 	margin: 0 0;
 	border-style: none;
 	border-color: none;
 }
+*/
+
 section div img 
 { 
 	width:  100%;
