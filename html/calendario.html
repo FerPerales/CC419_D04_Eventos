@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta ="charset=utf-8" />
+		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programaci&oacute;n Web, Calendario" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 
@@ -28,14 +28,15 @@
 		</nav>
 		
 		<section id="calendar">
+		    <!-- inicializa calendario -->	
+			<script>
+				$(document).ready(function() {
+				    	$('#calendar').fullCalendar({
+				    })		
+				});
+			</script>
 		</section>
     </body>
     
-    <!-- inicializa calendario--->	
-	<script>
-		$(document).ready(function() {
-		    	$('#calendar').fullCalendar({
-		    })		
-		});
-	</script>
+
 </html>
