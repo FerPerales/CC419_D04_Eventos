@@ -2,45 +2,39 @@
 <html>
     <head>
         <meta ="charset=utf-8" />
+		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programaci&oacute;n Web, Calendario" />
+		<meta name="description" content="Registro de eventos de programación en linea" />
+
 		<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="js/fullcalendar.min.js"></script>
-        
+		
         <link rel="stylesheet" type='text/css' href='css/fullcalendar.css' />
+       
         <link rel="stylesheet" type='text/css' href="css/vistacalendario.css"/>
-		<header>
-        <title>HackerGarage::Calendario</title>
-		</header>
+        <title>Calendario</title>
 		
     </head>  
     <body>
-        <h1>Calendario</h1>
-		<div>
-		<div aling=rigth>
-        <button type="button">
-            Inicio
-        </button>	
-		</div>
-		</div>
-		<div aling=rigth>
-        <button type="button">
-            Calendario
-        </button>
-		</div>
-		<div aling=rigth>
-        <button type="button">
-            Enviar Evento
-        </button>
-		</div>
+		<header>
+			<h1>Calendario</h1>
+		</header>
+ 		<nav class="navegacion">
+			<ul id="menu" class="main-menu">
+				<li id="inicio"><a href="todos_eventos.html">Inicio</a></li>
+				<li id="cal"><a href="">Calendario</a></li>
+				<li id="env-event"><a href="">Enviar Evento</a></li>
+				<li id="RSS"><img src="img/rss.png" alt="RSS" width="30" height="30" /></li>
+			</ul>
+		</nav>
+		
 		<section id="calendar">
-       
 		</section>
     </body>
-	<footer><p align=rigth> los derechos reservados HackerGarage Septiembre 2012</p></footer>
-	
-	
+    
+    <!-- inicializa calendario--->	
 	<script>
 		$(document).ready(function() {
-		    $('#calendar').fullCalendar({
+		    	$('#calendar').fullCalendar({
 		    })		
 		});
 	</script>
