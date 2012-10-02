@@ -52,3 +52,7 @@ Para conectar esa librería con los datos de la base de datos se hace por medio 
 	<li>Fernando Perales - http://github.com/ferperales</li>
 	<li>Zahib Valenzuela - http://github.com/zahib</li>
 </ul>
+
+<h2>URL del proyecto</h2>
+
+http://alanturing.cucei.udg.mx/duke/
