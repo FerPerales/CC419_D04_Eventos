@@ -1,0 +1,1 @@
+En la carpeta png vienen los archivos finales mientras que en la carpeta pencil vienen los formatos editables para el programa de mockups Pencil
