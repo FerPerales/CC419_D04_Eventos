@@ -48,9 +48,11 @@ nav ul li a
 
 section, footer
 {
-	margin: 0 auto;
-	padding: 10px 10px 1px;
+	/*margin: 0 auto;*/
+	padding: 15px 0px;
 	background: rgb(206,206,206); /* Old browsers */
+	border-top-left-radius: 9px;
+   border-top-right-radius: 9px;
 	border-bottom-left-radius: 9px;
 	border-bottom-right-radius: 9px;
 	background: -moz-linear-gradient(top, rgba(206,206,206,1) 90%, rgba(147,147,147,1) 100%); /* FF3.6+ */

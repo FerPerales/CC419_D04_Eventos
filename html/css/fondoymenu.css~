@@ -45,31 +45,11 @@ nav ul li a
 {
 	background: none;
 }
-header
-{
-	width: 50%;
-	height: 0px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
-	margin: 0 auto;
-	padding-top: 1px;
-	color:#D4D4D4;
-	font-family: sans-serif;
-}
 
-article, footer
-{
-	clear: both;
-		width: 50%;
-	margin: 0 auto;
-}
-article > div
-{
-	width: 50%;
-	margin: 0 auto;
-}
 section, footer
 {
-	margin: 0 auto;
-	padding: 10px 10px 1px;
+	/*margin: 0 auto;*/
+	padding: 15px 0px;
 	background: rgb(206,206,206); /* Old browsers */
 	border-bottom-left-radius: 9px;
 	border-bottom-right-radius: 9px;

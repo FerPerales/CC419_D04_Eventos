@@ -1,17 +1,33 @@
-
-header
+.botonesAprobar
 {
-	width: 50%;
-	height: 0px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
-	margin: 0 auto;
-	padding-top: 1px;
-	color:#D4D4D4;
-	font-family: sans-serif;
+	width: 90%;
+	margin: auto;
 }
-
-article, footer
+div.botonesAprobar button
+{
+	float: right;
+}
+.clearer
+{
+	clear: both;	
+}
+.botonesSeleccion
+{
+	float: left;
+	margin-left: 30px;
+}
+table
 {
 	clear: both;
-	width: 50%;
+	width: 90%;
 	margin: auto;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	background-color: whitesmoke;
+	border-color: gray;
+	/*background-image: url('http://hackergarage.pbworks.com/f/1296492903/HG-Logo.png');*/ 
+}
+form
+{
+	padding: 0 20px;
 }

@@ -26,15 +26,22 @@
 		<article class="container">
 			<section class="formulario">
 				<form>
-					<button type="button">Seleccionar todos</button>
-					<button type="button">Deshacer selección</button>	
-					<button type="button" onclick="aprobarEventos()">
-						<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
-					</button>	
-					<button type="button" onclick="desaprobarEventos()">
-						<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
-					</button>	
-					<table border = "1">
+					<div>
+						<div class="botonesSeleccion">
+							<button type="button">Seleccionar todos</button>
+							<button type="button">Deshacer selección</button>
+						</div>	
+						<div class="botonesAprobar">
+							<button type="button" onclick="aprobarEventos()">
+								<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+							</button>	
+							<button type="button" onclick="desaprobarEventos()">
+								<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+							</button>
+						</div>	
+					</div>
+					
+					<table border = "5">
 						<tr>
 							<th></th>
 							<th>ID</th>
@@ -79,12 +86,15 @@
 							<td></td>
 						</tr>
 					</table>
-					<button type="button" onclick="aprobarEventos()">
-						<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
-					</button>	
-					<button type="button" onclick="desaprobarEventos()">
-						<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
-					</button>	
+					<div class="botonesAprobar">
+						<button type="button" onclick="aprobarEventos()">
+							<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+						</button>	
+						<button type="button" onclick="desaprobarEventos()">
+							<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+						</button>
+					</div>	
+					<div class="clearer"></div>
 					<button type="submit" id="enviar" style="display: none;"></button>
 				</form>
 				<!--Lo que hace falta hacer con js no es una validación, sino un cambio en los "values" de los checkboxes, 

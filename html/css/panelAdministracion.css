@@ -1,0 +1,33 @@
+.botonesAprobar
+{
+	width: 90%;
+	margin: auto;
+}
+div.botonesAprobar button
+{
+	float: right;
+}
+.clearer
+{
+	clear: both;	
+}
+.botonesSeleccion
+{
+	float: left;
+	margin-left: 30px;
+}
+table
+{
+	clear: both;
+	width: 90%;
+	margin: auto;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	background-color: whitesmoke;
+	border-color: lightgrey;;
+	/*background-image: url('http://hackergarage.pbworks.com/f/1296492903/HG-Logo.png');*/ 
+}
+form
+{
+	padding: 0 20px;
+}

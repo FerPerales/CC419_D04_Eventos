@@ -15,10 +15,5 @@ article, footer
 	width: 50%;
 	margin: auto;
 }
-
-footer 
-{
-
-    margin: 80px auto;
-    width: 50%;
-}
+footer
+{ margin-top: 20px;}
