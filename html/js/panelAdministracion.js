@@ -5,15 +5,13 @@ window.onload = function(){
 
 	document.getElementById("todos").onclick = function(){
 		for(i in items){
-			var itemActual = items[i];							
-			itemActual.checked = 1;					
+			items[i].checked = 1;							
 		}
 	};
 
 	document.getElementById("ninguno").onclick = function(){
 		for(i in items){
-			var itemActual = items[i];							
-			itemActual.checked = 0;					
+			items[i].checked = 0;				
 		}
 	};
 	
