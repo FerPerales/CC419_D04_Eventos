@@ -34,7 +34,7 @@
 		</nav>
 
 		<div class="formulario">
-			<form action="" method="post" name="reg_event" >
+			<form action="alta_de_eventos.html" method="post" name="reg_event" >
 				<div>
 					<label for="nom_event" class="label-event" >Nombre del evento:</label>
 					<input type="text" class="registro" id="nom_event" name="nom_event" required/>
@@ -45,7 +45,7 @@
 				</div>
 				
 				<label for="free_text" class="label-event" >Descripci&oacute;n del evento:</label>
-				<textarea id="textarea" rows="8" cols="80" wrap="hard" >Escriba aqu&iacute;</textarea>
+				<textarea id="textarea" rows="8" cols="80" wrap="hard" required placeholder="Escriba aqu&iacute"></textarea>
 					
 				<label for="cost_event" class="label-event check" >Precio:</label>
 				<input type="number" name="cost_event" class="num check" id="cost_event" min="0" step="5" value="0" required />
