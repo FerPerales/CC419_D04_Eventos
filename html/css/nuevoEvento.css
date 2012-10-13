@@ -1,0 +1,60 @@
+header
+{
+	width: 50%;
+	height: 0px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
+	margin: 0 auto;
+	padding-top: 1px;
+	color:#D4D4D4;
+	font-family: sans-serif;
+}
+
+div.formulario 
+{
+	clear: both;
+	width: 50%;
+	margin: 0 auto;	
+}
+
+div 
+{
+	margin: .4em 0;
+}
+
+input.registro
+{
+	width: 50%;
+}
+
+.num
+{
+	width: 5em;
+}
+
+.label-event 
+{
+	font-family: arial, sans-serif;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 2;
+
+}
+
+.check, #cap_event
+{
+	display: inline;
+	float: left;
+}
+
+#info
+{
+	clear: both;	
+}
+
+footer
+{
+	width: 50%;
+	margin: 80px auto;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
