@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/fondoymenu.css" />
 		<link rel="stylesheet" type="text/css" href="./css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="./css/panelAdministracion.css" />
+		<script src="js/panelAdministracion.js"></script>
 	</head>
 
 	<body>
@@ -28,14 +29,14 @@
 				<form>
 					<div>
 						<div class="botonesSeleccion">
-							<button type="button">Seleccionar todos</button>
-							<button type="button">Deshacer selección</button>
+							<button type="button" id="todos">Seleccionar todos</button>
+							<button type="button"id="ninguno">Deshacer selección</button>
 						</div>	
-						<div class="botonesAprobar">
-							<button type="button" onclick="aprobarEventos()">
+						<div id="aprobar" class="botonesAprobar">
+							<button type="button">
 								<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
 							</button>	
-							<button type="button" onclick="desaprobarEventos()">
+							<button type="button">
 								<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 							</button>
 						</div>	
@@ -51,39 +52,39 @@
 						</tr>
 						<tr>
 							<td>
-								<input type="checkbox" name="evento1" value="unchecked"></input>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
 							</td>
-							<td>1-id</td>
+							<td>1</td>
 							<td>Evento 1</td>
 							<td>ElVacilón</td>
-							<td></td>
+							<td><input type="text" /></td>
 						</tr>
 						<tr>
 							<td>
-								<input type="checkbox" name="evento1" value="unchecked"></input>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
 							</td>
-							<td>2-id</td>
+							<td>2</td>
 							<td>Evento 2</td>
 							<td>ElVacilón</td>
-							<td></td>
+							<td><input type="text" /></td>
 						</tr>
 						<tr>
 							<td>
-								<input type="checkbox" name="evento1" value="unchecked"></input>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
 							</td>
-							<td>3-id</td>
+							<td>3</td>
 							<td>Evento 3</td>
 							<td>ElVacilón</td>
-							<td></td>
+							<td><input type="text"/></td>
 						</tr>
 						<tr>
 							<td>
-								<input type="checkbox" name="evento1" value="unchecked"></input>
+								<input type="checkbox" name="evento1"  class="comentario" ></input>
 							</td>
-							<td>4-id</td>
+							<td>4</td>
 							<td>Evento 4</td>
 							<td>ElVacilón</td>
-							<td></td>
+							<td><input type="text"/></td>
 						</tr>
 					</table>
 					<div class="botonesAprobar">
