@@ -46,6 +46,15 @@ document.onload = function(){
 		}else{
 			console.log("Precio chingón ;D");
 		}		
+		
+		/*^Validacion categoria*/
+		valorCampo = form.cat.value;
+		console.log("Valor es" + valorCampo);
+		if(valorCampo == 0){
+			correcto = false;
+		}else{
+			console.log("Good choice, fucker :3");
+		}
 	}
 	
 	function verificarRadioButtons(){
