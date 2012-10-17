@@ -58,3 +58,7 @@ footer
 	border-top-left-radius: 9px;
 	border-top-right-radius: 9px;
 }
+
+#enviarReal{
+	visibility: hidden;
+}
