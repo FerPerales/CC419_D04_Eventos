@@ -9,6 +9,7 @@ document.onload = function(){
 	function validar(){
 		/* Constantes */
 		var VALOR_CAMPO_NOMBRE = 8;
+		var VALOR_CAMPO_DESCRIPCION = 20;
 		
 		/* Variables */
 		var form = document.reg_event;
@@ -17,10 +18,27 @@ document.onload = function(){
 		/*Validacion del nombre*/
 		var valorCampo = form.nom_event.value;
 		if (valorCampo.length < VALOR_CAMPO_NOMBRE){
-			console.log("invalido");
+			correcto = false;
 		}else{
 			console.log("Todo bien :3");
 		}	
+		
+		/*Validacion de la imagen*/
+		valorCampo = form.img_event.value;
+		if(valorCampo == ""){
+			correcto = false;
+		}else{
+			console.log("Imagen todo bien ;D");
+		}
+		
+		/*Validacion de la descripcion*/
+		valorCampo = form.textarea.value;
+		console.log("El valor es" + valorCampo);
+		if (valorCampo.length < VALOR_CAMPO_DESCRIPCION){
+			correcto = false;
+		}else{
+			console.log("Descripcion bien ;)")
+		}
 	}
 	
 	
