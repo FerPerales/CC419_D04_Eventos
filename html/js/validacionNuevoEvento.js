@@ -33,12 +33,21 @@ document.onload = function(){
 		
 		/*Validacion de la descripcion*/
 		valorCampo = form.textarea.value;
-		console.log("El valor es" + valorCampo);
 		if (valorCampo.length < VALOR_CAMPO_DESCRIPCION){
 			correcto = false;
 		}else{
 			console.log("Descripcion bien ;)")
 		}
+		
+		/*Validacion del precio*/
+		valorCampo = form.cost_event.value;
+		if(valorCampo < 0){
+			correcto = false;
+		}else{
+			console.log("Precio chingón ;D");
+		}
+				
+		
 	}
 	
 	
