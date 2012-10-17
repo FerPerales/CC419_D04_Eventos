@@ -18,42 +18,72 @@ document.onload = function(){
 		/*Validacion del nombre*/
 		var valorCampo = form.nom_event.value;
 		if (valorCampo.length < VALOR_CAMPO_NOMBRE){
+			alert('El campo de nombre debe ser de al menos' + VALOR_CAMPO_NOMBRE + " caracteres");			
 			correcto = false;
 		}else{
-			console.log("Todo bien :3");
 		}	
 		
 		/*Validacion de la imagen*/
 		valorCampo = form.img_event.value;
-		if(valorCampo == ""){
+		if(valorCampo == "" && correcto){
+			alert("Por favor agrega una imagen para tu evento")
 			correcto = false;
 		}else{
-			console.log("Imagen todo bien ;D");
 		}
 		
 		/*Validacion de la descripcion*/
 		valorCampo = form.textarea.value;
-		if (valorCampo.length < VALOR_CAMPO_DESCRIPCION){
+		if (valorCampo.length < VALOR_CAMPO_DESCRIPCION && correcto){
+			alert('La descripción debe de tener al menos ' + VALOR_CAMPO_DESCRIPCION + ' caracteres');
 			correcto = false;
 		}else{
-			console.log("Descripcion bien ;)")
 		}
 		
 		/*Validacion del precio*/
 		valorCampo = form.cost_event.value;
-		if(valorCampo < 0){
+		if(valorCampo < 0 && correcto){
+			alert("El precio debes ser mayor o igual a $0.00");
 			correcto = false;
 		}else{
-			console.log("Precio chingón ;D");
 		}		
+		
+		/*Validacion capacidad*/
+		if(document.reg_event.radioLimitado.checked && correcto){
+			valorCampo = document.reg_event.cap_event.value;
+			if(valorCampo < 0){
+				alert("No puedes hacer un evento con menos de 1 asistente");
+				correcto = false;
+			}else{
+				
+			}
+		}
 		
 		/*^Validacion categoria*/
 		valorCampo = form.cat.value;
 		console.log("Valor es" + valorCampo);
-		if(valorCampo == 0){
+		if(valorCampo == 0 && correcto){
+			alert("Debes seleccionar una categoría para tu evento");
 			correcto = false;
 		}else{
-			console.log("Good choice, fucker :3");
+			
+		}
+		
+		/*Validacion fecha (formato MM/DD/YYYY)*/
+		valorCampo = form.dat_event.value;
+		var fecha = /^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/;
+		if(!fecha.test(valorCampo) && correcto){
+			alert("Selecciona una fecha válida con el calendario");
+			correcto = false;
+		}else{
+			
+		}
+		
+		
+		if(correcto){
+			form.submit;
+			console.log("Enviando :D");
+		}else{
+			console.log("Hay errores");
 		}
 	}
 	
