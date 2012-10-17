@@ -45,10 +45,18 @@ document.onload = function(){
 			correcto = false;
 		}else{
 			console.log("Precio chingón ;D");
-		}
-				
-		
+		}		
 	}
 	
+	function verificarRadioButtons(){
+		if(document.reg_event.radioLimitado.checked){
+			document.reg_event.cap_event.disabled = 0;
+		}else{
+			document.reg_event.cap_event.disabled = 1;
+		}
+	}	
+	
+	document.reg_event.radioLimitado.onclick = verificarRadioButtons;
+	document.reg_event.radioIlimitado.onclick = verificarRadioButtons;
 	
 }();
