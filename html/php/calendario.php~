@@ -5,14 +5,21 @@
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
 		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
-		<title>Eventos</title>
-		<link rel="stylesheet" type="text/css" href="../css/vistablog.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="../js/fullcalendar.min.js"></script>
+		
+     <link rel="stylesheet" type='text/css' href='../css/fullcalendar.css' />
+       
+     <link rel="stylesheet" type='text/css' href="../css/vistacalendario.css"/>
+     <title>Calendario</title>
 	</head>
 
 	<body>
-	
+		<header>
+			<h1>Calendario</h1>
+		</header>
 	<?
-		include 'header.php';
+		//include 'header.php';
 		include 'nav.php';
 	?>
 	<!-- 
@@ -27,7 +34,7 @@
 	-->
 	<article class="all_event">
 			<section class="event">
-				<h3><a href="vistaDetalle.php"> Jueves 30: Hackers and Founders </a></h3>
+				<h3><a href="vista_detalle.html"> Jueves 30: Hackers and Founders </a></h3>
 				<img src="../img/HF.jpg" alt="Evento Hackers and Founders" width="500" height="800" />
 				<p>
 					Hackers &amp; founders es una comunidad tecnológica basada en la pregunta ¿Qué Necesitas? 
