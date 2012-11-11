@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
+		<meta name="author" content="lord" />
+		<meta name="description" content="Registro de eventos de programación en linea" />
+		<title>Eventos</title>
+		<link rel="stylesheet" type="text/css" href="./css/vistablog.css" />
+	</head>
+
+	<body>
+		<header class="header" id="header">
+			<h1></h1>
+		</header>
+		<nav class="navegacion">
+			<ul id="menu" class="main-menu">
+				<li id="inicio"><a href="index.html">Inicio</a></li>
+				<li id="cal"><a href="calendario.html">Calendario</a></li>
+				<li id="env-event"><a href="">Enviar Evento</a></li>
+				<li id="RSS"><img src="img/rss.png" alt="RSS" width="30" height="30" /></li>
+			</ul>
+		</nav>
+		<article class="">
+			<section class="">
+				
+			</section>
+			<section class="">
+				
+			</section>
+		</article>
+		<footer>
+			<ul>
+				<li>Jorge Avila - <a href="http://github.com/hawreghi">http://github.com/hawreghi</a></li>
+			    <li>Manuel Meza - <a href="http://github.com/slifer-x">http://github.com/slifer-x</a></li>
+			    <li>Fernando Perales - <a href="http://github.com/ferperales">http://github.com/ferperales</a></li>
+			    <li>Zahib Valenzuela - <a href="http://github.com/zahib">http://github.com/zahib</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>
