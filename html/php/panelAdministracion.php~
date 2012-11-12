@@ -33,17 +33,18 @@
 	-->
 	<article class="container">
 			<section class="formulario">
-				<form action="consultaEventos.php" method="post">
+				<form action="panelAdminFunciones.php" method="get" >
+				
 					<div>
 						<div class="botonesSeleccion">
 							<button type="button" id="todos">Seleccionar todos</button>
 							<button type="button"id="ninguno">Deshacer selección</button>
 						</div>	
 						<div id="aprobar" class="botonesAprobar">
-							<button type="button" id="check1">
+							<button type="button" id="check1" name="check1">
 								<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
 							</button>	
-							<button type="button" id="cross1">
+							<button type="button" id="cross1" name="cross1">
 								<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 							</button>
 						</div>	
@@ -59,22 +60,29 @@
 <?
 					foreach ( $datos as $key => $value )
 					{
+						$colorFondo = 'white';
+						if($value["status"]=="cancelado") $colorFondo = '#FF6666;';
+						elseif ($value["status"]=="aprobado") $colorFondo = '#99CCFF;';
 						echo '<tr>
-							<td>
-								<input type="checkbox" name="evento1" class="comentario" ></input>
+							<td style="background-color:',$colorFondo,'">
+								<input type="checkbox" name="', $value["idevento"], '" value="0" class="comentario" ></input>
+								
 							</td>
-							<td>', $value["idevento"], '</td>
-							<td>', $value["nombre"], '</td>
-							<td>', $value["creadoPor"], '</td>
-							<td><input type="text" /></td>
+							
+							<td style="background-color:',$colorFondo,'">', $value["idevento"], '</td>
+							<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
+							<td style="background-color:',$colorFondo,'">', $value["creadoPor"], '</td>
+							<td style="background-color:',$colorFondo,'"><input type="text" /></td>
 						</tr>';
 					}
+					
 ?>
+					</table>
 					<div class="botonesAprobar">
-						<button type="button" id="check2" onclick="aprobarEventos()">
+						<button type="button" id="check2" name="check2" onclick="aprobarEventos()">
 							<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
 						</button>	
-						<button type="button" id="cross2" onclick="desaprobarEventos()">
+						<button type="button" id="cross2" name="cross2" onclick="desaprobarEventos()">
 							<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 						</button>
 					</div>	

@@ -10,7 +10,16 @@
 	</head>
 
 	<body>
+	<form action="template1.php" method="get">
+		<input type="checkbox" name="c1">check1</input>
+		<button type="submit">Enviar</button>
+	</form>
 	<?
+	$fechaActual = date("Y-m-d");
+	$fecha = "2012-11-11";
+	$tempdate = explode("-", $fecha);
+	$fecha = $tempdate[2] . '-' . $tempdate[0] . '-' . $tempdate [1];
+	var_dump($fecha);
 	/*
 		include 'header.php';
 		include 'nav.php';

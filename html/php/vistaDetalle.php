@@ -18,27 +18,38 @@
 
 		if(isset($evento) )
 		{
+			
 			include 'consultaEventoDetalle.php';
+			
+			$descripcion = htmlentities($fila["descripcion"]);
+			$fechaEvento = htmlentities($fila["fechaEvento"]);
+			$idevento = htmlentities($fila["idevento"]);
+			$nombre = htmlentities($fila["nombre"]);
+			$rutaFlyer = htmlentities($fila["rutaFlyer"]);
+			$capacidad = htmlentities($fila["capacidad"]);
+			$descripcion = htmlentities($fila["descripcion"]);
+			$precio = htmlentities($fila["precio"]);
+			$creadoPor = htmlentities($fila["creadoPor"]);
 			echo '<article class="articulo">
 			<section class="evento">
 				<div class="detalle">
-					<h3>',$fila["fechaEvento"], ': ', $fila["nombre"], '</h3>
+					<h3>',$fechaEvento, ': ', $nombre, '</h3>
 					<div>
 						<div class="foto">
-							<img src="..', $fila["rutaFlyer"], '" alt="Evento Hackers and Founders" />
-							<p>', $fila["descripcion"], '</p>
+							<img src="..', $rutaFlyer, '" alt="Evento Hackers and Founders" />
+							<p>', $descripcion, '</p>
 						</div>
 						
-						<p>Cuando: <span class="place" id="cuando">', $fila["fechaEvento"], '</span></p>
+						<p>Cuando: <span class="place" id="cuando">', $fechaEvento, '</span></p>
 						<p>Donde: <span class="place" id="donde">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
 					</div>
 				</div>
 				<div class="info" id="event-det">
 					<p class="place" id="more-inf">
-						Precio: <span class="place" id="precio">$', $fila["precio"], '</span> 
-						Capacidad: <span class="place" id="capacidad">', $fila["capacidad"], '</span> 
-						Categoría: <span class="place" id="categoria"><a href="" >', $fila["categoria"], '</a></span> Publicado el', $fila["fechaEvento"], 'por 
-						<span class="place" id="quien"><a href="" >', $fila["creadoPor"], '</a></span>
+						Precio: <span class="place" id="precio">$', $precio, '</span> 
+						Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> 
+						Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el', $fechaEvento, 'por 
+						<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
 					</p>
 				</div>';  
 				include 'disqus.php';

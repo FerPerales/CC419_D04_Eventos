@@ -8,7 +8,7 @@
 		die("Por el momento no se puede acceder al gestor de la base de datos");
 
 	//Creo la consulta
-	$mi_query = "select idevento, nombre, creadoPor
+	$mi_query = "select idevento, nombre, creadoPor, status, motivo
 				 from evento";
 	
 	//Ejecutar mi consulta
@@ -28,7 +28,11 @@
 		while($fila = $result -> fetch_assoc())
 			$datos[] = $fila;
 	}
-	
+	/*
+	echo '<pre>';
+	var_dump($datos);
+	echo '</pre>';
+	*/
 	
 	//Porque la maestra dijo
 	//$_SESSION["datos"] = $datos;

@@ -16,29 +16,18 @@
 	
 	//Ejecuto mi consulta
 	$result = $con -> query($mi_query);
-
-	//echo '<pre>';
-	//var_dump($result);
-	//echo '</pre>';
 	
 	//Cierro la conexión
 	$con -> close();
 
-	//Convierto el resultado de mi consulta a una matriz
-	/*$cuantosRenglones = $result -> num_rows;
-	if($cuantosRenglones >= 1){
-		//Por cada fila obtengo un arreglo
-		while($fila = $result -> fetch_assoc())
-			$datos[] = $fila;
-	}*/
+	//poner los resultados del query en un arreglo
 	$fila = $result -> fetch_assoc();
-	
-	
 	/*
+	var_dump($fila);
 	echo '<pre>';
-	var_dump($datos);
+	var_dump($fila);
 	echo '</pre>';
-	*/
+*/	
 	
 	//Porque la maestra dijo
 	//$_SESSION["datos"] = $datos;
