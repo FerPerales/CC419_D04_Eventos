@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `EventosHackerGarage` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `EventosHackerGarage`;
--- MySQL dump 10.13  Distrib 5.5.28, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.24, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: EventosHackerGarage
 -- ------------------------------------------------------
--- Server version	5.5.28-0ubuntu0.12.04.2
+-- Server version	5.5.24-5
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -49,7 +47,7 @@ DROP TABLE IF EXISTS `evento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `evento` (
-  `idevento` int(11) NOT NULL,
+  `idevento` int(11) NOT NULL AUTO_INCREMENT,
   `creadoPor` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `rutaFlyer` varchar(45) NOT NULL,
@@ -66,7 +64,7 @@ CREATE TABLE `evento` (
   KEY `categoria` (`categoria`),
   CONSTRAINT `categoria` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `creadoPor` FOREIGN KEY (`creadoPor`) REFERENCES `usuario` (`twitter`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +73,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (1,1,'Hackers&Founders','img/HF.jpg','Hackers & founders es una comunidad tecnológica basada en la pregunta ¿Qué Necesitas? Conoce a tus futuros socios, solicita ayuda, aprende y emprende. Nos reunimos el último Jueves del mes.',50,50,'2012-08-30','2012-08-25','1',1,NULL),(2,1,'Super Happy Dev House','img/SHDH.jpg','No olvides registrarte aqui: http://guadalaja',0,50,'2012-09-01','2012-08-13','1',2,NULL),(3,2,'3','img/HF.jpg','333333333',33,33,'2012-08-30','2012-08-30','1',2,NULL),(4,2,'4','img/HF.jpg','444444444444444',44,44,'2012-08-30','2012-08-30','1',2,NULL);
+INSERT INTO `evento` VALUES (1,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(2,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(3,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(4,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(5,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(6,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(7,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'0000-00-00','0000-00-00','PENDIENTE',3,NULL),(8,1,'odjsdsfjdkjfkd','','sasjdf fdjhfdjfdos dsdsj',15,-1,'2012-10-15','2012-11-12','PENDIENTE',3,NULL),(9,1,'knkjjijhuhjoko','','jhhjijikjioj ij jjjhuynbhbhhggy',15,-1,'2012-11-29','2012-11-12','PENDIENTE',3,NULL);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-11 19:48:37
+-- Dump completed on 2012-11-11 21:42:26

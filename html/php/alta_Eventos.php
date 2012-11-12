@@ -23,7 +23,10 @@
 	unset($tempdate);
 	
 	//Realizar validaciones con todas las formas de limpiar variables
+	var_dump($nomEvento);
+	//echo '<pre>';var_dump($mysql);echo '</pre>';	
 	$nomEvento = $mysql -> real_escape_string($nomEvento);
+	
 	$descripcion = $mysql -> real_escape_string($descripcion);
 	$precio = $mysql -> real_escape_string($precio);
 	$capacidad = $mysql -> real_escape_string($capacidad);
@@ -60,7 +63,7 @@
 	//Ingresamos los datos del evento a la base de datos
 	$query = "INSERT INTO evento(creadoPor, nombre,descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
 					VALUES (1,'$nomEvento','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','PENDIENTE',$categoria)";
-
+	echo '<pre>';var_dump($query);echo '</pre>';	
 	if(!$mysql -> query($query)) {
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}

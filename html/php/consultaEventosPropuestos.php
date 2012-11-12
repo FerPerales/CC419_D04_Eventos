@@ -1,8 +1,5 @@
 <?php
-	//Porque la maestra dijo
-	//session_start();
-
-	//Conectarse a la base de datos
+		//Conectarse a la base de datos
 	require_once("bd.inc");
 	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
@@ -10,13 +7,11 @@
 	if($con -> connect_error)
 		die("Por el momento no se puede acceder al gestor de la base de datos");
 
-
 	//Creo la consulta
-	$mi_query = "select fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
+	$mi_query = "select idevento, nombre, creadoPor
 				 from evento";
-	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
-	//Ejecuto mi consulta
+	//Ejecutar mi consulta
 	$result = $con -> query($mi_query);
 
 	//echo '<pre>';

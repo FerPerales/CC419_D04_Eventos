@@ -14,7 +14,39 @@
 	<?
 		include 'header.php';
 		include 'nav.php';
+		
+		include 'consultaEventos.php';
+		echo '';
 	?>
+		<article class="all_event">
+	<?
+	foreach($datos as $key => $value)
+	{
+		echo '<section class="event">
+				<h3><a href="vistaDetalle.php">', $value["fechaEvento"], ': ', 
+				$value["nombre"], '</a></h3>';
+				
+		echo '<img src="../', $value["rutaFlyer"], '" alt="Evento Hackers and Founders" width="500" height="800" />
+				<p>', 
+				$value["descripcion"], 
+				'</p>
+				<div id="info-event-1" class="info">
+					<p> Cuando: <span class="place" id="cuando-1">', $value["fechaEvento"], '</span></p> ',
+					'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
+					<p class="place" >Precio: <span class="place" id="precio-1">', $value["precio"], '</span> 
+					Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> 
+					Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
+					<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
+				</div>
+			</section>';        
+	}
+	?>
+			<div class="pre-nex">
+				<button type="button" id="previous" class="boton">&laquo; Anterior</button>
+				<button type="button" id="next" class="boton">Siguiente &raquo;</button>
+			</div>
+		</article>
+	
 	<!-- 
 	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
 	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)
@@ -25,39 +57,9 @@
 	5. Seguir llenando los datos usando la base de datos.
 	  
 	-->
-	<article class="all_event">
-			<section class="event">
-				<h3><a href="vistaDetalle.php"> Jueves 30: Hackers and Founders </a></h3>
-				<img src="../img/HF.jpg" alt="Evento Hackers and Founders" width="500" height="800" />
-				<p>
-					Hackers &amp; founders es una comunidad tecnológica basada en la pregunta ¿Qué Necesitas? 
-					Conoce a tus futuros socios, solicita ayuda, aprende y emprende. Nos reunimos el último Jueves del mes.
-				</p>
-				<div id="info-event-1" class="info">
-					<p> Cuando: <span class="place" id="cuando-1">Jueves 30 de Agosto de 2012 19:00 hrs</span></p>
-					<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
-					<p class="place" >Precio: <span class="place" id="precio-1">$50.00</span> 
-					Capacidad: <span class="place" id="capacidad-1">50</span> 
-					Categoría: <span class="place" id="categoria-1"> <a href="#">Conferencia</a> Publicado el 23/09/12</span> por 
-					<span class="place" id="quien-1"><a href="" >@levhita</a></span> </p>
-				</div>
-			</section>
-			<section class="event">
-				<h3><a href="" >Sábado 1: Super Happy Dev House </a></h3>
-				<img src="../img/SHDH.jpg" alt="Super Happy Dev House" width="500" height="700" />
-				<div id="info-event-2" class="info">
-					<p>No olvides registrarte aqui: <a href="http://guadalajaradevhouse.org"> http://guadalajaradevhouse.org</a></p>
-					<p>Precio: <span class="place" id="precio-2">Gratuito</span> 
-					Capacidad: <span class="place" id="capacidad-2">50</span> 
-					Categoría: <span class="place" id="categoria-2"> <a href="#">Convivencia</a> Publicado el 23/09/12</span> por 
-					<span class="place" id="quien-2"><a href="" >@levhita</a></span> </p>
-				</div>
-			</section>
-			<div class="pre-nex">
-				<button type="button" id="previous" class="boton">&laquo; Anterior</button>
-				<button type="button" id="next" class="boton">Siguiente &raquo;</button>
-			</div>
-		</article>
+
+			
+			
 	<?	include 'footer.php'; ?>
 		
 	</body>

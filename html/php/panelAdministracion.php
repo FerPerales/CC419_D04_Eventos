@@ -19,6 +19,7 @@
 	<?
 		//include 'header.php';
 		include 'nav.php';
+		include 'consultaEventosPropuestos.php';
 	?>
 	<!-- 
 	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
@@ -32,22 +33,21 @@
 	-->
 	<article class="container">
 			<section class="formulario">
-				<form>
+				<form action="consultaEventos.php" method="post">
 					<div>
 						<div class="botonesSeleccion">
 							<button type="button" id="todos">Seleccionar todos</button>
 							<button type="button"id="ninguno">Deshacer selección</button>
 						</div>	
 						<div id="aprobar" class="botonesAprobar">
-							<button type="button">
+							<button type="button" id="check1">
 								<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
 							</button>	
-							<button type="button">
+							<button type="button" id="cross1">
 								<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 							</button>
 						</div>	
 					</div>
-					
 					<table border = "5">
 						<tr>
 							<th></th>
@@ -56,48 +56,26 @@
 							<th>Remitente</th>
 							<th>Comentarios</th>
 						</tr>
-						<tr>
+<?
+					foreach ( $datos as $key => $value )
+					{
+						echo '<tr>
 							<td>
 								<input type="checkbox" name="evento1" class="comentario" ></input>
 							</td>
-							<td>1</td>
-							<td>Evento 1</td>
-							<td>ElVacilón</td>
+							<td>', $value["idevento"], '</td>
+							<td>', $value["nombre"], '</td>
+							<td>', $value["creadoPor"], '</td>
 							<td><input type="text" /></td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="evento1" class="comentario" ></input>
-							</td>
-							<td>2</td>
-							<td>Evento 2</td>
-							<td>ElVacilón</td>
-							<td><input type="text" /></td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="evento1" class="comentario" ></input>
-							</td>
-							<td>3</td>
-							<td>Evento 3</td>
-							<td>ElVacilón</td>
-							<td><input type="text"/></td>
-						</tr>
-						<tr>
-							<td>
-								<input type="checkbox" name="evento1"  class="comentario" ></input>
-							</td>
-							<td>4</td>
-							<td>Evento 4</td>
-							<td>ElVacilón</td>
-							<td><input type="text"/></td>
-						</tr>
+						</tr>';
+					}
+?>
 					</table>
 					<div class="botonesAprobar">
-						<button type="button" onclick="aprobarEventos()">
+						<button type="button" id="check2" onclick="aprobarEventos()">
 							<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
 						</button>	
-						<button type="button" onclick="desaprobarEventos()">
+						<button type="button" id="cross2" onclick="desaprobarEventos()">
 							<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 						</button>
 					</div>	

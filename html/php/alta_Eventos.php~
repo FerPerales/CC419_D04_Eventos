@@ -22,10 +22,11 @@
 	$fecha = $tempdate[2] . '-' . $tempdate[0] . '-' . $tempdate [1];
 	unset($tempdate);
 	
-	var_dump($descripcion);
-	
 	//Realizar validaciones con todas las formas de limpiar variables
+	var_dump($nomEvento);
+	//echo '<pre>';var_dump($mysql);echo '</pre>';	
 	$nomEvento = $mysql -> real_escape_string($nomEvento);
+	
 	$descripcion = $mysql -> real_escape_string($descripcion);
 	$precio = $mysql -> real_escape_string($precio);
 	$capacidad = $mysql -> real_escape_string($capacidad);
