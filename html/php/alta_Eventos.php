@@ -1,5 +1,4 @@
 <?php
-	var_dump($_FILES);
 	require_once("bd.inc");
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
@@ -23,10 +22,7 @@
 	unset($tempdate);
 	
 	//Realizar validaciones con todas las formas de limpiar variables
-	var_dump($nomEvento);
-	//echo '<pre>';var_dump($mysql);echo '</pre>';	
 	$nomEvento = $mysql -> real_escape_string($nomEvento);
-	
 	$descripcion = $mysql -> real_escape_string($descripcion);
 	$precio = $mysql -> real_escape_string($precio);
 	$capacidad = $mysql -> real_escape_string($capacidad);
@@ -60,13 +56,53 @@
 	if(preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha) == 0) {
 		die("Fecha invalida");	
 	}
+	
+	// -------------------------- START Script de carga de imagen -------------------------------------
+	//Se define el tamaño que se permitirá (en KB por eso lo multiplicamos por 1024)
+	$tamanioPermitido = 1024 * 1024;
+
+	//Tenemos una lista con las extensiones que aceptaremos
+	$extensionesPermitidas = array("jpg", "jpeg", "gif", "png");
+
+	//Obtenemos la extensión del archivo
+	$extension = end(explode(".", $_FILES["file"]["name"]));
+	
+	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
+	if ((($_FILES["file"]["type"] == "image/gif")
+      || ($_FILES["file"]["type"] == "image/jpeg")
+      || ($_FILES["file"]["type"] == "image/png")
+      || ($_FILES["file"]["type"] == "image/pjpeg")
+      || ($_FILES["file"]["type"] == "image/jpg"))
+      && ($_FILES["file"]["size"] < $tamanioPermitido)
+      && in_array($extension, $extensionesPermitidas)){
+              //Si no hubo un error al subir el archivo temporalmente
+              if ($_FILES["file"]["error"] > 0){
+                     die("Return Code: " . $_FILES["file"]["error"] . "<br />");
+              }
+              else{
+                    //Si el archivo ya existe se muestra el mensaje de error
+                    if (file_exists("upload/" . $_FILES["file"]["name"])){
+                           die($_FILES["file"]["name"] . " already exists. ");
+                    }
+                    else{
+                           //Se mueve el archivo de su ruta temporal a una ruta establecida
+                           move_uploaded_file($_FILES["file"]["tmp_name"],
+                                   "upload/" . $_FILES["file"]["name"]);
+                           $file = "upload/" . $_FILES["file"]["name"];
+                    }
+              }
+	}
+	else{
+   	die("Archivo inválido");
+	}
+	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
-	$query = "INSERT INTO evento(creadoPor, nombre,descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES (1,'$nomEvento','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','PENDIENTE',$categoria)";
-	echo '<pre>';var_dump($query);echo '</pre>';	
+	$query = "INSERT INTO evento(creadoPor, nombre, rutaFlyer, descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
+					VALUES (1,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','PENDIENTE',$categoria)";
+
 	if(!$mysql -> query($query)) {
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}
 	
-	//header("Location: ../index.html");
+	header("Location: index.php");
 ?>

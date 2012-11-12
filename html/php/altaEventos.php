@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -34,14 +34,14 @@
 	  
 	-->
 	<div class="formulario">
-			<form action="alta_Eventos.php" method="get">
+			<form action="alta_Eventos.php" method="post" name="reg_event" enctype="multipart/form-data" >
 				<div>
 					<label for="nom_event" class="label-event" >Nombre del evento:</label>
 					<input type="text" class="registro" id="nom_event" name="nom_event" required/>
 				</div>
 				<div>
 					<label for="img_event" class="label-event" >Imagen:</label>
-					<input type="file" name="img_event" class="registro" id="img_event" accept="image/*" required />
+					<input type="file" name="file" class="registro" id="img_event" accept="image/*" required />
 				</div>
 				
 				<label for="free_text" class="label-event" >Descripci&oacute;n del evento:</label>
