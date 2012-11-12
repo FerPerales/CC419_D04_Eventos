@@ -1,0 +1,64 @@
+<?php
+	//Porque la maestra dijo
+	session_start();
+
+	//Conectarse a la base de datos
+	require_once("bd.inc");
+	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
+	
+	//Validar que no genere error la conexión
+	if($con -> connect_error)
+		die("Por el momento no se puede acceder al gestor de la base de datos");
+
+
+	//Creo la consulta
+	$mi_query = "select fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
+				 from evento";
+	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
+	
+	//Ejecuto mi consulta
+	$result = $con -> query($mi_query);
+
+	//echo '<pre>';
+	//var_dump($result);
+	//echo '</pre>';
+	
+	//Cierro la conexión
+	$con -> close();
+
+	//Convierto el resultado de mi consulta a una matriz
+	$cuantosRenglones = $result -> num_rows;
+	if($cuantosRenglones >= 1){
+		//Por cada fila obtengo un arreglo
+		while($fila = $result -> fetch_assoc())
+			$datos[] = $fila;
+	}
+	
+	foreach($datos as $key => $value)
+	{
+		echo '<section class="event">
+				<h3><a href="vistaDetalle.php">', $value["fechaEvento"], ': ', 
+				$value["nombre"], '</a></h3>';
+		echo '<img src="../', $value["rutaFlyer"], 'alt="Evento Hackers and Founders" width="500" height="800" />
+				<p>', 
+				$value["descripcion"], 
+				'</p>
+				<div id="info-event-1" class="info">
+					<p> Cuando: <span class="place" id="cuando-1">', $value["fechaEvento"], '</span></p> ',
+					'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
+					<p class="place" >Precio: <span class="place" id="precio-1">', $value["precio"], '</span> 
+					Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> 
+					Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
+					<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
+				</div>
+			</section>';        
+	}
+	//Porque la maestra dijo
+	//$_SESSION["datos"] = $datos;
+
+	//Me voy a la página del formulario que falta completar
+	//header("Location: ../usuarios.php");
+	//echo '<pre>';
+	//var_dump($datos);
+	//echo '</pre>';
+?>
