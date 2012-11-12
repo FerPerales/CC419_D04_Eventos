@@ -48,7 +48,7 @@
 	if(!preg_match('/[0-9]+/', $precio)) {
 		die("El precio es incorrecto");	
 	}
-	if(!preg_match('/[0-9]+/',$num_cap) || $num_cap == -1) {
+	if(!preg_match('/-*[0-9]+/',$num_cap)) {
 		die("La capacidad es erronea");	
 	}
 	if(!preg_match('/[0-9]/', $categoria)) {
@@ -59,11 +59,11 @@
 	}
 	//Ingresamos los datos del evento a la base de datos
 	$query = "INSERT INTO evento(creadoPor, nombre,descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES (1,'$nomEvento','$descripcion',$precio,$num_cap,$fecha,$fechaActual,'PENDIENTE',$categoria)";
+					VALUES (1,'$nomEvento','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','PENDIENTE',$categoria)";
 
 	if(!$mysql -> query($query)) {
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}
 	
-	header("Location: ../index.html");
+	//header("Location: ../index.html");
 ?>
