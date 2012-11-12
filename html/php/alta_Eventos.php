@@ -39,22 +39,22 @@
 	$categoria = htmlentities($categoria);
 	$fecha = htmlentities($fecha);
 	
-	if(!preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento)) {
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
 		die("El nombre del evento cuenta con caracteres invalidos");
 	}
-	if(!preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,45}/', $descripcion)){
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,45}/', $descripcion) == 0){
 		die("La descripcion cuenta con caracteres invalidos");	
 	}
-	if(!preg_match('/[0-9]+/', $precio)) {
+	if(preg_match('/[0-9]+/', $precio) == 0) {
 		die("El precio es incorrecto");	
 	}
-	if(!preg_match('/-*[0-9]+/',$num_cap)) {
+	if(preg_match('/-*[0-9]+/',$num_cap) == 0) {
 		die("La capacidad es erronea");	
 	}
-	if(!preg_match('/[0-9]/', $categoria)) {
+	if(preg_match('/[0-9]/', $categoria) == 0) {
 		die("La categoria es erronea");	
 	}
-	if(!preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha)) {
+	if(preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha) == 0) {
 		die("Fecha invalida");	
 	}
 	//Ingresamos los datos del evento a la base de datos

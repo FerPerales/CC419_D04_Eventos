@@ -1,69 +1,78 @@
-<?php
-	var_dump($_FILES);
-	require_once("bd.inc");
-	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
-	
-	//Obtener variables
-	$nomEvento = $_REQUEST["nom_event"];
-	$descripcion = $_REQUEST["descripcion"];
-	$precio = $_REQUEST["cost_event"];
-	$capacidad = $_REQUEST["cap"];
-	if($capacidad == "limited") {
-		$num_cap = $_REQUEST["cap_event"];
-	} else {
-		if($capacidad == "ilimited")
-			$num_cap = -1;	
-	}	
-	$categoria = $_REQUEST["cat"];
-	$fecha = $_REQUEST["dat_event"];
-	$fechaActual = date("Y-m-d");
-	
-	$tempdate = explode("/", $fecha);
-	$fecha = $tempdate[2] . '-' . $tempdate[0] . '-' . $tempdate [1];
-	unset($tempdate);
-	
-	//Realizar validaciones con todas las formas de limpiar variables
-	$nomEvento = $mysql -> real_escape_string($nomEvento);
-	$descripcion = $mysql -> real_escape_string($descripcion);
-	$precio = $mysql -> real_escape_string($precio);
-	$capacidad = $mysql -> real_escape_string($capacidad);
-	$num_cap = $mysql -> real_escape_string($num_cap);
-	$categoria = $mysql -> real_escape_string($categoria);
-	$fecha = $mysql -> real_escape_string($fecha);
-	
-	$nomEvento = htmlentities($nomEvento);
-	$descripcion = htmlentities($descripcion);
-	$precio = htmlentities($precio);
-	$capacidad = htmlentities($capacidad);
-	$num_cap = htmlentities($num_cap);
-	$categoria = htmlentities($categoria);
-	$fecha = htmlentities($fecha);
-	
-	if(!preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento)) {
-		die("El nombre del evento cuenta con caracteres invalidos");
-	}
-	if(!preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,45}/', $descripcion)){
-		die("La descripcion cuenta con caracteres invalidos");	
-	}
-	if(!preg_match('/[0-9]+/', $precio)) {
-		die("El precio es incorrecto");	
-	}
-	if(!preg_match('/[0-9]+/',$num_cap) || $num_cap == -1) {
-		die("La capacidad es erronea");	
-	}
-	if(!preg_match('/[0-9]/', $categoria)) {
-		die("La categoria es erronea");	
-	}
-	if(!preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha)) {
-		die("Fecha invalida");	
-	}
-	//Ingresamos los datos del evento a la base de datos
-	$query = "INSERT INTO evento(creadoPor, nombre,descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES (1,'$nomEvento','$descripcion',$precio,$num_cap,$fecha,$fechaActual,'PENDIENTE',$categoria)";
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="description" content="Registro de eventos de programación en linea" />
+		<title>Registro de nuevos eventos</title>
+		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
+		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
+		<link rel="stylesheet" type="text/css" href="../css/nuevoEvento.css" />
+		
+		<script type="text/javascript" src="../js/jquery-1.8.1.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js" ></script>
+		
+	</head>
 
-	if(!$mysql -> query($query)) {
-		die("Error al ingresar los datos. Vuelva a intentar");	
-	}
-	
-	header("Location: ../index.html");
-?>
+	<body>
+		<header>
+			<h2>Alta de nuevos eventos</h2>
+		</header>
+	<?
+		//include 'header.php';
+		include 'nav.php';
+	?>
+	<!-- Instrucciones para index: adecuar a este contexto
+	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
+	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)
+	1. corregir los enlaces por php/blablabla.php 
+	2. la fecha y el "alt" se debe sacar de la columna NOMBRE de la tabla EVENTO
+	3. las rutas de las imágenes de los flyers DEBEN ESTAR EN LA BASE DE DATOS, por ejemplo en la columna FLYER de la tabla EVENTO
+	4. descripción del evento: TEXT_LIBRE
+	5. Seguir llenando los datos usando la base de datos.
+	  
+	-->
+	<div class="formulario">
+			<form action="alta_Eventos.php" method="get" name="reg_event" enctype="multipart/form-data" >
+				<div>
+					<label for="nom_event" class="label-event" >Nombre del evento:</label>
+					<input type="text" class="registro" id="nom_event" name="nom_event" required/>
+				</div>
+				<div>
+					<label for="img_event" class="label-event" >Imagen:</label>
+					<input type="file" name="img_event" class="registro" id="img_event" accept="image/*" required />
+				</div>
+				
+				<label for="free_text" class="label-event" >Descripci&oacute;n del evento:</label>
+				<textarea id="textarea" rows="8" cols="80" wrap="hard" required placeholder="Escriba aqu&iacute"></textarea>
+					
+				<label for="cost_event" class="label-event check" >Precio:</label>
+				<input type="number" name="cost_event" class="num check" id="cost_event" min="0" step="5" value="0" required />
+			
+				<label for="cap_event" class="label-event check" >Capacidad:</label>
+				<input type="radio" name="cap" class="check" value="ilimited" id="radioIlimitado" checked/><span class="label-event check">Ilimitado</span>
+				<input type="radio" name="cap" class="check" value="limited" id="radioLimitado"/><span class="label-event check">Limitado</span>
+				<input type="number" name="cap_event" id="cap_event" class="check num" min="1" step="1" value="1" disabled />
+				
+				<div id="info">
+					<label class="label-event" >Categoria</label>
+					<select name="cat" >
+						<option selected value="0"> Elige una opcion </option>
+						<option value="1"> Curso </option>
+						<option value="2"> Conferencia</option>
+						<option value="3"> Taller</option>
+						<option value="4"> Convivio</option>						
+					</select>
+					
+					<label for="dat_event" id="calendario" class="label-event" >Fecha del evento:</label>
+					<input type="text" name="dat_event" id="date_event" placeholder="Día/Mes/Año" required />
+				</div>
+				
+				<button type="submit" class="boton" id="enviar" name="enviar" >Enviar</button>				
+			</form>
+		</div>
+	<?	include 'footer.php'; ?>
+		<script type="text/javascript" src="../js/validacionNuevoEvento.js"></script>	
+	</body>
+</html>
