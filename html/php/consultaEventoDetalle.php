@@ -1,6 +1,4 @@
 <?php
-	//Porque la maestra dijo
-	//session_start();
 
 	//Conectarse a la base de datos
 	require_once("bd.inc");
@@ -12,8 +10,8 @@
 
 
 	//Creo la consulta
-	$mi_query = "select idevento fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
-				 from evento";
+	$mi_query = "select idevento, fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria, creadoPor
+				 from evento where idevento = ".$evento;
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
 	//Ejecuto mi consulta
@@ -27,13 +25,20 @@
 	$con -> close();
 
 	//Convierto el resultado de mi consulta a una matriz
-	$cuantosRenglones = $result -> num_rows;
+	/*$cuantosRenglones = $result -> num_rows;
 	if($cuantosRenglones >= 1){
 		//Por cada fila obtengo un arreglo
 		while($fila = $result -> fetch_assoc())
 			$datos[] = $fila;
-	}
+	}*/
+	$fila = $result -> fetch_assoc();
 	
+	
+	/*
+	echo '<pre>';
+	var_dump($datos);
+	echo '</pre>';
+	*/
 	
 	//Porque la maestra dijo
 	//$_SESSION["datos"] = $datos;

@@ -16,7 +16,9 @@
 		include 'nav.php';
 		include 'article.php';	
 		include 'footer.php';*/
-		echo '<h1> kkkkkkkkkkk </h1>';
+		if(isset($_GET["evento"]) ){echo '<h1> isSET </h1>';
+		echo'<pre>'; var_dump($_GET);echo'</pre>';}
+		echo '<h1> <a href="template1.php?evento=k">kkkkkkkkkkk</a> </h1>';
 		echo '<p> bla bla bla </p>';
 		$d = $_SERVER[PHP_SELF];
 		var_dump($d);

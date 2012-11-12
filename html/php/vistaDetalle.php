@@ -14,17 +14,43 @@
 	<?
 		include 'header.php';
 		include 'nav.php';
+		$evento = $_GET["evento"]; 
+
+		if(isset($evento) )
+		{
+			include 'consultaEventoDetalle.php';
+			echo '<article class="articulo">
+			<section class="evento">
+				<div class="detalle">
+					<h3>',$fila["fechaEvento"], ': ', $fila["nombre"], '</h3>
+					<div>
+						<div class="foto">
+							<img src="..', $fila["rutaFlyer"], '" alt="Evento Hackers and Founders" />
+							<p>', $fila["descripcion"], '</p>
+						</div>
+						
+						<p>Cuando: <span class="place" id="cuando">', $fila["fechaEvento"], '</span></p>
+						<p>Donde: <span class="place" id="donde">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
+					</div>
+				</div>
+				<div class="info" id="event-det">
+					<p class="place" id="more-inf">
+						Precio: <span class="place" id="precio">$', $fila["precio"], '</span> 
+						Capacidad: <span class="place" id="capacidad">', $fila["capacidad"], '</span> 
+						Categoría: <span class="place" id="categoria"><a href="" >', $fila["categoria"], '</a></span> Publicado el', $fila["fechaEvento"], 'por 
+						<span class="place" id="quien"><a href="" >', $fila["creadoPor"], '</a></span>
+					</p>
+				</div>';  
+				include 'disqus.php';
+				echo 
+				'</section>
+		</article>	';
+		}
+		
 	?>
-	<!-- 
-	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
-	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)
-	1. corregir los enlaces por php/blablabla.php 
-	2. la fecha y el "alt" se debe sacar de la columna NOMBRE de la tabla EVENTO
-	3. las rutas de las imágenes de los flyers DEBEN ESTAR EN LA BASE DE DATOS, por ejemplo en la columna FLYER de la tabla EVENTO
-	4. descripción del evento: TEXT_LIBRE
-	5. Seguir llenando los datos usando la base de datos.
-	  
-	-->
+	</body>
+</html>
+	<!--
 		<article class="articulo">
 			<section class="evento">
 				<div class="detalle">
@@ -69,5 +95,5 @@
 				</div>
 			</section>
 		</article>		
-	</body>
-</html>
+		-->
+	

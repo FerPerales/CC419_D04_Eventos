@@ -16,14 +16,13 @@
 		include 'nav.php';
 		
 		include 'consultaEventos.php';
-		echo '';
 	?>
 		<article class="all_event">
 	<?
 	foreach($datos as $key => $value)
 	{
 		echo '<section class="event">
-				<h3><a href="vistaDetalle.php">', $value["fechaEvento"], ': ', 
+				<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
 				$value["nombre"], '</a></h3>';
 				
 		echo '<img src="../', $value["rutaFlyer"], '" alt="Evento Hackers and Founders" width="500" height="800" />

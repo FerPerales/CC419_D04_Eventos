@@ -12,7 +12,7 @@
 
 
 	//Creo la consulta
-	$mi_query = "select fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
+	$mi_query = "select idevento, fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 				 from evento";
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
