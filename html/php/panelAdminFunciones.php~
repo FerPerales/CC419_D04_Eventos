@@ -1,7 +1,0 @@
-<?
-	if(sizeof($_REQUEST) == 0)	
-		header("Location: ./panelAdministracion.php");
-	var_dump($_REQUEST);
-	
-	
-?>
