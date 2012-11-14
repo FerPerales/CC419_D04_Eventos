@@ -47,6 +47,9 @@
 							<button type="button" id="cross1" name="cross1">
 								<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 							</button>
+							<button type="button" id="pending1" name="pending1">
+								<img src="../img/pending.png" alt="Pendiente" width="15" height="15"></img>
+							</button>
 						</div>	
 					</div>
 					<table border = "5">
@@ -60,19 +63,21 @@
 <?
 					foreach ( $datos as $key => $value )
 					{
+						//echo'<pre>'; var_dump($value); echo'</pre>';
 						$colorFondo = 'white';
 						if($value["status"]=="cancelado") $colorFondo = '#FF6666;';
 						elseif ($value["status"]=="aprobado") $colorFondo = '#99CCFF;';
 						echo '<tr>
 							<td style="background-color:',$colorFondo,'">
-								<input type="checkbox" name="', $value["idevento"], '" value="0" class="comentario" ></input>
+								<input type="checkbox" name="', $value["idevento"], '" value="', $value["idevento"],'" class="comentario" ></input>
 								
 							</td>
 							
 							<td style="background-color:',$colorFondo,'">', $value["idevento"], '</td>
 							<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
 							<td style="background-color:',$colorFondo,'">', $value["creadoPor"], '</td>
-							<td style="background-color:',$colorFondo,'"><input type="text" /></td>
+							<td style="background-color:',$colorFondo,'"><input type="text" value="', $value["motivo"], '" name = "comentarioEvento', 
+							$value["idevento"], '" /></td>
 						</tr>';
 					}
 					
@@ -85,10 +90,13 @@
 						<button type="button" id="cross2" name="cross2" onclick="desaprobarEventos()">
 							<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
 						</button>
+						<button type="button" id="pending2" name="pending2">
+								<img src="../img/pending.png" alt="Pendiente" width="15" height="15"></img>
+							</button>
 					</div>	
 					<div class="clearer"></div>
-					<input type="text" name="operacion" id="operacion" style="display:none;" value=""></input>
-					<button type="submit" id="enviar" style="display: none;"></button>
+					<input type="text" name="operacion" style="display:none;" id="operacion" value=""> </input>
+					<button type="submit" id="enviar" style="display:none;" ></button>
 				</form>
 			</section>
 		</article>
