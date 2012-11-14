@@ -4,3 +4,5 @@
 .js~
 .css~
 .inc
+.inc~
+html/bd.inc
