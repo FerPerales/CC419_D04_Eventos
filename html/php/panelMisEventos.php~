@@ -57,7 +57,7 @@
 						echo '<tr>
 							<td style="background-color:',$colorFondo,'">';
 						if($value["status"] == 'PENDIENTE') {
-							echo	'<a href="editarEvento.php?id=',$value["idevento"],'"><img src="../img/edit.gif" alt="editar" width="25" height="35"/></a>
+							echo	'<a href="eventoEditar.php?id=',$value["idevento"],'"><img src="../img/edit.gif" alt="editar" width="25" height="35"/></a>
 								<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';
 						} elseif($value["status"] == 'cancelado') {
 							echo	'<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';

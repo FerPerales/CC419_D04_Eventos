@@ -1,3 +1,16 @@
+<?php
+	$id = $_REQUEST["id"];
+	if(isset($id) && !empty($id)) :
+		//require("funcionesEventos.php");
+		/*$evento = modificarEvento($id);
+
+		$nombre = $evento["nombre"];
+		$descripcion = $evento["descripcion"];
+		$precio = $evento["precio"];
+		$capacidad = $evento["capacidad"];
+		$fecha = $evento["fechaEvento"];
+		$categoria = $evento["categoria"];*/
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -35,9 +48,10 @@
 	-->
 	<div class="formulario">
 			<form action="alta_Eventos.php" method="post" name="reg_event" enctype="multipart/form-data" >
+				<input type="hidden" name="id" value="<?= $id; ?>"/>
 				<div>
 					<label for="nom_event" class="label-event" >Nombre del evento:</label>
-					<input type="text" class="registro" id="nom_event" name="nom_event" required/>
+					<input type="text" class="registro" id="nom_event" name="nom_event" value="<?= $nombre; ?>" required/>
 				</div>
 				<div>
 					<label for="img_event" class="label-event" >Imagen:</label>
@@ -81,3 +95,7 @@
 		<script type="text/javascript" src="../js/validacionNuevoEvento.js"></script>	
 	</body>
 </html>
+<?php
+endif;
+
+?>
