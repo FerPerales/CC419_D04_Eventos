@@ -41,7 +41,7 @@
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
 		die("El nombre del evento cuenta con caracteres invalidos");
 	}
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,45}/', $descripcion) == 0){
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
 		die("La descripcion cuenta con caracteres invalidos");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
@@ -93,7 +93,7 @@
               }
 	}
 	else{
-   	die("Archivo inválido");
+   		die("Archivo inválido");
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos

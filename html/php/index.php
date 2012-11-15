@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/vistablog.css" />
@@ -25,16 +25,20 @@
 				<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
 				$value["nombre"], '</a></h3>';
 				
-		echo '<img src="../', $value["rutaFlyer"], '" alt="Evento Hackers and Founders" width="500" height="800" />
+		echo '<img src="', $value["rutaFlyer"], '" alt="Evento Hackers and Founders" width="500" height="800" />
 				<p>', 
 				htmlentities($value["descripcion"]), 
 				'</p>
 				<div id="info-event-1" class="info">
 					<p> Cuando: <span class="place" id="cuando-1">', $value["fechaEvento"], '</span></p> ',
 					'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
-					<p class="place" >Precio: <span class="place" id="precio-1">', $value["precio"], '</span> 
-					Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> 
-					Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
+					<p class="place" >Precio: $<span class="place" id="precio-1">', $value["precio"], '</span>
+					';
+			if($value["capacidad"] == -1)
+				echo 'Capacidad: <span class="place" id="capacidad-1"> Ilimitada </span>';
+			else
+				echo 	'Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> '; 
+		echo			'Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
 					<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
 				</div>
 			</section>';        
