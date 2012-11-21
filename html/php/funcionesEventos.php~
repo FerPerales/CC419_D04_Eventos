@@ -84,7 +84,7 @@ function modificarEvento($id) {
 		die("Por el momento no se puede acceder al gestor de la base de datos");
 		
 	//Creo la consulta
-	$mi_query = "select nombre,rutaFlyer,descripcion,precio,capacidad,fechaEvento,categoria from evento where idevento=$id";
+	$mi_query = "select nombre,descripcion,precio,capacidad,fechaEvento,categoria from evento where idevento=$id";
 	
 	//Ejecutar mi consulta
 	$result = $mysqli -> query($mi_query);

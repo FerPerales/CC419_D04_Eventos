@@ -109,7 +109,7 @@
 			</form>
 		</div>
 	<?	include 'footer.php'; ?>
-		<script type="text/javascript" src="../js/validacionModificarEvento.js"></script>	
+		<script type="text/javascript" src="../js/validacionNuevoEvento.js"></script>	
 	</body>
 </html>
 <?php
