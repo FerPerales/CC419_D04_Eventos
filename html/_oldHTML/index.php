@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php 
+ header( 'Location: /duke/php' );
+?>
+<!--<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
@@ -10,7 +13,10 @@
 	</head>
 
 	<body>
-		<header class="header" id="header">
+
+		
+		
+<header class="header" id="header">
 			<h1>Eventos</h1>
 		</header>
 		<nav class="navegacion">
@@ -63,4 +69,6 @@
 			</ul>
 		</footer>
 	</body>
-</html>
+</html>-->
+
+
