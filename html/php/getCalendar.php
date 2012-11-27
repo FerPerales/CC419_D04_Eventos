@@ -18,7 +18,7 @@
 
 
 	//Creo la consulta
-	$mi_query = "SELECT nombre, fechaEvento
+	$mi_query = "SELECT idevento, nombre, fechaEvento
 				 FROM evento";
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
@@ -46,7 +46,7 @@
 				'start' => strtotime($fila['fechaEvento']), #30 de noviembre del 2012 a las 7:00 pm
 				'end' => strtotime($fila['fechaEvento']), #30 de noviembre del 2012 a las 10:00 pm
 				'title' => $fila['nombre'],
-				'url' => "http://hackergarage.mx",
+				'url' => "vistaDetalle.php?evento=".$fila['idevento'],
 				'allDay' => true				
 			));
 			
