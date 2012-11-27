@@ -40,8 +40,9 @@
 				    		header: {
 								left: 'prev,next today',
 								center: 'title',
-								right: 'month,basicWeek,basicDay'
-								editable: 'false'
+								right: 'month,basicWeek,basicDay',
+								editable: 'false',
+								events: 'getCalendar.php'
 							}
 				    })		
 				});
