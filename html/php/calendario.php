@@ -41,6 +41,7 @@
 								left: 'prev,next today',
 								center: 'title',
 								right: 'month,basicWeek,basicDay'
+								editable: 'false'
 							}
 				    })		
 				});
