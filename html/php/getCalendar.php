@@ -1,13 +1,5 @@
 <?php
 	
-	/*$evento[] = array(
-		'start' => 1354302000, #30 de noviembre del 2012 a las 7:00 pm
-		'end' => 1354312800, #30 de noviembre del 2012 a las 10:00 pm
-		'title' => "Evento de prueba",
-		'url' => "http://hackergarage.mx",
-		'allDay' => true				
-	);*/
-	
 		//Conectarse a la base de datos
 	require_once("bd.inc");
 	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
@@ -20,38 +12,35 @@
 	//Creo la consulta
 	$mi_query = "SELECT idevento, nombre, fechaEvento
 				 FROM evento";
-	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
 	//Ejecuto mi consulta
 	$result = $con -> query($mi_query);
-
-	//echo '<pre>';
-	//var_dump($result);
-	//echo '</pre>';
 	
 	//Cierro la conexión
 	$con -> close();
 
 	//Convierto el resultado de mi consulta a una matriz
 	$cuantosRenglones = $result -> num_rows;
+	
+	//Creo el arreglo de arreglos donde guardaré los datos de mi evento
 	$eventos = array();
 	
 	if($cuantosRenglones >= 1){
-		//Por cada fila obtengo un arreglo
 		
+		//Por cada fila obtengo un arreglo		
 		while($fila = $result -> fetch_assoc())
-			/*echo "Entro<br/> con". $fila['idevento'];*/
-			
+		
+			//Agrego los nuevos objetos que creo con la información de la base de datos	
 			array_push($eventos, array(
-				'start' => strtotime($fila['fechaEvento']), #30 de noviembre del 2012 a las 7:00 pm
-				'end' => strtotime($fila['fechaEvento']), #30 de noviembre del 2012 a las 10:00 pm
+				'start' => strtotime($fila['fechaEvento']), 
+				'end' => strtotime($fila['fechaEvento']),
 				'title' => $fila['nombre'],
 				'url' => "vistaDetalle.php?evento=".$fila['idevento'],
 				'allDay' => true				
 			));
 			
 	}
-		
+	//Imprimo el arreglo en formato JSON
 	echo json_encode($eventos);
 	
 ?>
