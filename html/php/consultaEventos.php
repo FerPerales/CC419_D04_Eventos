@@ -12,7 +12,7 @@
 
 
 	//Creo la consulta
-	$mi_query = "SELECT idevento, fechaEvento, fechaCreacion, nombre, rutaFlyer, descripcion, capacidad, categoria, precio
+	$mi_query = "SELECT *
 				 FROM evento 
 				 ORDER BY fechaEvento DESC";
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
