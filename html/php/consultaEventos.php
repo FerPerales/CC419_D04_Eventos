@@ -14,7 +14,7 @@
 	//Creo la consulta
 	$mi_query = "SELECT *
 				 FROM evento 
-				 ORDER BY fechaEvento DESC";
+				 ORDER BY fechaCreacion DESC";
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
 	//Ejecuto mi consulta
