@@ -5,5 +5,5 @@
 .css~
 .inc
 .inc~
-html/bd.inc
+/html/php/bd.inc
 /html/php/upload
