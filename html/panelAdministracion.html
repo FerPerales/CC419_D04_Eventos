@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
+		<meta name="author" content="lord" />
+		<meta name="description" content="Registro de eventos de programación en linea" />
+		<title>Eventos</title>
+		<link rel="stylesheet" type="text/css" href="./css/fondoymenu.css" />
+		<link rel="stylesheet" type="text/css" href="./css/posicionGeneral.css" />
+		<link rel="stylesheet" type="text/css" href="./css/panelAdministracion.css" />
+		<script src="js/panelAdministracion.js"></script>
+	</head>
+
+	<body>
+		<header class="header" id="header">
+			<h1>Nuevos Eventos</h1>
+		</header>
+		<nav class="navegacion">
+			<ul id="menu" class="main-menu">
+				<li id="inicio"><a href="index.html">Inicio</a></li>
+				<li id="cal"><a href="calendario.html">Calendario</a></li>
+				<li id="env-event"><a href="alta_de_eventos.html">Enviar Evento</a></li>
+				<li id="RSS"><img src="img/rss.png" alt="RSS" width="20" height="20" /></li>
+			</ul>
+		</nav>
+		<article class="container">
+			<section class="formulario">
+				<form>
+					<div>
+						<div class="botonesSeleccion">
+							<button type="button" id="todos">Seleccionar todos</button>
+							<button type="button"id="ninguno">Deshacer selección</button>
+						</div>	
+						<div id="aprobar" class="botonesAprobar">
+							<button type="button">
+								<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+							</button>	
+							<button type="button">
+								<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+							</button>
+						</div>	
+					</div>
+					
+					<table border = "5">
+						<tr>
+							<th></th>
+							<th>ID</th>
+							<th>Nombre del Evento</th>
+							<th>Remitente</th>
+							<th>Comentarios</th>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
+							</td>
+							<td>1</td>
+							<td>Evento 1</td>
+							<td>ElVacilón</td>
+							<td><input type="text" /></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
+							</td>
+							<td>2</td>
+							<td>Evento 2</td>
+							<td>ElVacilón</td>
+							<td><input type="text" /></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="evento1" class="comentario" ></input>
+							</td>
+							<td>3</td>
+							<td>Evento 3</td>
+							<td>ElVacilón</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="evento1"  class="comentario" ></input>
+							</td>
+							<td>4</td>
+							<td>Evento 4</td>
+							<td>ElVacilón</td>
+							<td><input type="text"/></td>
+						</tr>
+					</table>
+					<div class="botonesAprobar">
+						<button type="button" onclick="aprobarEventos()">
+							<img src="img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+						</button>	
+						<button type="button" onclick="desaprobarEventos()">
+							<img src="img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+						</button>
+					</div>	
+					<div class="clearer"></div>
+					<button type="submit" id="enviar" style="display: none;"></button>
+				</form>
+			</section>
+		</article>
+		<footer>
+			<ul>
+				<li>Jorge Avila - <a href="http://github.com/hawreghi">http://github.com/hawreghi</a></li>
+			    <li>Manuel Meza - <a href="http://github.com/slifer-x">http://github.com/slifer-x</a></li>
+			    <li>Fernando Perales - <a href="http://github.com/ferperales">http://github.com/ferperales</a></li>
+			    <li>Zahib Valenzuela - <a href="http://github.com/zahib">http://github.com/zahib</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>
