@@ -26,7 +26,7 @@
 				<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
 				$value["nombre"], '</a></h3>';
 				
-		echo '<img src="', $value["rutaFlyer"], '" alt="Evento Hackers and Founders" width="500" height="800" />
+		echo '<img src="', $value["rutaFlyer"], '" width="500" height="800" />
 				<p>', 
 				html_entity_decode(htmlentities($value["descripcion"])), 
 				'</p>
