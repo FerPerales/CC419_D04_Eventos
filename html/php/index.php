@@ -24,7 +24,7 @@
 	{
 		echo '<section class="event">
 				<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
-				$value["nombre"], '</a></h3>';
+				html_entity_decode($value["nombre"]), '</a></h3>';
 				
 		echo '<img src="', $value["rutaFlyer"], '" width="500" height="800" />
 				<p>', 
