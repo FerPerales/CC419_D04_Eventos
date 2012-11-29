@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Detalle de evento</title>
 		<link rel="stylesheet" type="text/css" href="../css/vistadetalle.css" />
@@ -20,26 +20,26 @@
 		{
 			
 			include 'consultaEventoDetalle.php';
-			
-			$descripcion = htmlentities($fila["descripcion"]);
-			$fechaEvento = htmlentities($fila["fechaEvento"]);
-			$idevento = htmlentities($fila["idevento"]);
-			$nombre = htmlentities($fila["nombre"]);
-			$rutaFlyer = htmlentities($fila["rutaFlyer"]);
-			$capacidad = htmlentities($fila["capacidad"]);
-			$descripcion = htmlentities($fila["descripcion"]);
-			$precio = htmlentities($fila["precio"]);
-			$creadoPor = htmlentities($fila["creadoPor"]);
-			$categoria = htmlentities($fila["categoria"]);
+			//$capacidad = htmlentities($capacidad, ENT_QUOTES,'UTF-8');
+			$descripcion = htmlentities($fila["descripcion"], ENT_QUOTES,'UTF-8');
+			$fechaEvento = htmlentities($fila["fechaEvento"], ENT_QUOTES,'UTF-8');
+			$idevento = htmlentities($fila["idevento"], ENT_QUOTES,'UTF-8');
+			$nombre = htmlentities($fila["nombre"], ENT_QUOTES,'UTF-8');
+			$rutaFlyer = htmlentities($fila["rutaFlyer"], ENT_QUOTES,'UTF-8');
+			$capacidad = htmlentities($fila["capacidad"], ENT_QUOTES,'UTF-8');
+			$descripcion = htmlentities($fila["descripcion"], ENT_QUOTES,'UTF-8');
+			$precio = htmlentities($fila["precio"], ENT_QUOTES,'UTF-8');
+			$creadoPor = htmlentities($fila["creadoPor"], ENT_QUOTES,'UTF-8');
+			$categoria = htmlentities($fila["categoria"], ENT_QUOTES,'UTF-8');
 			
 			echo '<article class="articulo">
 			<section class="evento">
 				<div class="detalle">
-					<h3>',$fechaEvento, ': ', $nombre, '</h3>
+					<h3>',$fechaEvento, ': ', html_entity_decode($nombre), '</h3>
 					<div>
 						<div class="foto">
 							<img src="', $rutaFlyer, '" alt="Evento Hackers and Founders" />
-							<p>', $descripcion, '</p>
+							<p>', html_entity_decode($descripcion), '</p>
 						</div>
 						
 						<p>Cuando: <span class="place" id="cuando">', $fechaEvento, '</span></p>
