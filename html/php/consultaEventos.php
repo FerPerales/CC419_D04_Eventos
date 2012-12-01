@@ -13,7 +13,7 @@
 
 	//Creo la consulta
 	$mi_query = "SELECT *
-				 FROM evento 
+				 FROM evento where status = 'aprobado'
 				 ORDER BY fechaCreacion DESC";
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
