@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
@@ -60,37 +60,40 @@
 					require_once("funcionesEventos.php");
 					
 					$datos = misEventos ();
-					
-					foreach($datos as $key => $value) {
-						$colorFondo = 'white';
-						if($value["status"]=="cancelado") $colorFondo = '#FF6666;';
-						elseif ($value["status"]=="aprobado") $colorFondo = '#99CCFF;';
-						
-						echo '<tr>
-							<td style="background-color:',$colorFondo,'">';
-						if($value["status"] == 'PENDIENTE') {
-							//echo '<img src="../img/edit.gif" class="modificar" alt="editar" width="25" height="35"/>';
-							echo	'<a href="editarEvento.php?id=',$value["idevento"],'"><img src="../img/edit.gif" alt="editar" width="25" height="35"/></a>
-								<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';
-						} elseif($value["status"] == 'cancelado') {
-							echo	'<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';
+					if ($datos != NULL )
+					{
+						foreach($datos as $key => $value) 
+						{
+							$colorFondo = 'white';
+							if($value["status"]=="cancelado") $colorFondo = '#FF6666;';
+							elseif ($value["status"]=="aprobado") $colorFondo = '#99CCFF;';
+							
+							echo '<tr>
+								<td style="background-color:',$colorFondo,'">';
+							if($value["status"] == 'PENDIENTE') {
+								//echo '<img src="../img/edit.gif" class="modificar" alt="editar" width="25" height="35"/>';
+								echo	'<a href="editarEvento.php?id=',$value["idevento"],'"><img src="../img/edit.gif" alt="editar" width="25" height="35"/></a>
+									<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';
+							} elseif($value["status"] == 'cancelado') {
+								echo	'<a href="eventoElimitar.php?id=',$value["idevento"],'"><img src="../img/cross-mark.png" alt="eliminar" width="25" heigth="35"/></a>';
+							}
+							echo	'</td>
+								<td style="background-color:',$colorFondo,'">', $value["idevento"], '</td>
+								<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
+								<td style="background-color:',$colorFondo,'">', $value["descripcion"],'</td>
+								<td style="background-color:',$colorFondo,'">$', $value["precio"],'.00</td>';
+							if($value["capacidad"] == -1)
+								echo '<td style="background-color:',$colorFondo,'">Ilimitada</td>';
+							else
+								echo '<td style="background-color:',$colorFondo,'">', $value["capacidad"],'</td>';
+							
+							echo '<td style="background-color:',$colorFondo,'">', $value["fechaEvento"],'</td>
+								<td style="background-color:',$colorFondo,'">', $value["categoria"],'</td>
+								<td style="background-color:',$colorFondo,'">', strtoupper($value["status"]),'</td>
+								<td style="background-color:',$colorFondo,'">', $value["motivo"], '</td>
+							</tr>';
+							
 						}
-						echo	'</td>
-							<td style="background-color:',$colorFondo,'">', $value["idevento"], '</td>
-							<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
-							<td style="background-color:',$colorFondo,'">', $value["descripcion"],'</td>
-							<td style="background-color:',$colorFondo,'">$', $value["precio"],'.00</td>';
-						if($value["capacidad"] == -1)
-							echo '<td style="background-color:',$colorFondo,'">Ilimitada</td>';
-						else
-							echo '<td style="background-color:',$colorFondo,'">', $value["capacidad"],'</td>';
-						
-						echo '<td style="background-color:',$colorFondo,'">', $value["fechaEvento"],'</td>
-							<td style="background-color:',$colorFondo,'">', $value["categoria"],'</td>
-							<td style="background-color:',$colorFondo,'">', strtoupper($value["status"]),'</td>
-							<td style="background-color:',$colorFondo,'">', $value["motivo"], '</td>
-						</tr>';
-						
 					}
 ?>
 					</table>					
