@@ -26,8 +26,9 @@
 	
 	//Cierro la conexión
 	$con -> close();
-
+	
 	//Convierto el resultado de mi consulta a una matriz
+	$datos = NULL;	
 	$cuantosRenglones = $result -> num_rows;
 	if($cuantosRenglones >= 1){
 		//Por cada fila obtengo un arreglo

@@ -12,37 +12,39 @@
 	<body>
 	
 	<?
-		
 		include 'header.php';
 		include 'nav.php';
-		
 		include 'consultaEventos.php';
 	?>
 		<article class="all_event">
 	<?
-	foreach($datos as $key => $value)
-	{
-		echo '<section class="event">
-				<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
-				html_entity_decode($value["nombre"]), '</a></h3>';
-				
-		echo '<img src="', $value["rutaFlyer"], '" width="500" height="800" />
-				<p>', 
-				html_entity_decode(htmlentities($value["descripcion"])), 
-				'</p>
-				<div id="info-event-1" class="info">
-					<p> Cuando: <span class="place" id="cuando-1">', $value["fechaEvento"], '</span></p> ',
-					'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
-					<p class="place" >Precio: $<span class="place" id="precio-1">', $value["precio"], '</span>
-					';
-			if($value["capacidad"] == -1)
-				echo 'Capacidad: <span class="place" id="capacidad-1"> Ilimitada </span>';
-			else
-				echo 	'Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> '; 
-		echo			'Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
-					<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
-				</div>
-			</section>';        
+	//var_dump($datos); 
+	if ($datos != NULL)
+	{	
+		foreach($datos as $key => $value)
+		{
+			echo '<section class="event">
+					<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
+					html_entity_decode($value["nombre"]), '</a></h3>';
+					
+			echo '<img src="', $value["rutaFlyer"], '" width="500" height="800" />
+					<p>', 
+					html_entity_decode(htmlentities($value["descripcion"])), 
+					'</p>
+					<div id="info-event-1" class="info">
+						<p> Cuando: <span class="place" id="cuando-1">', $value["fechaEvento"], '</span></p> ',
+						'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
+						<p class="place" >Precio: $<span class="place" id="precio-1">', $value["precio"], '</span>
+						';
+				if($value["capacidad"] == -1)
+					echo 'Capacidad: <span class="place" id="capacidad-1"> Ilimitada </span>';
+				else
+					echo 	'Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> '; 
+			echo			'Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
+						<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
+					</div>
+				</section>';        
+		}
 	}
 	?>
 			<div class="pre-nex">
