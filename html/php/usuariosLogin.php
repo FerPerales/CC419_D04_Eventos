@@ -19,15 +19,20 @@
 	//echo '<pre>';
 	//var_dump($result);
 	//echo '</pre>';
-		
 	//Cierro la conexión
 	$con -> close();
 	
 	//meter los datos de la consulta en session
-	$datosUsuario = $result -> fetch_assoc();
-	$_SESSION["twitter"]=$datosUsuario["twitter"];
-	$_SESSION["token_twitter"]=$datosUsuario["token_twitter"];
-	$_SESSION["admin"]=$datosUsuario["admin"];
+	//var_dump($result);
+	if ($result != false) //si se encontró al usuario en la base de datos:
+	{
+		$datosUsuario = $result -> fetch_assoc();
+		$_SESSION["twitter"]=$datosUsuario["twitter"];
+		$_SESSION["token_twitter"]=$datosUsuario["token_twitter"];
+		$_SESSION["admin"]=$datosUsuario["admin"];
+		header("Location: index.php");
+	}
+	else echo 'El usuario no existe ';
 	//var_dump($_SESSION);
-	header("Location: index.php");
+	
 	?>
