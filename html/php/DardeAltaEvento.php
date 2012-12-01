@@ -1,10 +1,12 @@
 <?php
 //phpinfo();
+session_start();
 	require_once("bd.inc");
 	header('Content-Type: text/html; charset=utf-8');
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
 	//Obtener variables
+	$quienCrea = $_SESSION["twitter"];
 	$nomEvento = $_REQUEST["nom_event"];
 	$descripcion = $_REQUEST["descripcion"];
 	$precio = $_REQUEST["cost_event"];
@@ -109,8 +111,8 @@
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
 	$query = "INSERT INTO evento(creadoPor, nombre, rutaFlyer, descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES (1,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','PENDIENTE',$categoria)";
-
+					VALUES ($quienCrea,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','pendiente',$categoria)";
+	
 	if(!$mysql -> query($query)) {
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}
