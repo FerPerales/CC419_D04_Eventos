@@ -61,6 +61,8 @@
 							<th>Comentarios</th>
 						</tr>
 <?
+				if ($datos != NULL)
+				{
 					foreach ( $datos as $key => $value )
 					{
 						//echo'<pre>'; var_dump($value); echo'</pre>';
@@ -80,6 +82,7 @@
 							$value["idevento"], '" /></td>
 						</tr>';
 					}
+				}
 					
 ?>
 					</table>
