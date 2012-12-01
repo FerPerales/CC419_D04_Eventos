@@ -33,7 +33,7 @@
 	$categoria = $mysql -> real_escape_string($categoria);
 	$fecha = $mysql -> real_escape_string($fecha);
 	
-	$nomEvento = htmlentities($nomEvento);
+	$nomEvento = htmlentities($nomEvento, ENT_QUOTES,'UTF-8');
 	//htmlentities($var,ENT_QUOTES,'UTF-8');
 	echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
 	$a = htmlentities($descripcion);
@@ -49,10 +49,10 @@
 	$fecha = htmlentities($fecha, ENT_QUOTES,'UTF-8');
 	
 	
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{8,}/', $nomEvento) == 0) {
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
 		die("El nombre del evento cuenta con caracteres invalidos");
 	}
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{5,4500}/', $descripcion) == 0){
 		die("La descripcion cuenta con caracteres invalidos");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
