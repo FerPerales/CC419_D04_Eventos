@@ -11,7 +11,8 @@
 
 	//Creo la consulta
 	$mi_query = "SELECT idevento, nombre, fechaEvento
-				 FROM evento";
+				 FROM evento
+				 WHERE status LIKE 'aprobado'";
 	
 	//Ejecuto mi consulta
 	$result = $con -> query($mi_query);
