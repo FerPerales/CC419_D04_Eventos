@@ -10,8 +10,10 @@
 
 
 	//Creo la consulta
-	$mi_query = "select idevento, fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria, creadoPor, precio
-				 from evento where idevento = ".$evento;
+	$mi_query = "select evento.idevento, evento.fechaEvento, evento.nombre, evento.rutaFlyer, evento.descripcion, 
+					evento.capacidad, categoria.categoria, evento.creadoPor, evento.precio from evento left join categoria ON 
+					evento.categoria=categoria.idcategoria where idevento = ".$evento;
+				 
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
 	//Ejecuto mi consulta
