@@ -18,6 +18,7 @@
 		unset($tempdate);
 		
 		$idcategoria = $evento["categoria"];
+		var_dump($flyer);
 ?>
 <!DOCTYPE html>
 <html lang="es">

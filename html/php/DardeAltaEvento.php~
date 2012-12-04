@@ -1,9 +1,11 @@
 <?php
+//phpinfo();
+session_start();
 	require_once("bd.inc");
+	header('Content-Type: text/html; charset=utf-8');
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
 	//Obtener variables
-	$defaultStatus = "pendiente";
 	$quienCrea = $_SESSION["twitter"];
 	$nomEvento = $_REQUEST["nom_event"];
 	$descripcion = $_REQUEST["descripcion"];
@@ -24,6 +26,7 @@
 	unset($tempdate);
 	
 	//Realizar validaciones con todas las formas de limpiar variables
+	
 	$nomEvento = $mysql -> real_escape_string($nomEvento);
 	$descripcion = $mysql -> real_escape_string($descripcion);
 	$precio = $mysql -> real_escape_string($precio);
@@ -32,19 +35,27 @@
 	$categoria = $mysql -> real_escape_string($categoria);
 	$fecha = $mysql -> real_escape_string($fecha);
 	
-	$nomEvento = htmlentities($nomEvento);
-	$descripcion = htmlentities($descripcion);
-	$precio = htmlentities($precio);
-	$capacidad = htmlentities($capacidad);
-	$num_cap = htmlentities($num_cap);
-	$categoria = htmlentities($categoria);
-	$fecha = htmlentities($fecha);
+	$nomEvento = htmlentities($nomEvento, ENT_QUOTES,'UTF-8');
+	//htmlentities($var,ENT_QUOTES,'UTF-8');
+	//echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
+	$a = htmlentities($descripcion);
+	//echo 'despues de entities <pre>', var_dump($a), '</pre>';
+	$descripcion = htmlentities($descripcion, ENT_QUOTES,'UTF-8');
+	//echo 'despues de entities 3 parametros <pre>', var_dump($descripcion), '</pre>';
+   /*$c = htmlspecialchars($descripcion, ENT_QUOTES, "UTF-8");
+	echo 'despues de special chars <pre>', var_dump($c), '</pre>';*/
+	$precio = htmlentities($precio, ENT_QUOTES,'UTF-8');
+	$capacidad = htmlentities($capacidad, ENT_QUOTES,'UTF-8');
+	$num_cap = htmlentities($num_cap, ENT_QUOTES,'UTF-8');
+	$categoria = htmlentities($categoria, ENT_QUOTES,'UTF-8');
+	$fecha = htmlentities($fecha, ENT_QUOTES,'UTF-8');
 	
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
-		die("El nombre del evento cuenta con caracteres invalidos");
+	
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
+		die("El nombre del evento cuenta con caracteres invalidos o menos de 8 caracteres");
 	}
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos");	
+		die("La descripcion cuenta con caracteres invalidos o menos de 20 caracteres");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
 		die("El precio es incorrecto");	
@@ -91,6 +102,35 @@
                            move_uploaded_file($_FILES["file"]["tmp_name"],
                                    "upload/" . $_FILES["file"]["name"]);
                            $file = "upload/" . $_FILES["file"]["name"];
+                          // -------------------------- START Redimension de la imagen --------------------------------------
+                    			$ruta_imagen = $file;
+									if($extension ==  "gif") {
+										$imagen = imagecreatefromgif($ruta_imagen);	
+									} elseif($extension ==  "png") {
+										$imagen = imagecreatefrompng($ruta_imagen);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										$imagen = imagecreatefromjpeg($ruta_imagen);	
+									}
+	
+									$ancho_original = imagesx($imagen);
+									$alto_original = imagesy($imagen);
+									$ancho_final = 500;
+									$alto_final = ($ancho_final/$ancho_original)*$alto_original;
+	
+									$imagen_redimensionada = imagecreatetruecolor($ancho_final, $alto_final);
+									imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
+	
+									if($extension ==  "gif") {
+										imagegif($imagen_redimensionada, $_FILES["file"]["name"]);
+									} elseif($extension ==  "png") {
+										imagepng($imagen_redimensionada, $_FILES["file"]["name"]);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										imagejpeg($imagen_redimensionada, $_FILES["file"]["name"]);
+									}
+	
+									imagedestroy($imagen);
+									imagedestroy($imagen_redimensionada);		
+								// -------------------------- END Redimension de la imagen ----------------------------------------
                     }
               }
 	}
@@ -99,10 +139,9 @@
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
-
 	$query = "INSERT INTO evento(creadoPor, nombre, rutaFlyer, descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES ($quienCrea','$nomEvento','$file','$descripcion','$precio','$num_cap','$fecha','$fechaActual','$defaultStatus','$categoria')";
-	$query = "insert into evento (creadoPor) values ('$quienCrea')";
+					VALUES ($quienCrea,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','pendiente',$categoria)";
+	
 	if(!$mysql -> query($query)) {
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}

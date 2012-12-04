@@ -144,7 +144,6 @@
 			</section>
 		</article>
 	<div id="search" style="display:none"  >
-		<br />
 		<form metho="post" action="panelAdministracion.php" >
 			<label for="buscar">Busqueda general: </label>
 			<input type="search" id="buscar" name="buscar"/><br />
