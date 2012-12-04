@@ -37,11 +37,11 @@ session_start();
 	
 	$nomEvento = htmlentities($nomEvento, ENT_QUOTES,'UTF-8');
 	//htmlentities($var,ENT_QUOTES,'UTF-8');
-	echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
+	//echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
 	$a = htmlentities($descripcion);
-	echo 'despues de entities <pre>', var_dump($a), '</pre>';
+	//echo 'despues de entities <pre>', var_dump($a), '</pre>';
 	$descripcion = htmlentities($descripcion, ENT_QUOTES,'UTF-8');
-	echo 'despues de entities 3 parametros <pre>', var_dump($descripcion), '</pre>';
+	//echo 'despues de entities 3 parametros <pre>', var_dump($descripcion), '</pre>';
    /*$c = htmlspecialchars($descripcion, ENT_QUOTES, "UTF-8");
 	echo 'despues de special chars <pre>', var_dump($c), '</pre>';*/
 	$precio = htmlentities($precio, ENT_QUOTES,'UTF-8');
@@ -52,10 +52,10 @@ session_start();
 	
 	
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
-		die("El nombre del evento cuenta con caracteres invalidos");
+		die("El nombre del evento cuenta con caracteres invalidos o menos de 8 caracteres");
 	}
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{5,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos");	
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
+		die("La descripcion cuenta con caracteres invalidos o menos de 20 caracteres");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
 		die("El precio es incorrecto");	
@@ -102,6 +102,35 @@ session_start();
                            move_uploaded_file($_FILES["file"]["tmp_name"],
                                    "upload/" . $_FILES["file"]["name"]);
                            $file = "upload/" . $_FILES["file"]["name"];
+                          // -------------------------- START Redimension de la imagen --------------------------------------
+                    			$ruta_imagen = $file;
+									if($extension ==  "gif") {
+										$imagen = imagecreatefromgif($ruta_imagen);	
+									} elseif($extension ==  "png") {
+										$imagen = imagecreatefrompng($ruta_imagen);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										$imagen = imagecreatefromjpeg($ruta_imagen);	
+									}
+	
+									$ancho_original = imagesx($imagen);
+									$alto_original = imagesy($imagen);
+									$ancho_final = 500;
+									$alto_final = ($ancho_final/$ancho_original)*$alto_original;
+	
+									$imagen_redimensionada = imagecreatetruecolor($ancho_final, $alto_final);
+									imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
+	
+									if($extension ==  "gif") {
+										imagegif($imagen_redimensionada, $file);
+									} elseif($extension ==  "png") {
+										imagepng($imagen_redimensionada, $file);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										imagejpeg($imagen_redimensionada, $file);
+									}
+	
+									imagedestroy($imagen);
+									imagedestroy($imagen_redimensionada);		
+								// -------------------------- END Redimension de la imagen ----------------------------------------
                     }
               }
 	}

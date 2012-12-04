@@ -45,10 +45,10 @@
 		die("Hay un error con el id");	
 	}	
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
-		die("El nombre del evento cuenta con caracteres invalidos");
+		die("El nombre del evento es incorrecto o cuenta con menos de 8 caracteres");
 	}
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos");	
+		die("La descripcion cuenta con caracteres invalidos o cuenta con menos de 20 caracteres");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
 		die("El precio es incorrecto");	
@@ -63,7 +63,6 @@
 		die("Fecha invalida");	
 	}
 	
-	// -------------------------- START Script de carga de imagen -------------------------------------
 	//Se define el tamaño que se permitirá (en KB por eso lo multiplicamos por 1024)
 	$tamanioPermitido = 1024 * 1024;
 
@@ -95,8 +94,40 @@
                            move_uploaded_file($_FILES["file"]["tmp_name"],
                                    "upload/" . $_FILES["file"]["name"]);
                            $file = "upload/" . $_FILES["file"]["name"];
+                         // -------------------------- START Redimension de la imagen --------------------------------------
+                    			$ruta_imagen = $file;
+									if($extension ==  "gif") {
+										$imagen = imagecreatefromgif($ruta_imagen);	
+									} elseif($extension ==  "png") {
+										$imagen = imagecreatefrompng($ruta_imagen);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										$imagen = imagecreatefromjpeg($ruta_imagen);	
+									}
+	
+									$ancho_original = imagesx($imagen);
+									$alto_original = imagesy($imagen);
+									$ancho_final = 500;
+									$alto_final = ($ancho_final/$ancho_original)*$alto_original;
+	
+									$imagen_redimensionada = imagecreatetruecolor($ancho_final, $alto_final);
+									imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
+	
+									if($extension ==  "gif") {
+										imagegif($imagen_redimensionada, $file);
+									} elseif($extension ==  "png") {
+										imagepng($imagen_redimensionada, $file);	
+									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+										imagejpeg($imagen_redimensionada, $file);
+									}
+	
+									imagedestroy($imagen);
+									imagedestroy($imagen_redimensionada);		
+								// -------------------------- END Redimension de la imagen ----------------------------------------
                     }
               }
+	}
+	else{
+   		die("Archivo inválido");
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
