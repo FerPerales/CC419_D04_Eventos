@@ -76,11 +76,9 @@
 							<button type="button" class ="buscar" id="buscar1" name="buscar">
 								<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 							</button>
-							<form metho="post" action="panelAdministracion.php?buscar=''">
-								<button type="submit" id="ver1">
-										<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-								</button>
-							</form>
+							<a href="panelAdministracion.php"><button type="submit" id="ver1">
+									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
+							</button></a>
 						</div>	
 					</div>
 					<table border = "5">
@@ -131,11 +129,9 @@
 						<button type="button" class ="buscar" id="buscar2" name="buscar">
 							<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 						</button>
-						<form metho="post" action="panelAdministracion.php?buscar=''">
-							<button type="submit" id="ver2">
+						<a href="panelAdministracion.php"><button type="submit" id="ver1">
 									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-							</button>
-						</form>
+							</button></a>						
 					</div>	
 					<div class="clearer"></div>
 					<input type="text" name="operacion" style="display:none;" id="operacion" value=""> </input>
