@@ -1,12 +1,10 @@
 <?php
-//phpinfo();
-session_start();
+	//Crear conexion con la base de datos
 	require_once("bd.inc");
-	header('Content-Type: text/html; charset=utf-8');
-	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
+	$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
 	//Obtener variables
-	$quienCrea = $_SESSION["twitter"];
+	$id = $_REQUEST["id"];
 	$nomEvento = $_REQUEST["nom_event"];
 	$descripcion = $_REQUEST["descripcion"];
 	$precio = $_REQUEST["cost_event"];
@@ -19,43 +17,38 @@ session_start();
 	}	
 	$categoria = $_REQUEST["cat"];
 	$fecha = $_REQUEST["dat_event"];
-	$fechaActual = date("Y-m-d");
 	
 	$tempdate = explode("/", $fecha);
 	$fecha = $tempdate[2] . '-' . $tempdate[0] . '-' . $tempdate [1];
 	unset($tempdate);
 	
 	//Realizar validaciones con todas las formas de limpiar variables
+	$id = $mysqli -> real_escape_string($id);
+	$nomEvento = $mysqli -> real_escape_string($nomEvento);
+	$descripcion = $mysqli -> real_escape_string($descripcion);
+	$precio = $mysqli -> real_escape_string($precio);
+	$capacidad = $mysqli -> real_escape_string($capacidad);
+	$num_cap = $mysqli -> real_escape_string($num_cap);
+	$categoria = $mysqli -> real_escape_string($categoria);
+	$fecha = $mysqli -> real_escape_string($fecha);
 	
-	$nomEvento = $mysql -> real_escape_string($nomEvento);
-	$descripcion = $mysql -> real_escape_string($descripcion);
-	$precio = $mysql -> real_escape_string($precio);
-	$capacidad = $mysql -> real_escape_string($capacidad);
-	$num_cap = $mysql -> real_escape_string($num_cap);
-	$categoria = $mysql -> real_escape_string($categoria);
-	$fecha = $mysql -> real_escape_string($fecha);
+	$id = htmlentities($id);
+	$nomEvento = htmlentities($nomEvento);
+	$descripcion = htmlentities($descripcion);
+	$precio = htmlentities($precio);
+	$capacidad = htmlentities($capacidad);
+	$num_cap = htmlentities($num_cap);
+	$categoria = htmlentities($categoria);
+	$fecha = htmlentities($fecha);
 	
-	$nomEvento = htmlentities($nomEvento, ENT_QUOTES,'UTF-8');
-	//htmlentities($var,ENT_QUOTES,'UTF-8');
-	//echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
-	$a = htmlentities($descripcion);
-	//echo 'despues de entities <pre>', var_dump($a), '</pre>';
-	$descripcion = htmlentities($descripcion, ENT_QUOTES,'UTF-8');
-	//echo 'despues de entities 3 parametros <pre>', var_dump($descripcion), '</pre>';
-   /*$c = htmlspecialchars($descripcion, ENT_QUOTES, "UTF-8");
-	echo 'despues de special chars <pre>', var_dump($c), '</pre>';*/
-	$precio = htmlentities($precio, ENT_QUOTES,'UTF-8');
-	$capacidad = htmlentities($capacidad, ENT_QUOTES,'UTF-8');
-	$num_cap = htmlentities($num_cap, ENT_QUOTES,'UTF-8');
-	$categoria = htmlentities($categoria, ENT_QUOTES,'UTF-8');
-	$fecha = htmlentities($fecha, ENT_QUOTES,'UTF-8');
-	
-	
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
-		die("El nombre del evento cuenta con caracteres invalidos o menos de 8 caracteres");
+	if(preg_match('/[0-9]*/',$id) == 0) {
+		die("Hay un error con el id");	
+	}	
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
+		die("El nombre del evento es incorrecto o cuenta con menos de 8 caracteres");
 	}
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos o menos de 20 caracteres");	
+		die("La descripcion cuenta con caracteres invalidos o cuenta con menos de 20 caracteres");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
 		die("El precio es incorrecto");	
@@ -70,7 +63,6 @@ session_start();
 		die("Fecha invalida");	
 	}
 	
-	// -------------------------- START Script de carga de imagen -------------------------------------
 	//Se define el tamaño que se permitirá (en KB por eso lo multiplicamos por 1024)
 	$tamanioPermitido = 1024 * 1024;
 
@@ -81,6 +73,8 @@ session_start();
 	$extension = end(explode(".", $_FILES["file"]["name"]));
 	
 	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
+	var_dump($_FILES);
+	if(!empty($_FILES)) { 
 	if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/png")
@@ -102,7 +96,7 @@ session_start();
                            move_uploaded_file($_FILES["file"]["tmp_name"],
                                    "upload/" . $_FILES["file"]["name"]);
                            $file = "upload/" . $_FILES["file"]["name"];
-                          // -------------------------- START Redimension de la imagen --------------------------------------
+                         // -------------------------- START Redimension de la imagen --------------------------------------
                     			$ruta_imagen = $file;
 									if($extension ==  "gif") {
 										$imagen = imagecreatefromgif($ruta_imagen);	
@@ -137,14 +131,20 @@ session_start();
 	else{
    		die("Archivo inválido");
 	}
+}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
-	$query = "INSERT INTO evento(creadoPor, nombre, rutaFlyer, descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES ($quienCrea,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','pendiente',$categoria)";
-	
-	if(!$mysql -> query($query)) {
-		die("Error al ingresar los datos. Vuelva a intentar");	
+	if(empty($file) || !isset($file)) {
+		$query = "UPDATE evento SET nombre='$nomEvento',descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
+				categoria='$categoria' WHERE idevento=$id";
+	} else {
+		$query = "UPDATE evento SET nombre='$nomEvento',rutaFlyer='$file', descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
+				categoria='$categoria' WHERE idevento=$id";	
 	}
-	
-	header("Location: index.php");
+
+	if(!$mysqli -> query($query)) {
+		die("Error al actualizar los datos. Vuelva a intentarlo");	
+	}
+
+	header("Location: panelMisEventos.php");
 ?>

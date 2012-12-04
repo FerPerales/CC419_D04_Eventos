@@ -1,0 +1,10 @@
+<?php
+	session_start();
+	require_once("funcionesEventos.php");
+	
+	$buscar = $_REQUEST["buscar"];
+	
+	$datos = search($buscar);
+
+	header("Location: panelAdministracion.php?$datos");
+?>

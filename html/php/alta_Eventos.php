@@ -5,8 +5,6 @@
 	//Obtener variables
 	$defaultStatus = "pendiente";
 	$quienCrea = $_SESSION["twitter"];
-	var_dump($quienCrea);
-	var_dump($blablablabal)
 	$nomEvento = $_REQUEST["nom_event"];
 	$descripcion = $_REQUEST["descripcion"];
 	$precio = $_REQUEST["cost_event"];

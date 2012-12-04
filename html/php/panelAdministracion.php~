@@ -76,9 +76,11 @@
 							<button type="button" class ="buscar" id="buscar1" name="buscar">
 								<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 							</button>
-							<a href="panelAdministracion.php"><button type="submit" id="ver1">
-									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-							</button></a>
+							<form metho="post" action="panelAdministracion.php?buscar=''">
+								<button type="submit" id="ver1">
+										<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
+								</button>
+							</form>
 						</div>	
 					</div>
 					<table border = "5">
@@ -129,9 +131,11 @@
 						<button type="button" class ="buscar" id="buscar2" name="buscar">
 							<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 						</button>
-						<a href="panelAdministracion.php"><button type="submit" id="ver1">
+						<form metho="post" action="panelAdministracion.php?buscar=''">
+							<button type="submit" id="ver2">
 									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-							</button></a>						
+							</button>
+						</form>
 					</div>	
 					<div class="clearer"></div>
 					<input type="text" name="operacion" style="display:none;" id="operacion" value=""> </input>
@@ -140,7 +144,6 @@
 			</section>
 		</article>
 	<div id="search" style="display:none"  >
-		<br />
 		<form metho="post" action="panelAdministracion.php" >
 			<label for="buscar">Busqueda general: </label>
 			<input type="search" id="buscar" name="buscar"/><br />

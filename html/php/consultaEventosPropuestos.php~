@@ -1,6 +1,5 @@
 <?php
-
-	//Conectarse a la base de datos
+		//Conectarse a la base de datos
 	require_once("bd.inc");
 	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
@@ -8,28 +7,33 @@
 	if($con -> connect_error)
 		die("Por el momento no se puede acceder al gestor de la base de datos");
 
-
 	//Creo la consulta
-	$mi_query = "select evento.idevento, evento.fechaEvento, evento.nombre, evento.rutaFlyer, evento.descripcion, 
-					evento.capacidad, categoria.categoria, evento.creadoPor, evento.precio from evento left join categoria ON 
-					evento.categoria=categoria.idcategoria where idevento = ".$evento;
-				 
-	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
+	$mi_query = "select idevento, nombre, creadoPor, motivo
+				 from evento";
 	
-	//Ejecuto mi consulta
+	//Ejecutar mi consulta
 	$result = $con -> query($mi_query);
+
+	//echo '<pre>';
+	//var_dump($result);
+	//echo '</pre>';
 	
 	//Cierro la conexión
 	$con -> close();
 
-	//poner los resultados del query en un arreglo
-	$fila = $result -> fetch_assoc();
+	//Convierto el resultado de mi consulta a una matriz
+	$datos = NULL;
+	$cuantosRenglones = $result -> num_rows;
+	if($cuantosRenglones >= 1){
+		//Por cada fila obtengo un arreglo
+		while($fila = $result -> fetch_assoc())
+			$datos[] = $fila;
+	}
 	/*
-	var_dump($fila);
 	echo '<pre>';
-	var_dump($fila);
+	var_dump($datos);
 	echo '</pre>';
-*/	
+	*/
 	
 	//Porque la maestra dijo
 	//$_SESSION["datos"] = $datos;
