@@ -1,1 +1,1 @@
-php_value display_errors "Off"
+ErrorDocument 404 404.php
