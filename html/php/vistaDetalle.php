@@ -1,8 +1,5 @@
 <?php 
 session_start();
-if (!isset($_SESSION["twitter"]))
-	header("Location: index.php");
-else { 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -72,5 +69,3 @@ else {
 	?>
 	</body>
 </html>
-<?php } //esta llave cierra if (!isset($_SESSION["twitter"]))
-?>
