@@ -1,10 +1,10 @@
 .project
-.php~
-.html~
-.js~
-.css~
-.inc
-.inc~
+*.php~
+*.html~
+*.js~
+*.css~
+*.inc
+*.inc~
 /html/php/bd.inc
 /html/php/twitter.inc
 /html/php/upload
