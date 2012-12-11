@@ -1,6 +1,0 @@
-<div id="search">
-	<form metho="post" action="buscar.php" >
-		<label for="buscar">Buscar: </label>
-		<input type="search" id="buscar" name="buscar"/>
-	</form>
-</div>
