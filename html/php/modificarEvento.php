@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 	//Crear conexion con la base de datos
 	require_once("bd.inc");

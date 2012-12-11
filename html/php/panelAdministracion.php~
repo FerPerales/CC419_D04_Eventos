@@ -1,9 +1,15 @@
+<?php 
+session_start();
+if (!isset($_SESSION["twitter"]))
+	header(Location: "index.php");
+else { 
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
@@ -76,11 +82,9 @@
 							<button type="button" class ="buscar" id="buscar1" name="buscar">
 								<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 							</button>
-							<form metho="post" action="panelAdministracion.php?buscar=''">
-								<button type="submit" id="ver1">
-										<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-								</button>
-							</form>
+							<a href="panelAdministracion.php"><button type="submit" id="ver1">
+									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
+							</button></a>
 						</div>	
 					</div>
 					<table border = "5">
@@ -131,11 +135,9 @@
 						<button type="button" class ="buscar" id="buscar2" name="buscar">
 							<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
 						</button>
-						<form metho="post" action="panelAdministracion.php?buscar=''">
-							<button type="submit" id="ver2">
+						<a href="panelAdministracion.php"><button type="submit" id="ver1">
 									<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-							</button>
-						</form>
+							</button></a>						
 					</div>	
 					<div class="clearer"></div>
 					<input type="text" name="operacion" style="display:none;" id="operacion" value=""> </input>
@@ -144,6 +146,7 @@
 			</section>
 		</article>
 	<div id="search" style="display:none"  >
+		<br />
 		<form metho="post" action="panelAdministracion.php" >
 			<label for="buscar">Busqueda general: </label>
 			<input type="search" id="buscar" name="buscar"/><br />
@@ -177,3 +180,5 @@
 		
 	</body>
 </html>
+<?php } //esta llave cierra if (!isset($_SESSION["twitter"]))
+?>

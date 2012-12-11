@@ -131,7 +131,7 @@ function search($string, $status, $usuario) {
 	} else 
 		$mi_query = "select idevento, nombre, creadoPor, status, motivo from evento where idevento like '%$string%'
 					AND nombre like '%$string%' AND creadoPor like '%$string%' AND status like '%$string%'
-					ANd motivo like '%$string%' OR status='$status' AND creadoPor='$usuario'";
+					ANd motivo like '%$string%' OR status='$status' OR creadoPor='$usuario'";
 			
 	
 	//Ejecutar mi consulta

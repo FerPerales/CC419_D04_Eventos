@@ -121,11 +121,11 @@ session_start();
 									imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
 	
 									if($extension ==  "gif") {
-										imagegif($imagen_redimensionada, $_FILES["file"]["name"]);
+										imagegif($imagen_redimensionada, $file);
 									} elseif($extension ==  "png") {
-										imagepng($imagen_redimensionada, $_FILES["file"]["name"]);	
+										imagepng($imagen_redimensionada, $file);	
 									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
-										imagejpeg($imagen_redimensionada, $_FILES["file"]["name"]);
+										imagejpeg($imagen_redimensionada, $file);
 									}
 	
 									imagedestroy($imagen);

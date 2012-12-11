@@ -1,6 +1,6 @@
 <?php
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "l";
+	$dbpass = "123456";
 	$db	  = "EventosHackerGarage";
 ?>

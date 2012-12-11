@@ -1,8 +1,8 @@
 <?php 
-session_start();
+session_start(); 
 if (!isset($_SESSION["twitter"]))
-	header("Location: index.php");
-else { 
+	header("index.php");
+else {
 ?>
 <!DOCTYPE html>
 <html lang="es">

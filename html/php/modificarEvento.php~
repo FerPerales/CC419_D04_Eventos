@@ -73,8 +73,6 @@
 	$extension = end(explode(".", $_FILES["file"]["name"]));
 	
 	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
-	var_dump($_FILES);
-	if(!empty($_FILES)) { 
 	if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/png")
@@ -131,7 +129,6 @@
 	else{
    		die("Archivo inválido");
 	}
-}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
 	if(empty($file) || !isset($file)) {

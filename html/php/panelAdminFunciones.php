@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 	if(sizeof($_REQUEST) == 1)	
 		header("Location: ./panelAdministracion.php");

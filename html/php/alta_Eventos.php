@@ -1,3 +1,4 @@
+
 <?php
 	require_once("bd.inc");
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
