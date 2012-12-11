@@ -1,5 +1,5 @@
-<?php session_start(); ?>
 <?php
+	session_start();
 	//Crear conexion con la base de datos
 	require_once("bd.inc");
 	$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
@@ -83,52 +83,41 @@
       && in_array($extension, $extensionesPermitidas)){
               //Si no hubo un error al subir el archivo temporalmente
               if ($_FILES["file"]["error"] > 0){
-                     die("Return Code: " . $_FILES["file"]["error"] . "<br />");
+              		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=1&code=".$_FILES["file"]["error"]);
               }
               else{
-                    //Si el archivo ya existe se muestra el mensaje de error
-                    if (file_exists("upload/" . $_FILES["file"]["name"])){
-                           die($_FILES["file"]["name"] . " already exists. ");
-                    }
-                    else{
-                           //Se mueve el archivo de su ruta temporal a una ruta establecida
-                           move_uploaded_file($_FILES["file"]["tmp_name"],
-                                   "upload/" . $_FILES["file"]["name"]);
-                           $file = "upload/" . $_FILES["file"]["name"];
-                         // -------------------------- START Redimension de la imagen --------------------------------------
-                    			$ruta_imagen = $file;
-									if($extension ==  "gif") {
-										$imagen = imagecreatefromgif($ruta_imagen);	
-									} elseif($extension ==  "png") {
-										$imagen = imagecreatefrompng($ruta_imagen);	
-									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
-										$imagen = imagecreatefromjpeg($ruta_imagen);	
-									}
+                 	//Se mueve el archivo de su ruta temporal a una ruta establecida
+                 	move_uploaded_file($_FILES["file"]["tmp_name"],
+                       "upload/" . $_FILES["file"]["name"]);
+                 	$file = "upload/" . $_FILES["file"]["name"];
+                 	// -------------------------- START Redimension de la imagen --------------------------------------
+        			  	$ruta_imagen = $file;
+					  	if($extension ==  "gif") {
+					  		$imagen = imagecreatefromgif($ruta_imagen);	
+						} elseif($extension ==  "png") {
+							$imagen = imagecreatefrompng($ruta_imagen);	
+							} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+								$imagen = imagecreatefromjpeg($ruta_imagen);	
+							}
 	
-									$ancho_original = imagesx($imagen);
-									$alto_original = imagesy($imagen);
-									$ancho_final = 500;
-									$alto_final = ($ancho_final/$ancho_original)*$alto_original;
+							$ancho_original = imagesx($imagen);
+							$alto_original = imagesy($imagen);
+							$ancho_final = 500;
+							$alto_final = ($ancho_final/$ancho_original)*$alto_original;
+							$imagen_redimensionada = imagecreatetruecolor($ancho_final, $alto_final);
+							imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
+							if($extension ==  "gif") {
+								imagegif($imagen_redimensionada, $file);
+							} elseif($extension ==  "png") {
+								imagepng($imagen_redimensionada, $file);	
+							} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
+								imagejpeg($imagen_redimensionada, $file);
+							}
 	
-									$imagen_redimensionada = imagecreatetruecolor($ancho_final, $alto_final);
-									imagecopyresampled($imagen_redimensionada, $imagen, 0, 0, 0, 0, $ancho_final, $alto_final, $ancho_original, $alto_original);
-	
-									if($extension ==  "gif") {
-										imagegif($imagen_redimensionada, $file);
-									} elseif($extension ==  "png") {
-										imagepng($imagen_redimensionada, $file);	
-									} elseif($extension == "jpeg" || $extension == "jpg" || $extension == "pjpeg") {
-										imagejpeg($imagen_redimensionada, $file);
-									}
-	
-									imagedestroy($imagen);
-									imagedestroy($imagen_redimensionada);		
-								// -------------------------- END Redimension de la imagen ----------------------------------------
-                    }
-              }
-	}
-	else{
-   		die("Archivo inválido");
+							imagedestroy($imagen);
+							imagedestroy($imagen_redimensionada);		
+							// -------------------------- END Redimension de la imagen ----------------------------------------
+                   }
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
@@ -144,5 +133,5 @@
 		die("Error al actualizar los datos. Vuelva a intentarlo");	
 	}
 
-	header("Location: panelMisEventos.php");
+	header("Location: panelMisEventos.php?success=2");
 ?>

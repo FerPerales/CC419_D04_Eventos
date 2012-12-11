@@ -10,16 +10,19 @@ else {
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
 		<link rel="stylesheet" type="text/css" href="../css/nuevoEvento.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.blockUI.js"></script>	
 		
-		<script type="text/javascript" src="../js/jquery-1.8.1.min.js" ></script>
-		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js" ></script>
-		
+		<?php
+			include 'alertsFunction.php'
+		?>
 	</head>
 
 	<body>

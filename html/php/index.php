@@ -4,11 +4,17 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistablog.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.blockUI.js"></script>	
+		<?php 
+			include 'alertsFunction.php';
+		?>
 	</head>
 
 	<body>
@@ -31,7 +37,7 @@
 					<h3><a href="vistaDetalle.php?evento=', $value["idevento"], '">', $value["fechaEvento"], ': ', 
 					html_entity_decode($value["nombre"]), '</a></h3>';
 					
-			echo '<img src="', $value["rutaFlyer"], '" width="500" height="800" />
+			echo '<img src="', $value["rutaFlyer"], '"  />
 					<p>', 
 					html_entity_decode(htmlentities($value["descripcion"])), 
 					'</p>
@@ -71,6 +77,5 @@
 			
 			
 	<?	include 'footer.php'; ?>
-		
 	</body>
 </html>

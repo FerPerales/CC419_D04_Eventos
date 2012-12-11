@@ -1,6 +1,5 @@
 <?php
-//phpinfo();
-session_start();
+	session_start();
 	require_once("bd.inc");
 	header('Content-Type: text/html; charset=utf-8');
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
@@ -81,6 +80,9 @@ session_start();
 	$extension = end(explode(".", $_FILES["file"]["name"]));
 	
 	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
+	$query = "SELECT MAX(idevento) AS id from evento";
+	$result = $mysql -> query($query);
+	$last_id = $result -> fetch_assoc();
 	if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/png")
@@ -90,18 +92,18 @@ session_start();
       && in_array($extension, $extensionesPermitidas)){
               //Si no hubo un error al subir el archivo temporalmente
               if ($_FILES["file"]["error"] > 0){
-                     die("Return Code: " . $_FILES["file"]["error"] . "<br />");
+              		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=1&code=".$_FILES["file"]["error"]);
               }
               else{
                     //Si el archivo ya existe se muestra el mensaje de error
-                    if (file_exists("upload/" . $_FILES["file"]["name"])){
-                           die($_FILES["file"]["name"] . " already exists. ");
+                    if (file_exists("upload/Evento".$last_id['id'])){
+                    		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=2");
                     }
                     else{
                            //Se mueve el archivo de su ruta temporal a una ruta establecida
                            move_uploaded_file($_FILES["file"]["tmp_name"],
-                                   "upload/" . $_FILES["file"]["name"]);
-                           $file = "upload/" . $_FILES["file"]["name"];
+                                   "upload/Evento".$last_id['id']);
+                           $file = "upload/Evento".$last_id['id'];
                           // -------------------------- START Redimension de la imagen --------------------------------------
                     			$ruta_imagen = $file;
 									if($extension ==  "gif") {
@@ -135,7 +137,7 @@ session_start();
               }
 	}
 	else{
-   		die("Archivo inválido");
+   		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=0");
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
@@ -146,5 +148,5 @@ session_start();
 		die("Error al ingresar los datos. Vuelva a intentar");	
 	}
 	
-	header("Location: index.php");
+	header("Location: index.php?success=1");
 ?>
