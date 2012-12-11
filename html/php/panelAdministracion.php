@@ -32,12 +32,13 @@ else {
 	</head>
 
 	<body>
-		<header class="header" id="header">
-			<h1>Nuevos Eventos</h1>
-		</header>
 	<?
-		//include 'header.php';
-		include 'nav.php';
+		include 'nav.php'; 
+	?> 
+		<header class="header" id="header">
+			<h1>Administrar Eventos</h1>
+		</header>
+		<?php
 		require_once("funcionesEventos.php");
 		if(isset($_REQUEST["buscar"]) || isset($_REQUEST["status"])) {
 			

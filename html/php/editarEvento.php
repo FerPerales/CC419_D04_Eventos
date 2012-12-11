@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if (!isset($_SESSION["twitter"]))
+	header("Location: index.php");
+else { 
+?>
 <?php
 	//require_once("funcionesEventos.php");
 	$id = $_REQUEST["id"];
@@ -113,6 +118,5 @@
 	</body>
 </html>
 <?php
-endif;
-
+}
 ?>

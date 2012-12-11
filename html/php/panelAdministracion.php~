@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (!isset($_SESSION["twitter"]))
-	header(Location: "index.php");
+	header("Location: index.php");
 else { 
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ else {
 
 	<body>
 		<header class="header" id="header">
-			<h1>Nuevos Eventos</h1>
+			<h1>Administrar Eventos</h1>
 		</header>
 	<?
 		//include 'header.php';
