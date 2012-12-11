@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php
 function misEventos () {
 	//Conexion a la base de datos
