@@ -1,8 +1,5 @@
 <?php 
 session_start();
-if (!isset($_SESSION["twitter"]))
-	header("Location: index.php");
-else { 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,13 +18,14 @@ else {
 	</head>
 
 	<body>
-		<header>
-			<h1>Calendario</h1>
-		</header>
+		
 	<?
 		//include 'header.php';
 		include 'nav.php';
 	?>
+	<header>
+			<h1>Calendario</h1>
+		</header>
 	<!-- 
 	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
 	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)
@@ -59,5 +57,3 @@ else {
 		
 	</body>
 </html>
-<?php } //esta llave cierra if (!isset($_SESSION["twitter"]))
-?>

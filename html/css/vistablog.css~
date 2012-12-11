@@ -112,6 +112,7 @@ article > div > button + button
 }
 section
 {
+	width: 50%;
 	margin: 10px auto;
 }
 section img 

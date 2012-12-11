@@ -12,19 +12,20 @@ session_start();
 		<script type="text/javascript" src="../js/fullcalendar.min.js"></script>
 		
      <link rel="stylesheet" type='text/css' href='../css/fullcalendar.css' />
-       
+     <link rel="stylesheet" type='text/css' href='../css/posicionGeneral.css' />  
      <link rel="stylesheet" type='text/css' href="../css/vistacalendario.css"/>
      <title>Calendario</title>
 	</head>
 
 	<body>
-		<header>
-			<h1>Calendario</h1>
-		</header>
+		
 	<?
 		//include 'header.php';
 		include 'nav.php';
 	?>
+	<header>
+			<h1>Calendario</h1>
+		</header>
 	<!-- 
 	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
 	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)

@@ -126,6 +126,7 @@ section p
 
 #calendar{
 	position: relative;
+   top: 40px;
 	background: #D4D4D4;
 	clear: both;
 }

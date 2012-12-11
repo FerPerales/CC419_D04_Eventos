@@ -43,13 +43,14 @@ else {
 	</head>
 
 	<body>
-		<header class="header" id="header">
-			<h1>Mis Eventos</h1>
-		</header>
+		
 	<?
 		//include 'header.php';
 		include 'nav.php';
 	?>
+	<header class="header" id="header">
+			<h1>Mis Eventos</h1>
+	</header>
 	<!-- 
 	Se necesitará un php que dibuje <section> y todo lo que ésta contiene. 
 	0. poner un for que dibuje 5 sections (por decir algo, 5 por página)

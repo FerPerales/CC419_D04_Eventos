@@ -7,14 +7,17 @@
 		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
+		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistablog.css" />
 	</head>
 
 	<body>
 	
 	<?
-		include 'header.php';
 		include 'nav.php';
+	?>
+	<header> <h1>Blog</h1> </header>
+	<?php
 		include 'consultaEventos.php';
 	?>
 		<article class="all_event">
