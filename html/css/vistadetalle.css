@@ -107,4 +107,5 @@ section > div > p { color: white;}
 { 
 	border-top-left-radius: 9px; 
 	border-top-right-radius: 9px;
+	margin-top: 30px;
 }
