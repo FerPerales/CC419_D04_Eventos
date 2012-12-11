@@ -39,8 +39,8 @@ function misEventos () {
 				$datos[] = $fila;
 		}	
 	}
-	
-	return $datos;
+	if (isset($datos))
+		return $datos;
 }
 
 function eliminarEvento($id) {
