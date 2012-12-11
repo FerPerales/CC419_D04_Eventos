@@ -10,7 +10,7 @@
 
 
 	//Creo la consulta
-	$mi_query = "SELECT idevento, nombre, fechaEvento
+	$mi_query = "SELECT idevento, nombre, fechaEvento, categoria
 				 FROM evento
 				 WHERE status LIKE 'aprobado'";
 	
@@ -26,6 +26,12 @@
 	//Creo el arreglo de arreglos donde guardaré los datos de mi evento
 	$eventos = array();
 	
+	$colorEvento = array(
+	    "1" => "#FF0000",
+	    "2" => "#008000",
+	    "3" => "#0000FF",   
+    );
+	
 	if($cuantosRenglones >= 1){
 		
 		//Por cada fila obtengo un arreglo		
@@ -37,7 +43,8 @@
 				'end' => strtotime($fila['fechaEvento']),
 				'title' => $fila['nombre'],
 				'url' => "vistaDetalle.php?evento=".$fila['idevento'],
-				'allDay' => true				
+				'allDay' => true,
+				'color' => $colorEvento[$fila['categoria']]				
 			));
 			
 	}
