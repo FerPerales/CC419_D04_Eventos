@@ -29,7 +29,7 @@ require 'tmh/tmhUtilities.php';
 require 'twitter.inc';
 
 $here = tmhUtilities::php_self();
-#session_start();
+session_start();
 
 function outputError($tmhOAuth) {
   echo 'Error: ' . $tmhOAuth->response['response'] . PHP_EOL;
@@ -39,7 +39,10 @@ function outputError($tmhOAuth) {
 // reset request?
 if ( isset($_REQUEST['wipe'])) {
   session_destroy();
-  header("Location: index.php");
+  session_unset();
+  session_destroy();
+  setcookie(session_name(), '', time()-3600); 
+  header("Location: index2.php");
 
 // already got some credentials stored?
 } elseif ( isset($_SESSION['access_token']) ) {
