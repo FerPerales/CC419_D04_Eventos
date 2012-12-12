@@ -38,11 +38,11 @@ function outputError($tmhOAuth) {
 
 // reset request?
 if ( isset($_REQUEST['wipe'])) {
-  session_destroy();
+  //session_destroy();
   session_unset();
   session_destroy();
   setcookie(session_name(), '', time()-3600); 
-  header("Location: index2.php");
+  header("Location: index.php");
 
 // already got some credentials stored?
 } elseif ( isset($_SESSION['access_token']) ) {
@@ -54,11 +54,49 @@ if ( isset($_REQUEST['wipe'])) {
     $resp = json_decode($tmhOAuth->response['response']);
     //Save things!!!!    
     // tokens, id, screen_name, profile_url, bio
-    echo $resp->screen_name;
+    //echo $resp->screen_name;
+    $_SESSION['twitter'] = $resp->screen_name;
+
+	require_once("bd.inc");
+	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
+	
+	//Validar que no genere error la conexión
+	if($con -> connect_error)
+		die("Por el momento no se puede acceder al gestor de la base de datos");
+
+
+	//Creo la consulta
+	$mi_query = 'SELECT twitter, admin
+				 FROM usuario
+				 WHERE twitter='.$resp->id;
+
+	//Ejecuto mi consulta
+	$result = $con -> query($mi_query);
+	
+
+	//Convierto el resultado de mi consulta a una matriz
+	
+	
+	//Creo el arreglo de arreglos donde guardaré los datos de mi evento
+
+	if($result -> num_rows >= 1){
+		$registro = $result -> fetch_assoc();
+		$_SESSION['admin'] = $registro['admin'];
+	}else{
+		$mi_query = "INSERT INTO usuario VALUES (".
+					$resp->id_str.", 0,0)";
+		$result = $con -> query($mi_query);		
+		$_SESSION['admin'] = 0;		
+	}
+	
+	$con -> close();
+	
+
+    header("Location: index.php");
   } else {
     outputError($tmhOAuth);
   }
-  header("Location: {$_SESSION['ref']}");
+  //header("Location: {$_SESSION['ref']}");
 // we're being called back by Twitter
 } elseif (isset($_REQUEST['oauth_verifier'])) {
   $tmhOAuth->config['user_token']  = $_SESSION['oauth']['oauth_token'];
