@@ -1,7 +1,6 @@
 
 header
 {
-	width: 50px;
 	height: 50px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
 	margin: 0 auto;
 	padding-top: 1px;
@@ -12,16 +11,14 @@ header
 
 article, footer
 {
+	word-wrap:break-word;
 	clear: both;
-	width: 50%;
 	margin: auto;
 }
 
 footer 
 {
-
     margin: 80px auto;
-    width: 50%;
 }
 
 article.container
@@ -29,4 +26,9 @@ article.container
 	clear: both;
 	width: 70%;
 	margin: auto;
+}
+#container
+{
+	width:  60%;
+	margin: 0 auto;
 }

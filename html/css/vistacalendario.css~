@@ -1,6 +1,5 @@
 body
-{	
-word-wrap:break-word;
+{
 	background: rgb(0,0,0); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(219,196,21,1) 0%, rgba(0,0,0,1) 0%, rgba(152,0,0,1) 48%, rgba(0,0,0,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(0%,rgba(219,196,21,1)), color-stop(0%,rgba(0,0,0,1)), color-stop(48%,rgba(152,0,0,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
@@ -13,9 +12,6 @@ word-wrap:break-word;
 
 nav
 {
-	width: 50%;
-	margin: 0 auto;
-	
 }
 nav ul
 { 
@@ -126,7 +122,6 @@ section p
 
 #calendar{
 	position: relative;
-   top: 40px;
 	background: #D4D4D4;
 	clear: both;
 }
