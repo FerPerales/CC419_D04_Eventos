@@ -47,18 +47,19 @@ session_start();
 						
 						<p>Cuando: <span class="place" id="cuando">', $fechaEvento, '</span></p>
 						<p>Donde: <span class="place" id="donde">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
+						<p class="place" id="more-inf">
+						Precio: <span class="place" id="precio">$', $precio, '</span> ';
+						if($capacidad == -1)
+							echo 'Capacidad: <span class="place" id="capacidad"> Ilimitada </span> ';
+						else
+							echo	'Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> ';
+						echo		'Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el ', $fechaEvento, ' por  
+						<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
+					</p>
 					</div>
 				</div>
 				<div class="info" id="event-det">
-					<p class="place" id="more-inf">
-						Precio: <span class="place" id="precio">$', $precio, '</span> ';
-				if($capacidad == -1)
-					echo 'Capacidad: <span class="place" id="capacidad"> Ilimitada </span> ';
-				else
-					echo	'Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> ';
-			echo		'Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el ', $fechaEvento, ' por  
-						<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
-					</p>
+					
 				</div>';  
 				include 'disqus.php';
 				echo 
