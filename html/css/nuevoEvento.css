@@ -1,51 +1,48 @@
-header
+section
 {
-	width: 50%;
-	height: 0px; /*esto esta mal usado, en realidad debería ir todo dentro de un content para poder hacer float left en header h1 */
-	margin: 0 auto;
-	padding-top: 1px;
-	color:#D4D4D4;
-	font-family: sans-serif;
+	margin: 10px auto;
 }
-
-div.formulario 
+label 
 {
-	clear: both;
-	width: 50%;
-	margin: 0 auto;	
-}
-
-div 
-{
-	margin: .4em 0;
-}
-
-input.registro
-{
-	width: 50%;
-}
-
-.num
-{
-	width: 5em;
-}
-
-.label-event 
-{
-	font-family: arial, sans-serif;
-	color: #FFFFFF;
+	float: left;
+	font-family: Helvetica, Arial;
+	color: black;
 	font-size: 12px;
 	font-weight: bold;
 	line-height: 2;
-
+	margin-left: 10px;
+	width: 20%;
+}
+input
+{
+	float: right;
+	width: 70%;
+	margin: 0 10px; 
 }
 
-.check, #cap_event
+textarea 
 {
-	display: inline;
+    margin-left: 7px;
+    width: 97%
+ }
+.label-event 
+{
+}
+.check, .label-eventcheck 
+{
+	display:  inline;
+	width: 10%;
+}
+.check
+{
 	float: left;
 }
-
+input .check
+{
+	clear: both; 	
+}
+.clearer
+{clear:  both;}
 #info
 {
 	clear: both;	
@@ -53,7 +50,6 @@ input.registro
 
 footer
 {
-	width: 50%;
 	margin: 80px auto;
 	border-top-left-radius: 9px;
 	border-top-right-radius: 9px;
@@ -61,4 +57,28 @@ footer
 
 #enviarReal{
 	visibility: hidden;
+}
+.radios>p
+{
+	float left;
+}
+.num_check
+{
+	display: block;
+}
+span
+{
+	float: left;
+	font-family: Helvetica, Arial;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 2;
+	margin-left: 10px;
+	width: 20%;
+}
+button
+{
+	float: right;
+	margin-right: 10px;
 }
