@@ -14,7 +14,7 @@
 		$num_cap = $_REQUEST["cap_event"];
 	} else {
 		if($capacidad == "ilimited")
-			$num_cap = -1;	
+			$num_cap = 0;	
 	}	
 	$categoria = $_REQUEST["cat"];
 	$fecha = $_REQUEST["dat_event"];
@@ -43,25 +43,25 @@
 	$fecha = htmlentities($fecha);
 	
 	if(preg_match('/[0-9]*/',$id) == 0) {
-		die("Hay un error con el id");	
+		header("LOCATION: panelMisEventos.php?error=10");	
 	}	
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:]{8,}/', $nomEvento) == 0) {
-		die("El nombre del evento es incorrecto o cuenta con menos de 8 caracteres");
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
+		header("LOCATION: panelMisEventos.php?error=3");
 	}
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos o cuenta con menos de 20 caracteres");	
+	if(strlen($descripcion) <= 20){
+		header("LOCATION: panelMisEventos.php?error=4");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
-		die("El precio es incorrecto");	
+		header("LOCATION: panelMisEventos.php?error=5");
 	}
 	if(preg_match('/-*[0-9]+/',$num_cap) == 0) {
-		die("La capacidad es erronea");	
+		header("LOCATION: panelMisEventos.php?error=6");	
 	}
 	if(preg_match('/[0-9]/', $categoria) == 0) {
-		die("La categoria es erronea");	
+		header("LOCATION: panelMisEventos.php?error=7");
 	}
 	if(preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha) == 0) {
-		die("Fecha invalida");	
+		header("LOCATION: panelMisEventos.php?error=8");
 	}
 	
 	//Se define el tamaño que se permitirá (en KB por eso lo multiplicamos por 1024)
@@ -123,14 +123,14 @@
 	//Ingresamos los datos del evento a la base de datos
 	if(empty($file) || !isset($file)) {
 		$query = "UPDATE evento SET nombre='$nomEvento',descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
-				categoria='$categoria' WHERE idevento=$id";
+				categoria='$categoria' WHERE idevento=$id AND creadoPor=$_SESSION['access_token']['user_id']";
 	} else {
 		$query = "UPDATE evento SET nombre='$nomEvento',rutaFlyer='$file', descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
-				categoria='$categoria' WHERE idevento=$id";	
+				categoria='$categoria' WHERE idevento=$id AND creadoPor=$_SESSION['access_token']['user_id']";	
 	}
 
 	if(!$mysqli -> query($query)) {
-		die("Error al actualizar los datos. Vuelva a intentarlo");	
+		header("LOCATION: altaEventos.php?error=9");	
 	}
 
 	header("Location: panelMisEventos.php?success=2");

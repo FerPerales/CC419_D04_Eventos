@@ -5,7 +5,7 @@
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
 	//Obtener variables
-	$quienCrea = $_SESSION["twitter"];
+	$quienCrea = $_SESSION["access_token"]["user_id"];
 	$nomEvento = $_REQUEST["nom_event"];
 	$descripcion = $_REQUEST["descripcion"];
 	$precio = $_REQUEST["cost_event"];
@@ -13,8 +13,8 @@
 	if($capacidad == "limited") {
 		$num_cap = $_REQUEST["cap_event"];
 	} else {
-		if($capacidad == "ilimited")
-			$num_cap = -1;	
+		if($capacidad == "unlimited")
+			$num_cap = 0;	
 	}	
 	$categoria = $_REQUEST["cat"];
 	$fecha = $_REQUEST["dat_event"];
@@ -35,38 +35,30 @@
 	$fecha = $mysql -> real_escape_string($fecha);
 	
 	$nomEvento = htmlentities($nomEvento, ENT_QUOTES,'UTF-8');
-	//htmlentities($var,ENT_QUOTES,'UTF-8');
-	//echo 'antes de entities <pre>', var_dump($descripcion), '</pre>';
-	$a = htmlentities($descripcion);
-	//echo 'despues de entities <pre>', var_dump($a), '</pre>';
 	$descripcion = htmlentities($descripcion, ENT_QUOTES,'UTF-8');
-	//echo 'despues de entities 3 parametros <pre>', var_dump($descripcion), '</pre>';
-   /*$c = htmlspecialchars($descripcion, ENT_QUOTES, "UTF-8");
-	echo 'despues de special chars <pre>', var_dump($c), '</pre>';*/
 	$precio = htmlentities($precio, ENT_QUOTES,'UTF-8');
 	$capacidad = htmlentities($capacidad, ENT_QUOTES,'UTF-8');
 	$num_cap = htmlentities($num_cap, ENT_QUOTES,'UTF-8');
 	$categoria = htmlentities($categoria, ENT_QUOTES,'UTF-8');
 	$fecha = htmlentities($fecha, ENT_QUOTES,'UTF-8');
-	
-	
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
-		die("El nombre del evento cuenta con caracteres invalidos o menos de 8 caracteres");
+
+	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{8,}/', $nomEvento) == 0) {
+		header("LOCATION: altaEventos.php?error=3");
 	}
-	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{20,4500}/', $descripcion) == 0){
-		die("La descripcion cuenta con caracteres invalidos o menos de 20 caracteres");	
+	if(strlen($descripcion) <= 20){
+		header("LOCATION: altaEventos.php?error=4");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
-		die("El precio es incorrecto");	
+		header("LOCATION: altaEventos.php?error=5");
 	}
-	if(preg_match('/-*[0-9]+/',$num_cap) == 0) {
-		die("La capacidad es erronea");	
+	if(preg_match('/[0-9]+/',$num_cap) == 0) {
+		header("LOCATION: altaEventos.php?error=6");	
 	}
 	if(preg_match('/[0-9]/', $categoria) == 0) {
-		die("La categoria es erronea");	
+		header("LOCATION: altaEventos.php?error=7");
 	}
 	if(preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha) == 0) {
-		die("Fecha invalida");	
+		header("LOCATION: altaEventos.php?error=8");
 	}
 	
 	// -------------------------- START Script de carga de imagen -------------------------------------
@@ -83,6 +75,8 @@
 	$query = "SELECT MAX(idevento) AS id from evento";
 	$result = $mysql -> query($query);
 	$last_id = $result -> fetch_assoc();
+	if(empty($last_id["id"]))
+	 $last_id["id"] = 1;
 	if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/png")
@@ -92,12 +86,12 @@
       && in_array($extension, $extensionesPermitidas)){
               //Si no hubo un error al subir el archivo temporalmente
               if ($_FILES["file"]["error"] > 0){
-              		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=1&code=".$_FILES["file"]["error"]);
+              		header("LOCATION: altaEventos.php?error=1&code=".$_FILES["file"]["error"]);
               }
               else{
                     //Si el archivo ya existe se muestra el mensaje de error
                     if (file_exists("upload/Evento".$last_id['id'])){
-                    		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=2");
+                    		header("LOCATION: altaEventos.php?error=2");
                     }
                     else{
                            //Se mueve el archivo de su ruta temporal a una ruta establecida
@@ -137,15 +131,15 @@
               }
 	}
 	else{
-   		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=0");
+   		header("LOCATION: altaEventos.php?error=0");
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
 	$query = "INSERT INTO evento(creadoPor, nombre, rutaFlyer, descripcion,precio,capacidad,fechaEvento,fechaCreacion,status,categoria) 
-					VALUES ($quienCrea,'$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','pendiente',$categoria)";
+					VALUES ('$quienCrea','$nomEvento','$file','$descripcion',$precio,$num_cap,'$fecha','$fechaActual','pendiente',$categoria)";
 	
 	if(!$mysql -> query($query)) {
-		die("Error al ingresar los datos. Vuelva a intentar");	
+		header("LOCATION: altaEventos.php?error=9");
 	}
 	
 	header("Location: index.php?success=1");
