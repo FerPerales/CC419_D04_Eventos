@@ -52,6 +52,11 @@ if ( isset($_REQUEST['wipe'])) {
   $code = $tmhOAuth->request('GET', $tmhOAuth->url('1/account/verify_credentials'));
   if ($code == 200) {
     $resp = json_decode($tmhOAuth->response['response']);
+	  
+	  
+	/*echo 'access_token = '.$_SESSION['access_token']['oauth_token'];  
+	echo 'oauth_token_secret = '.$_SESSION['access_token']['oauth_token_secret'];*/
+	  
     //Save things!!!!    
     // tokens, id, screen_name, profile_url, bio
     //echo $resp->screen_name;
@@ -66,32 +71,28 @@ if ( isset($_REQUEST['wipe'])) {
 
 
 	//Creo la consulta
-	$mi_query = 'SELECT twitter, admin
+	$mi_query = 'SELECT twitter, admin, username
 				 FROM usuario
 				 WHERE twitter='.$resp->id;
 
 	//Ejecuto mi consulta
 	$result = $con -> query($mi_query);
-	
-
-	//Convierto el resultado de mi consulta a una matriz
-	
-	
-	//Creo el arreglo de arreglos donde guardaré los datos de mi evento
 
 	if($result -> num_rows >= 1){
 		$registro = $result -> fetch_assoc();
 		$_SESSION['admin'] = $registro['admin'];
 	}else{
-		$mi_query = "INSERT INTO usuario VALUES (".
-					$resp->id_str.", 0,0)";
+		$mi_query = "INSERT INTO usuario VALUES ('".
+						$resp->id_str."','".
+						$resp->screen_name."', '".
+						$_SESSION['access_token']['oauth_token']."','".
+						$_SESSION['access_token']['oauth_token_secret']."',0)";		
 		$result = $con -> query($mi_query);		
 		$_SESSION['admin'] = 0;		
+		$_SESSION['username'] = $resp->screen_name;	
 	}
 	
-	$con -> close();
-	
-
+	$con -> close();	
     header("Location: index.php");
   } else {
     outputError($tmhOAuth);
