@@ -30,7 +30,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -119,6 +119,7 @@ else {
 	</body>
 </html>
 <?php
-	endif;
+	endif; //cierra el if de si $_REQUEST["id"] estaba set... si no, entonces error, porque se intentó entrar con la url)
+	header("Location:404.php");
  }
 ?>
