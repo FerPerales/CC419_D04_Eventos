@@ -47,6 +47,7 @@ nav ul li a
 
 section, footer
 {
+	overflow: auto;
 	/*margin: 0 auto;*/
 	padding: 15px 0px;
 	background: rgb(206,206,206); /* Old browsers */
