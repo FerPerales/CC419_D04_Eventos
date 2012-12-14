@@ -136,5 +136,5 @@
 		header("LOCATION: altaEventos.php?error=9");	
 	}
 
-	//header("Location: panelMisEventos.php?success=2");*/
+	header("Location: panelMisEventos.php?success=2");
 ?>
