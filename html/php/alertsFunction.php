@@ -66,6 +66,40 @@
 	</div>
 <?php
 	}
+	elseif(isset($_REQUEST["success"]) && $_REQUEST["success"] == 3) {
+?>
+<script type="text/javascript" >
+		$(document).ready(function() { 
+    		  $.blockUI({ 
+          		message: $('div.msg'), 
+           		fadeIn: 700, 
+           		fadeOut: 700, 
+           		timeout: 5000, 
+           		showOverlay: false, 
+           		centerY: false, 
+           		css: { 
+              		width: '350px', 
+              		top: '10px', 
+              		left: '', 
+              		right: '10px', 
+              		border: 'none', 
+              		padding: '5px', 
+              		backgroundColor: '#FFF', 
+              		'-webkit-border-radius': '10px', 
+              		'-moz-border-radius': '10px', 
+              		opacity: .6, 
+              		color: '#000' 
+           		} 
+     			});  
+			}); 
+	</script>
+
+	<div class="msg" style="display: none;">
+      <h3>Exito!</h3>
+      <h4>El evento fue eliminado</h4>
+	</div>
+<?php
+	}
 	elseif(isset($_REQUEST["error"]) && $_REQUEST["error"] == 0) {
 ?>
 <script type="text/javascript" >

@@ -10,5 +10,5 @@
 	
 	eliminarEvento($id);
 	
-	header("Location: panelMisEventos.php");
+	header("Location: panelMisEventos.php?success=3");
 ?>

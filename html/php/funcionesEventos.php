@@ -50,10 +50,13 @@ function eliminarEvento($id) {
 	if($mysqli -> connect_error)
 		header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 			
+	$consult = $mysqli -> query("select rutaFlyer from evento where idevento=$id");
+	$consult = $consult -> fetch_assoc();
+	unlink($consult["rutaFlyer"]);
 	//Consulta
-	$consult = "delete from evento where idevento=$id";
+	$consult_ = "delete from evento where idevento=$id";
 	//Ejecutar consulta
-	$mysqli -> query($consult);
+	$mysqli -> query($consult_);
 	//Cerrar consulta
 	$mysqli -> close();	
 }
