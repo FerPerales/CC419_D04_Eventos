@@ -21,16 +21,14 @@
 	echo '<link>http://alanturing.cucei.udg.mx/duke/php/</link>';
 	echo '<description>Todo es sobre comunidad</description>';
 	
-
-
 	if($result -> num_rows >= 1){
 		
 		//Por cada fila obtengo un arreglo		
 		while($fila = $result -> fetch_assoc()){
 			echo '<item>';
-            echo '<title>'.$fila["nombre"].'</title>';         
-		    echo '<link>http://alanturing.cucei.udg.mx/duke/php/vistaDetalle.php?evento='.$fila["idevento"].'</link>';
-            echo '<description>'.$fila["descripcion"].'</description></item>';
+            echo '<title>'.htmlentities($fila["nombre"]).'</title>';         
+		    echo '<link>http://alanturing.cucei.udg.mx/duke/php/vistaDetalle.php?evento='.htmlentities($fila["idevento"]).'</link>';
+            echo '<description>'.htmlentities($fila["descripcion"]).'</description></item>';
 		}					
 	}
 
