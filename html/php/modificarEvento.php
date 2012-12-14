@@ -121,12 +121,13 @@
 	}
 	// -------------------------- END Script de carga de imagen ---------------------------------------
 	//Ingresamos los datos del evento a la base de datos
+	
 	if(empty($file) || !isset($file)) {
 		$query = "UPDATE evento SET nombre='$nomEvento',descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
-				categoria='$categoria' WHERE idevento=$id AND creadoPor=$_SESSION['access_token']['user_id']";
+				categoria='$categoria' WHERE idevento=$id AND creadoPor=".$_SESSION['access_token']['user_id'];
 	} else {
 		$query = "UPDATE evento SET nombre='$nomEvento',rutaFlyer='$file', descripcion='$descripcion',precio=$precio,capacidad=$num_cap,fechaEvento='$fecha',
-				categoria='$categoria' WHERE idevento=$id AND creadoPor=$_SESSION['access_token']['user_id']";	
+				categoria='$categoria' WHERE idevento=$id AND creadoPor=".$_SESSION['access_token']['user_id'];	
 	}
 
 	if(!$mysqli -> query($query)) {
