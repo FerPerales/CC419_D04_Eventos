@@ -119,19 +119,22 @@ function search($string, $status, $usuario) {
 		
 	$string = $mysqli -> real_escape_string($string);
 	$string = htmlentities($string, ENT_QUOTES,'UTF-8');
-	
 	if(!empty($string) && empty($status) && empty($usuario)) {
-		$mi_query = "select idevento, nombre, creadoPor, status, motivo from evento where idevento like '%$string%'
+		$mi_query = "select evento.idevento, evento.nombre, usuario.username creadoPor, evento.status, evento.motivo from evento 
+					inner join usuario on evento.creadoPor = usuario.twitter where idevento like '%$string%'
 					OR nombre like '%$string%' OR creadoPor like '%$string%' OR status like '%$string%'
 					OR motivo like '%$string%'";
 	} elseif(!empty($status) && empty($string) && empty($usuario)) {
-		$mi_query = "select idevento, nombre, creadoPor, status, motivo from evento where status='$status'";
+		$mi_query = "select evento.idevento, evento.nombre, usuario.username creadoPor, evento.status, evento.motivo from evento 
+					inner join usuario on evento.creadoPor=usuario.twitter where status='$status'";
 	} elseif(empty($string) && empty($status) && !empty($usuario)) {
-		$mi_query = "select idevento, nombre, creadoPor, status, motivo from evento where creadoPor='$usuario'";
+		$mi_query = "SELECT evento.idevento, evento.nombre, usuario.username creadoPor, evento.status, evento.motivo
+						FROM evento INNER JOIN usuario ON evento.creadoPor = usuario.twitter WHERE evento.creadoPor ='$usuario'";
 	} else 
-		$mi_query = "select idevento, nombre, creadoPor, status, motivo from evento where idevento like '%$string%'
-					AND nombre like '%$string%' AND creadoPor like '%$string%' AND status like '%$string%'
-					ANd motivo like '%$string%' OR status='$status' OR creadoPor='$usuario'";
+		$mi_query = "select evento.idevento, evento.nombre, usuario.username creadoPor, evento.status, evento.motivo from evento
+					inner join usuario on evento.creadoPor = usuario.twitter where idevento like '%$string%'
+					OR nombre like '%$string%' OR creadoPor like '%$string%' OR status like '%$string%'
+					OR motivo like '%$string%' OR status='$status' OR evento.creadoPor='$usuario'";
 			
 	
 	//Ejecutar mi consulta
@@ -141,7 +144,6 @@ function search($string, $status, $usuario) {
 	$mysqli -> close();
 
 	//Convierto el resultado de mi consulta a una matriz
-
 	if ( $result != false) // cuando la consulta sí dio algo
 	{
 		$cuantosRenglones = $result -> num_rows;
@@ -165,7 +167,7 @@ function usuarios() {
 	if($mysqli -> connect_error)
 		header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 	
-	$query = "select twitter from usuario";
+	$query = "select twitter, username from usuario";
 	
 	$result = $mysqli -> query($query);
 	

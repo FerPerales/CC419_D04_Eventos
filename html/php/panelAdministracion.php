@@ -182,7 +182,7 @@ else {
 									<option value="0">Por usuario</option>';
 						if($datos != NULL) {
 							foreach($datos as $key => $value) {
-								echo "<option value='".$value["twitter"]."'>".$value["twitter"]."</option>";	
+								echo "<option value='".$value["twitter"]."'>".$value["username"]."</option>";	
 							} 
 						}
 						echo '</select>';
