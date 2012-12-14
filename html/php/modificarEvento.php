@@ -71,7 +71,8 @@
 	$extensionesPermitidas = array("jpg", "jpeg", "gif", "png");
 
 	//Obtenemos la extensión del archivo
-	$extension = end(explode(".", $_FILES["file"]["name"]));
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$extension = end($temp);
 	
 	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
 	if ((($_FILES["file"]["type"] == "image/gif")
