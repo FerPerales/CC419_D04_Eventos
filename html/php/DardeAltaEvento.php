@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("bd.inc");
-	header('Content-Type: text/html; charset=utf-8');
+	//header('Content-Type: text/html; charset=utf-8');
 	$mysql = new mysqli($dbhost, $dbuser, $dbpass, $db);
 	
 	//Obtener variables
@@ -69,8 +69,8 @@
 	$extensionesPermitidas = array("jpg", "jpeg", "gif", "png");
 
 	//Obtenemos la extensión del archivo
-	$extension = end(explode(".", $_FILES["file"]["name"]));
-	
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$extension = end($temp);
 	//Validamos el tipo de archivo, el tamaño en bytes y que la extensión sea válida
 	$query = "SELECT MAX(idevento) AS id from evento";
 	$result = $mysql -> query($query);
