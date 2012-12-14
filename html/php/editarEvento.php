@@ -94,7 +94,7 @@ else {
 						<span>Capacidad:</span>
 							<div>
 								<?php 
-									if($capacidad == -1)
+									if($capacidad == 0)
 									echo '<input type="radio" name="cap" class="check" value="unlimited" id="radioIlimitado" checked/>
 <span class="label-event check">Ilimitado</span>
 </div>
