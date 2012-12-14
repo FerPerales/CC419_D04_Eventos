@@ -16,7 +16,7 @@
 		$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		//Validar que no genere error la conexión
 		if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+			die("Por el momento no se puede acceder al gestor de la base de datos");
 
 
 		//para cada evento checked:
@@ -54,7 +54,7 @@
 		$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		//Validar que no genere error la conexión
 		if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+			header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 
 
 		//para cada evento checked:
