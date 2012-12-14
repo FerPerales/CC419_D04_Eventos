@@ -77,6 +77,8 @@
 	$last_id = $result -> fetch_assoc();
 	if(empty($last_id["id"]))
 	 $last_id["id"] = 1;
+	else
+		$last_id["id"] += 1;
 	if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/png")
