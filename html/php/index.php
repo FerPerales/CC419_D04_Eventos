@@ -9,6 +9,7 @@
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistablog.css" />
+		<link rel="alternate" type="application/rss+xml" title="Feed de eventos de HackerGarage" href="http://alanturing.cucei.udg.mx/duke/php/rss.php">
 		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.blockUI.js"></script>	

@@ -8,6 +8,7 @@ session_start();
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
 		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
+				<link rel="alternate" type="application/rss+xml" title="Feed de eventos de HackerGarage" href="http://alanturing.cucei.udg.mx/duke/php/rss.php">
 		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="../js/fullcalendar.min.js"></script>
 		

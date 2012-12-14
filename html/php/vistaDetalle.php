@@ -8,6 +8,7 @@ session_start();
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
 		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
+				<link rel="alternate" type="application/rss+xml" title="Feed de eventos de HackerGarage" href="http://alanturing.cucei.udg.mx/duke/php/rss.php">
 		<title>Detalle de evento</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistadetalle.css" />
