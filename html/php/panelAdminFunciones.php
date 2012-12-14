@@ -109,7 +109,7 @@
 				$motivo = $value;
 				echo $motivo.'<br>';
 				//crear la consulta
-				$mi_query = "UPDATE evento SET status='pendiente', motivo = '' WHERE idevento = $idevento ";
+				$mi_query = "UPDATE evento SET status='pendiente', motivo='$motivo' WHERE idevento = $idevento ";
 				
 				//ejecutar la consulta
 				$ejecuta = $con -> query($mi_query);
