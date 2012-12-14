@@ -3,6 +3,6 @@
 				
 			</section>
 			<section class="">
-				asdfasdfasdfasdf
+				
 			</section>
 </article>
