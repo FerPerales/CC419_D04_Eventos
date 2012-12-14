@@ -8,7 +8,7 @@
 		header("Location: panelAdministracion.php?error=11");
 
 	//Creo la consulta
-	$mi_query = "select idevento, nombre, creadoPor, status, motivo
+	$mi_query = "select idevento, nombre, creadoPor, status, motivo, descripcion, precio, capacidad, categoria
 				 from evento";
 	
 	//Ejecutar mi consulta
