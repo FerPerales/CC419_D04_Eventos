@@ -16,6 +16,10 @@ div.botonesAprobar button
 	float: left;
 	margin-left: 30px;
 }
+.formulario
+{
+	overflow:auto;
+}
 table
 {
 	clear: both;
@@ -29,6 +33,7 @@ table
 }
 form
 {
+	
 	padding: 0 20px;
 }
 section

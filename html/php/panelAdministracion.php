@@ -9,7 +9,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
@@ -67,10 +67,10 @@ else {
 		  
 		-->
 		<article class="container">
-				<section class="formulario">
-					<form action="panelAdminFunciones.php" method="get" >
+				<section >
+					<form class="formulario" action="panelAdminFunciones.php" method="get" >
 					
-						<div>
+						<div >
 							<div class="botonesSeleccion">
 								<button type="button" id="todos">Seleccionar todos</button>
 								<button type="button"id="ninguno">Deshacer selección</button>
@@ -98,7 +98,7 @@ else {
 								</button></a>
 							</div>	
 						</div>
-						<table border = "5">
+						<table border = "5" >
 							<tr>
 								<th></th>
 								<th>ID</th>
