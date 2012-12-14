@@ -30,7 +30,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -87,7 +87,7 @@ else {
 					<div class="clearer"></div>
 					<div>	
 						<label for="cost_event" class="label-event check" >Precio:</label>
-						<input type="number" name="cost_event" class="num check" id="cost_event" min="0" step="5" value="<?= $precio;?>"required />
+						<input type="number" name="cost_event" class="num check" id="cost_event" min="0" step="1" value="<?= $precio;?>"required />
 					</div>
 					<div class="clearer"></div>
 					<div class="radios">

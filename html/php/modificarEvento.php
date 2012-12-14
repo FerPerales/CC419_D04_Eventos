@@ -13,7 +13,7 @@
 	if($capacidad == "limited") {
 		$num_cap = $_REQUEST["cap_event"];
 	} else {
-		if($capacidad == "ilimited")
+		if($capacidad == "unlimited")
 			$num_cap = 0;	
 	}	
 	$categoria = $_REQUEST["cat"];
@@ -54,7 +54,7 @@
 	if(preg_match('/[0-9]+/', $precio) == 0) {
 		header("LOCATION: panelMisEventos.php?error=5");
 	}
-	if(preg_match('/-*[0-9]+/',$num_cap) == 0) {
+	if(preg_match('/[0-9]+/',$num_cap) == 0) {
 		header("LOCATION: panelMisEventos.php?error=6");	
 	}
 	if(preg_match('/[0-9]/', $categoria) == 0) {
@@ -86,10 +86,12 @@
               		header("LOCATION: ".$_SERVER['REQUEST_URI']."?error=1&code=".$_FILES["file"]["error"]);
               }
               else{
+              		$consult = $mysqli -> query("select rutaFlyer from evento where idevento=$id");
+						$consult = $consult -> fetch_assoc();
                  	//Se mueve el archivo de su ruta temporal a una ruta establecida
                  	move_uploaded_file($_FILES["file"]["tmp_name"],
-                       "upload/" . $_FILES["file"]["name"]);
-                 	$file = "upload/" . $_FILES["file"]["name"];
+                       "upload/Evento".$id);
+                 	$file = "upload/Evento".$id;
                  	// -------------------------- START Redimension de la imagen --------------------------------------
         			  	$ruta_imagen = $file;
 					  	if($extension ==  "gif") {
@@ -134,5 +136,5 @@
 		header("LOCATION: altaEventos.php?error=9");	
 	}
 
-	header("Location: panelMisEventos.php?success=2");
+	//header("Location: panelMisEventos.php?success=2");*/
 ?>
