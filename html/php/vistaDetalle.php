@@ -6,12 +6,14 @@ session_start();
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Detalle de evento</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistadetalle.css" />
-
+		<?php
+			include 'alertsFunction.php';
+		?>
 	</head>
 
 	<body>
@@ -20,7 +22,7 @@ session_start();
 			include 'nav.php';
 			include 'header.php';
 			
-			$evento = $_GET["evento"]; 
+			$evento = $_REQUEST["evento"]; 
 	
 			if(isset($evento) )
 			{
@@ -52,13 +54,13 @@ session_start();
 							<p>Donde: <span class="place" id="donde">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
 							<p class="place" id="more-inf">
 							Precio: <span class="place" id="precio">$', $precio, '</span> ';
-							if($capacidad == -1)
+							if($capacidad == 0)
 								echo 'Capacidad: <span class="place" id="capacidad"> Ilimitada </span> ';
 							else
 								echo	'Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> ';
 							echo		'Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el ', $fechaEvento, ' por  
 							<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
-						</p>
+						</p><a href="pdf.php?id=',$evento,'"><img src="../img/pdf.png" alt="pdf" width="23" height="25" class="doc"/></a>
 						</div>
 					</div>
 					<div class="info" id="event-det">

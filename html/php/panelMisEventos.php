@@ -74,7 +74,7 @@ else {
 							<th>Descripcion</th>
 							<th>Precio</th>
 							<th>Capacidad</th>
-							<th>fechaEvento</th>
+							<th>Fecha</th>
 							<th>Categoria</th>
 							<th>Motivo</th>
 						</tr>

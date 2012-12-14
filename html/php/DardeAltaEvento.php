@@ -90,14 +90,14 @@
               }
               else{
                     //Si el archivo ya existe se muestra el mensaje de error
-                    if (file_exists("upload/Evento".$last_id['id'])){
+                    if (file_exists("upload/Evento".$last_id['id'].".".$extension)){
                     		header("LOCATION: altaEventos.php?error=2");
                     }
                     else{
                            //Se mueve el archivo de su ruta temporal a una ruta establecida
                            move_uploaded_file($_FILES["file"]["tmp_name"],
-                                   "upload/Evento".$last_id['id']);
-                           $file = "upload/Evento".$last_id['id'];
+                                   "upload/Evento".$last_id['id'].".".$extension);
+                           $file = "upload/Evento".$last_id['id'].".".$extension;
                           // -------------------------- START Redimension de la imagen --------------------------------------
                     			$ruta_imagen = $file;
 									if($extension ==  "gif") {
