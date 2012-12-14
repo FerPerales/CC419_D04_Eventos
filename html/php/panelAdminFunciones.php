@@ -2,9 +2,9 @@
 <?php
 	/*if(sizeof($_REQUEST) == 1)	
 		header("Location: ./panelAdministracion.php");
-		echo '<pre>';
+		//echo '<pre>';
 	var_dump($_REQUEST);
-		echo '</pre>';
+		//echo '</pre>';
 	
 	*/
 	$operacion = $_REQUEST["operacion"];
@@ -24,17 +24,17 @@
 		{
 			//si es número, metelo a idevento
 			//si no es numero, metelo a motivo
-			echo'key: ', $key, ' ';
+			//echo'key: ', $key, ' ';
 			if($key != "operacion" && $value != "" && preg_match('/[0-9]/', $value) == 1) 
 			{ 
 				$idevento = $value;
-				echo '<br>se asigno a idevento: ', $idevento.'<br>';
+				//echo '<br>se asigno a idevento: ', $idevento.'<br>';
 			} 
 			elseif($key != "operacion" && isset($idevento)) 
 			{
 				
 				$motivo = $value;
-				echo '<br> se asigno a motivo: ', $motivo.'<br>';
+				//echo '<br> se asigno a motivo: ', $motivo.'<br>';
 				//crear la consulta
 				$mi_query = "UPDATE evento SET status='aprobado', motivo='$motivo' WHERE idevento = $idevento ";
 				//ejecutar la consulta
@@ -65,13 +65,13 @@
 			if($key != "operacion" && $value != "" && preg_match('/[0-9]/', $value) == 1) 
 			{ 
 				$idevento = $value;
-				echo 'se asigno a idevento ', $idevento.'<br>';
+				//echo 'se asigno a idevento ', $idevento.'<br>';
 			} 
 			elseif($key != "operacion" && isset($idevento)) 
 			{
 				
 				$motivo = $value;
-				echo $motivo.'<br>';
+				//echo $motivo.'<br>';
 				//crear la consulta
 				$mi_query = "UPDATE evento SET status='cancelado', motivo='$motivo' WHERE idevento = $idevento ";
 				//ejecutar la consulta
@@ -102,12 +102,12 @@
 			if($key != "operacion" && $value != "" && preg_match('/[0-9]/', $value) == 1) 
 			{ 
 				$idevento = $value;
-				echo 'se asigno a idevento ', $idevento.'<br>';
+				//echo 'se asigno a idevento ', $idevento.'<br>';
 			} 
 			elseif($key != "operacion" && isset($idevento)) 
 			{
 				$motivo = $value;
-				echo $motivo.'<br>';
+				//echo $motivo.'<br>';
 				//crear la consulta
 				$mi_query = "UPDATE evento SET status='pendiente', motivo='$motivo' WHERE idevento = $idevento ";
 				
