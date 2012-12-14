@@ -10,7 +10,7 @@ function misEventos () {
 		die("Por el momento no se puede acceder al gestor de la base de datos");
 	
 	//Extraer qué usuario está pidiendo la consulta:
-	$usuario = $_SESSION["twitter"];
+	$usuario = $_SESSION["access_token"]["user_id"];
 
 	//Creo la consulta
 	$mi_query = "select evento.idevento, evento.nombre, evento.descripcion, evento.precio, evento.capacidad, 
