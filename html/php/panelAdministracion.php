@@ -30,6 +30,9 @@ else {
     			}); 
 			}); 		
 		</script>
+		<?php 
+			include 'alertsFunction.php';
+		?>
 	</head>
 
 	<body>
@@ -122,7 +125,8 @@ else {
 								<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
 								<td style="background-color:',$colorFondo,'">', $value["creadoPor"], '</td>
 								<td style="background-color:',$colorFondo,'"><input type="text" value="', $value["motivo"], '" name = "comentarioEvento', 
-								$value["idevento"], '" /></td>
+								$value["idevento"], '" /><a href="editarEvento.php?id=',$value["idevento"],'">
+								<img src="../img/edit.gif" alt="editar" width="20" height="25"/></a></td>
 							</tr>';
 						}
 					}
@@ -160,7 +164,7 @@ else {
 			</article>
 		<div id="search" style="display:none"  >
 			<br />
-			<form metho="post" action="panelAdministracion.php" >
+			<form method="post" action="panelAdministracion.php" >
 				<label for="buscar">Busqueda general: </label>
 				<input type="search" id="buscar" name="buscar"/><br />
 				

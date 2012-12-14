@@ -32,7 +32,7 @@
 		$_SESSION["admin"]=$datosUsuario["admin"];
 		header("Location: index.php");
 	}
-	else echo 'El usuario no existe ';
+	else header("Location: index.php");
 	//var_dump($_SESSION);
 	
 	?>

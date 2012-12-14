@@ -1,12 +1,12 @@
 <?php session_start(); ?>
 <?php
-	if(sizeof($_REQUEST) == 1)	
+	/*if(sizeof($_REQUEST) == 1)	
 		header("Location: ./panelAdministracion.php");
 		echo '<pre>';
 	var_dump($_REQUEST);
 		echo '</pre>';
 	
-	
+	*/
 	$operacion = $_REQUEST["operacion"];
 	//var_dump($operacion);
 	if($operacion == "check") //aprobar los eventos checkeados	
@@ -16,7 +16,7 @@
 		$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		//Validar que no genere error la conexión
 		if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+			header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 
 
 		//para cada evento checked:
@@ -54,7 +54,7 @@
 		$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		//Validar que no genere error la conexión
 		if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+			header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 
 
 		//para cada evento checked:
@@ -91,7 +91,7 @@
 		$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
 		//Validar que no genere error la conexión
 		if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+			header("Location: ".$_SERVER["REQUEST_URI"]."?error=11");
 
 
 		//para cada evento checked:

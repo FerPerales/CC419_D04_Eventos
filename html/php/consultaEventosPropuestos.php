@@ -5,7 +5,7 @@
 	
 	//Validar que no genere error la conexión
 	if($con -> connect_error)
-		die("Por el momento no se puede acceder al gestor de la base de datos");
+		header("Location: panelAdministracion.php?error=11");
 
 	//Creo la consulta
 	$mi_query = "select idevento, nombre, creadoPor, status, motivo

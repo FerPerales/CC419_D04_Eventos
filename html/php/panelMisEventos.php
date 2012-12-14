@@ -66,12 +66,6 @@ else {
 		-->
 		<article class="container">
 				<section class="formulario">		
-					<button type="submit" id="ver1">
-							<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
-						</button>
-					<button type="button" class ="buscar" id="buscar1" name="buscar">
-							<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
-						</button>
 					<table border = "5">
 						<tr>
 							<th></th>
@@ -87,12 +81,7 @@ else {
 	<?php
 				require_once("funcionesEventos.php");
 						
-					if(isset($_REQUEST["buscar"])) {
-						$buscar = $_REQUEST["buscar"]; 
-						$datos = buscar($buscar);
-					} else {
-						$datos = misEventos ();
-					}
+					$datos = misEventos ();
 									
 						if ($datos != NULL )
 						{
@@ -134,14 +123,6 @@ else {
 					<button type="submit" id="enviar" style="display: none;"></button>
 				</section>
 			</article>
-			<div id="search" style="display:none"  >
-				<form metho="post" action="panelMisEventos.php" >
-					<label for="buscar">Busqueda general: </label>
-					<input type="search" id="buscar" name="buscar"/><br />
-				
-					<button type="submit" id="buscar">Buscar</button>
-				</form>
-			</div>
 		<?	include 'footer.php'; ?>
 		</div>	
 	</body>
