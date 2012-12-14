@@ -18,7 +18,7 @@
 	echo '<rss version="2.0">';
 	echo '<channel>';
 	echo '<title>Eventos en HackerGarage</title>';
-	echo '<link>http://hackergarage.mx</link>';
+	echo '<link>http://alanturing.cucei.udg.mx/duke/php/</link>';
 	echo '<description>Todo es sobre comunidad</description>';
 	
 
@@ -29,7 +29,7 @@
 		while($fila = $result -> fetch_assoc()){
 			echo '<item>';
             echo '<title>'.$fila["nombre"].'</title>';         
-		    echo '<link>vistaDetalle.php?evento='.$fila["idevento"].'</link>';
+		    echo '<link>http://alanturing.cucei.udg.mx/duke/php/vistaDetalle.php?evento='.$fila["idevento"].'</link>';
             echo '<description>'.$fila["descripcion"].'</description></item>';
 		}					
 	}
