@@ -1,0 +1,17 @@
+.tooltip:hover { 
+text-decoration:none;
+} 
+
+.tooltip span {
+display:none; 
+margin:0 0 0 10px; 
+padding:5px 5px; 
+} 
+
+.tooltip:hover span {
+display:inline; 
+position:absolute; 
+border:1px solid #cccccc; 
+background:#ffffff; 
+color:#666666; 
+}

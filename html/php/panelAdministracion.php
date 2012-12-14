@@ -9,12 +9,13 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/panelAdministracion.css" />
+		<link rel="stylesheet" type="text/css" href="../css/tooltip.css" />
 		<script type="text/javascript" src="../js/panelAdministracion.js"></script>
 		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
@@ -72,20 +73,25 @@ else {
 								<button type="button"id="ninguno">Deshacer selección</button>
 							</div>
 							<div id="aprobar" class="botonesAprobar">
-								<button type="button" id="check1" name="check1">
-									<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+								<button type="button" id="check1" name="check1" class="tooltip" >
+									<img src="../img/check.jpg" width="15" height="15" alt="Aprobar"></img>
+									<span>Aprobar</span>
 								</button>	
-								<button type="button" id="cross1" name="cross1">
+								<button type="button" id="cross1" name="cross1" class="tooltip" >
 									<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+									<span>Rechazar</span>
 								</button>
-								<button type="button" id="pending1" name="pending1">
+								<button type="button" id="pending1" name="pending1" class="tooltip" >
 									<img src="../img/pending.png" alt="Pendiente" width="15" height="15"></img>
+									<span>Pendiente</span>
 								</button>
-								<button type="button" class ="buscar" id="buscar1" name="buscar">
+								<button type="button" id="buscar1" name="buscar" class="tooltip buscar" >
 									<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
+									<span>Buscar</span>
 								</button>
-								<a href="panelAdministracion.php"><button type="submit" id="ver1">
+								<a href="panelAdministracion.php"><button type="submit" id="ver1" class="tooltip" >
 										<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
+										<span>Ver todo</span>
 								</button></a>
 							</div>	
 						</div>
@@ -125,20 +131,25 @@ else {
 						</table>
 						
 						<div id="aprobar" class="botonesAprobar">
-							<button type="button" id="check2" name="check1">
+							<button type="button" id="check2" name="check1" class="tooltip" >
 								<img src="../img/check.jpg" alt="Aprobar" width="15" height="15"></img>
+								<span>Aprobar</span>
 							</button>	
-							<button type="button" id="cross2" name="cross1">
+							<button type="button" id="cross2" name="cross1" class="tooltip" >
 								<img src="../img/cross-mark.png" alt="Rechazar" width="15" height="15"></img>
+								<span>Rechazar</span>
 							</button>
-							<button type="button" id="pending2" name="pending1">
+							<button type="button" id="pending2" name="pending1" class="tooltip" >
 								<img src="../img/pending.png" alt="Pendiente" width="15" height="15"></img>
+								<span>Pendiente</span>
 							</button>
-							<button type="button" class ="buscar" id="buscar2" name="buscar">
+							<button type="button" id="buscar2" name="buscar" class="tooltip buscar" >
 								<img src="../img/search.png" alt="Buscar" width="15" height="15"></img>
+								<span>Buscar</span>
 							</button>
-							<a href="panelAdministracion.php"><button type="submit" id="ver1">
+							<a href="panelAdministracion.php"><button type="submit" id="ver1" class="tooltip" >
 										<img src="../img/see_all.jpg" alt="Ver todo" width="15" height="15"></img>
+										<span>Ver todo</span>
 								</button></a>						
 						</div>	
 						<div class="clearer"></div>
