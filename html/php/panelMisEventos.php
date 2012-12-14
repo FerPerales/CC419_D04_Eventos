@@ -9,7 +9,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
@@ -82,7 +82,6 @@ else {
 							<th>Capacidad</th>
 							<th>fechaEvento</th>
 							<th>Categoria</th>
-							<th>Estatus</th>
 							<th>Motivo</th>
 						</tr>
 	<?php
@@ -124,7 +123,6 @@ else {
 								
 								echo '<td style="background-color:',$colorFondo,'">', $value["fechaEvento"],'</td>
 									<td style="background-color:',$colorFondo,'">', $value["categoria"],'</td>
-									<td style="background-color:',$colorFondo,'">', strtoupper($value["status"]),'</td>
 									<td style="background-color:',$colorFondo,'">', $value["motivo"], '</td>
 								</tr>';
 								
