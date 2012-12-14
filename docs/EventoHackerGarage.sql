@@ -9,8 +9,10 @@ USE `EventosHackerGarage` ;
 -- -----------------------------------------------------
 -- Table `EventosHackerGarage`.`categoria`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `EventosHackerGarage`.`categoria` ;
+
 CREATE  TABLE IF NOT EXISTS `EventosHackerGarage`.`categoria` (
-  `idcategoria` INT NOT NULL ,
+  `idcategoria` INT NOT NULL AUTO_INCREMENT ,
   `categoria` VARCHAR(45) NOT NULL ,
   `color` VARCHAR(8) NULL ,
   PRIMARY KEY (`idcategoria`) )
@@ -20,6 +22,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `EventosHackerGarage`.`usuario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `EventosHackerGarage`.`usuario` ;
+
 CREATE  TABLE IF NOT EXISTS `EventosHackerGarage`.`usuario` (
   `twitter` INT NOT NULL ,
   `username` VARCHAR(25) NULL ,
@@ -34,12 +38,14 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `EventosHackerGarage`.`evento`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `EventosHackerGarage`.`evento` ;
+
 CREATE  TABLE IF NOT EXISTS `EventosHackerGarage`.`evento` (
-  `idevento` INT NOT NULL ,
+  `idevento` INT NOT NULL AUTO_INCREMENT ,
   `creadoPor` INT NOT NULL ,
   `nombre` VARCHAR(45) NOT NULL ,
   `rutaFlyer` VARCHAR(45) NOT NULL ,
-  `descripcion` VARCHAR(45) NOT NULL ,
+  `descripcion` BLOB NOT NULL ,
   `precio` INT NOT NULL ,
   `capacidad` INT NOT NULL ,
   `fechaEvento` DATE NOT NULL ,
