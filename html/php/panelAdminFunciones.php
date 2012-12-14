@@ -1,12 +1,12 @@
 <?php session_start(); ?>
 <?php
-	if(sizeof($_REQUEST) == 1)	
+	/*if(sizeof($_REQUEST) == 1)	
 		header("Location: ./panelAdministracion.php");
 		echo '<pre>';
 	var_dump($_REQUEST);
 		echo '</pre>';
 	
-	
+	*/
 	$operacion = $_REQUEST["operacion"];
 	//var_dump($operacion);
 	if($operacion == "check") //aprobar los eventos checkeados	
