@@ -16,7 +16,7 @@
 					<li id="cal"><a href="calendario.php">Calendario</a></li>
 					<li id="env-event"><a href="altaEventos.php">Enviar Evento</a></li>
 					<li id="inicio-sesion"><a href="login.php?authenticate=1">Iniciar sesión </a></li>
-					<li id="RSS"><img src="../img/rss.png" alt="RSS" width="30" height="30" /></li>
+					<li id="RSS"><a href="rss.php"><img src="../img/rss.png" alt="RSS" width="30" height="30"/></a></li>
 					
 				</ul>
 			</nav>';
