@@ -6,8 +6,9 @@
 	$id =$_REQUEST["id"];
 
    $query= "select evento.idevento, evento.fechaEvento, evento.nombre, evento.rutaFlyer, evento.descripcion, 
-						evento.capacidad, categoria.categoria, evento.creadoPor, evento.precio from evento left join categoria ON 
-						evento.categoria=categoria.idcategoria where idevento = ".$id." and status='aprobado'";
+						evento.capacidad, categoria.categoria, usuario.username creadoPor, evento.precio from evento inner join categoria ON 
+						evento.categoria=categoria.idcategoria inner join usuario on evento.creadoPor=usuario.twitter 
+						where idevento = ".$id." and status='aprobado'";
       
    $con = new mysqli($dbhost, $dbuser, $dbpass, $db);
    if($con -> connect_error)
@@ -57,7 +58,7 @@
 		$pdf -> Cell(120,10,"Capacidad: Ilimitada",0,0,'L');
 	else	
 		$pdf -> Cell(120,10,"Capacidad: ".$fila['capacidad'],0,0,'L');
-	$pdf -> Cell(120,10,"por  @".$fila['creadoPor'] ,0,2,'L');
+	$pdf -> Cell(120,10,"twitter por:  @".$fila['creadoPor'] ,0,2,'L');
 
 	$pdf -> Output();
 ?>

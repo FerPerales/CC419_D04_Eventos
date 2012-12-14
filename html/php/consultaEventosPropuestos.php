@@ -8,8 +8,8 @@
 		header("Location: panelAdministracion.php?error=11");
 
 	//Creo la consulta
-	$mi_query = "select idevento, nombre, creadoPor, status, motivo, descripcion, precio, capacidad, categoria
-				 from evento";
+	$mi_query = "SELECT evento.idevento, evento.nombre, usuario.username creadoPor, evento.status, evento.motivo, evento.descripcion, 
+				evento.precio, evento.capacidad, evento.categoria FROM evento INNER JOIN usuario ON evento.creadoPor = usuario.twitter";
 	
 	//Ejecutar mi consulta
 	$result = $con -> query($mi_query);

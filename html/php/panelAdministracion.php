@@ -123,7 +123,7 @@ else {
 								
 								<td style="background-color:',$colorFondo,'">', $value["idevento"], '</td>
 								<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
-								<td style="background-color:',$colorFondo,'">', $value["creadoPor"], '</td>
+								<td style="background-color:',$colorFondo,'"><a href="http://www.twitter.com/',$value["creadoPor"],'">@', $value["creadoPor"], '</a></td>
 								<td style="background-color:',$colorFondo,'"><input type="text" value="', $value["motivo"], '" name = "comentarioEvento', 
 								$value["idevento"], '" /><a href="editarEvento.php?id=',$value["idevento"],'">
 								<img src="../img/edit.gif" alt="editar" width="20" height="25"/></a></td>

@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="lord" />
+		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
@@ -46,12 +46,12 @@
 							'<p class="place" >Donde: <span class="place" id="donde-1">HackerGarage, Vidrio #2188, entre Simón Bolivar y Gral. San Martín, Guadalajara.</span></p>
 							<p class="place" >Precio: $<span class="place" id="precio-1">', $value["precio"], '</span>
 							';
-					if($value["capacidad"] == -1)
+					if($value["capacidad"] == 0)
 						echo 'Capacidad: <span class="place" id="capacidad-1"> Ilimitada </span>';
 					else
 						echo 	'Capacidad: <span class="place" id="capacidad-1">', $value["capacidad"], '</span> '; 
 				echo			'Categoría: <span class="place" id="categoria-1"> <a href="#">', $value["categoria"], '</a> Publicado el ', $value["fechaCreacion"], '</span> por 
-							<span class="place" id="quien-1"><a href="" >', $value["creadoPor"], '</a></span> </p>
+							<span class="place" id="quien-1"><a href="http://www.twitter.com/', $value["username"], '" >@', $value["username"], '</a></span> </p>
 						</div>
 					</section>';        
 			}

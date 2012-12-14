@@ -9,12 +9,11 @@
 	//Validar que no genere error la conexión
 	if($con -> connect_error)
 		die("Por el momento no se puede acceder al gestor de la base de datos");
-
-
+	
 	//Creo la consulta
-	$mi_query = "SELECT * FROM evento LEFT JOIN categoria ON evento.categoria=categoria.idcategoria 
-					where status = 'aprobado' ORDER BY fechaCreacion DESC";
-					
+	$mi_query = "SELECT * FROM evento INNER JOIN categoria ON evento.categoria=categoria.idcategoria 
+					INNER JOIN usuario ON evento.creadoPor = usuario.twitter where status = 'aprobado' ORDER BY fechaCreacion DESC";
+			
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
 	//Ejecuto mi consulta
@@ -35,7 +34,6 @@
 		while($fila = $result -> fetch_assoc())
 			$datos[] = $fila;
 	}
-	
 	
 	//Porque la maestra dijo
 	//$_SESSION["datos"] = $datos;

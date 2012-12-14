@@ -13,8 +13,8 @@
 	//Creo la consulta
 	if (isset($evento))
 		$mi_query = "select evento.idevento, evento.fechaEvento, evento.nombre, evento.rutaFlyer, evento.descripcion, 
-						evento.capacidad, categoria.categoria, evento.creadoPor, evento.precio from evento left join categoria ON 
-						evento.categoria=categoria.idcategoria where idevento = ".$evento;
+						evento.capacidad, categoria.categoria, usuario.username, evento.precio from evento inner join categoria ON 
+						evento.categoria=categoria.idcategoria inner join usuario on evento.creadoPor=usuario.twitter where idevento = ".$evento;
 	else header("Location: 404.php");
 	//var_dump($mi_query);			 
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria

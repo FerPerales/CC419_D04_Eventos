@@ -38,7 +38,7 @@ session_start();
 				$capacidad = htmlentities($fila["capacidad"], ENT_QUOTES,'UTF-8');
 				$descripcion = htmlentities($fila["descripcion"], ENT_QUOTES,'UTF-8');
 				$precio = htmlentities($fila["precio"], ENT_QUOTES,'UTF-8');
-				$creadoPor = htmlentities($fila["creadoPor"], ENT_QUOTES,'UTF-8');
+				$creadoPor = htmlentities($fila["username"], ENT_QUOTES,'UTF-8');
 				$categoria = htmlentities($fila["categoria"], ENT_QUOTES,'UTF-8');
 				
 				echo '<article class="articulo">
@@ -60,7 +60,7 @@ session_start();
 							else
 								echo	'Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> ';
 							echo		'Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el ', $fechaEvento, ' por  
-							<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
+							<span class="place" id="quien"><a href="http://www.twitter.com/', $creadoPor, '" >@', $creadoPor, '</a></span>
 						</p><a href="pdf.php?id=',$evento,'" class="tooltip"><img src="../img/pdf.png" alt="pdf" width="23" height="25" class="doc" />
 										<span>Exportar PDF</span></a>
 						</div>
