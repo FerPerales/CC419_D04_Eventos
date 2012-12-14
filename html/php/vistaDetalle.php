@@ -11,6 +11,7 @@ session_start();
 		<title>Detalle de evento</title>
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/vistadetalle.css" />
+		<link rel="stylesheet" type="text/css" href="../css/tooltip.css" />
 		<?php
 			include 'alertsFunction.php';
 		?>
@@ -60,7 +61,8 @@ session_start();
 								echo	'Capacidad: <span class="place" id="capacidad">', $capacidad, '</span> ';
 							echo		'Categoría: <span class="place" id="categoria"><a href="" >', $categoria, '</a></span> Publicado el ', $fechaEvento, ' por  
 							<span class="place" id="quien"><a href="" >', $creadoPor, '</a></span>
-						</p><a href="pdf.php?id=',$evento,'"><img src="../img/pdf.png" alt="pdf" width="23" height="25" class="doc"/></a>
+						</p><a href="pdf.php?id=',$evento,'" class="tooltip"><img src="../img/pdf.png" alt="pdf" width="23" height="25" class="doc" />
+										<span>Exportar PDF</span></a>
 						</div>
 					</div>
 					<div class="info" id="event-det">

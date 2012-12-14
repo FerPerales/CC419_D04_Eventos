@@ -15,6 +15,7 @@ else {
 		<link rel="stylesheet" type="text/css" href="../css/fondoymenu.css" />
 		<link rel="stylesheet" type="text/css" href="../css/posicionGeneral.css" />
 		<link rel="stylesheet" type="text/css" href="../css/panelAdministracion.css" />
+		<link rel="stylesheet" type="text/css" href="../css/tooltip.css" />
 		<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.blockUI.js"></script>	
@@ -105,7 +106,7 @@ else {
 									<td style="background-color:',$colorFondo,'">', $value["nombre"], '</td>
 									<td style="background-color:',$colorFondo,'">', $value["descripcion"],'</td>
 									<td style="background-color:',$colorFondo,'">$', $value["precio"],'.00</td>';
-								if($value["capacidad"] == -1)
+								if($value["capacidad"] == 0)
 									echo '<td style="background-color:',$colorFondo,'">Ilimitada</td>';
 								else
 									echo '<td style="background-color:',$colorFondo,'">', $value["capacidad"],'</td>';
@@ -119,7 +120,7 @@ else {
 						}
 	?>
 						</table>					
-					<div class="clearer"></div>
+					<div class="clearer doc"><a href="excel.php" class="tooltip"><img src="../img/excel.png" width="23" height="25" alt="Excel" class="doc"/><span>Exportar excel</span></a></div>
 					<button type="submit" id="enviar" style="display: none;"></button>
 				</section>
 			</article>
