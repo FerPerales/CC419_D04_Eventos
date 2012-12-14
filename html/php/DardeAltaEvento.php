@@ -142,7 +142,7 @@
 		header("LOCATION: altaEventos.php?error=9");
 	}
 	include 'enviarTweet.php';
-	$tweet = "Hola @".$_SESSION['twitter'] ."!. Tu evento esta en lista de espera para ser aprobado";
+	$tweet = "Hola @".$_SESSION['twitter'] ."!. Tu evento esta en lista de espera para ser aprobado. Saludos!";
 	$callback = post_tweet($tweet);
 	header("Location: index.php?success=1");
 ?>
