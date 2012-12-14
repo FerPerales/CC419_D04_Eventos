@@ -29,7 +29,7 @@
 		while($fila = $result -> fetch_assoc()){
 			echo '<item>';
             echo '<title>'.$fila["nombre"].'</title>';         
-		    echo '<link>vistaDetalle.php?evento='.$fila["idevento"].'</link>';
+		    echo '<link>http://alanturing.cucei.udg.mx/duke/php/vistaDetalle.php?evento='.$fila["idevento"].'</link>';
             echo '<description>'.$fila["descripcion"].'</description></item>';
 		}					
 	}
