@@ -12,7 +12,7 @@
 	
 	//Creo la consulta
 	$mi_query = "SELECT * FROM evento INNER JOIN categoria ON evento.categoria=categoria.idcategoria 
-					INNER JOIN usuario ON evento.creadoPor = usuario.twitter where status = 'aprobado' ORDER BY fechaCreacion DESC";
+					INNER JOIN usuario ON evento.creadoPor = usuario.twitter where status = 'aprobado' ORDER BY fechaEvento ASC";
 			
 	//fechaEvento, nombre, rutaFlyer, descripcion, capacidad, categoria
 	
