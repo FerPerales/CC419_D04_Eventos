@@ -24,6 +24,16 @@
 	unset($tempdate);
 	
 	//Realizar validaciones con todas las formas de limpiar variables
+	
+	$id = htmlentities($id,ENT_QUOTES,'UTF-8');
+	$nomEvento = htmlentities($nomEvento,ENT_QUOTES,'UTF-8');
+	$descripcion = htmlentities($descripcion,ENT_QUOTES,'UTF-8');
+	$precio = htmlentities($precio,ENT_QUOTES,'UTF-8');
+	$capacidad = htmlentities($capacidad,ENT_QUOTES,'UTF-8');
+	$num_cap = htmlentities($num_cap,ENT_QUOTES,'UTF-8');
+	$categoria = htmlentities($categoria,ENT_QUOTES,'UTF-8');
+	$fecha = htmlentities($fecha,ENT_QUOTES,'UTF-8');
+	
 	$id = $mysqli -> real_escape_string($id);
 	$nomEvento = $mysqli -> real_escape_string($nomEvento);
 	$descripcion = $mysqli -> real_escape_string($descripcion);
@@ -32,15 +42,6 @@
 	$num_cap = $mysqli -> real_escape_string($num_cap);
 	$categoria = $mysqli -> real_escape_string($categoria);
 	$fecha = $mysqli -> real_escape_string($fecha);
-	
-	$id = htmlentities($id);
-	$nomEvento = htmlentities($nomEvento);
-	$descripcion = htmlentities($descripcion);
-	$precio = htmlentities($precio);
-	$capacidad = htmlentities($capacidad);
-	$num_cap = htmlentities($num_cap);
-	$categoria = htmlentities($categoria);
-	$fecha = htmlentities($fecha);
 	
 	if(preg_match('/[0-9]*/',$id) == 0) {
 		header("LOCATION: panelMisEventos.php?error=10");	
