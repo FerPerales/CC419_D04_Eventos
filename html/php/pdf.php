@@ -50,7 +50,7 @@
 	$str= str_replace("<br>"," ", $str);
 	$pdf -> Cell(80,10,"Cuando: ".$fila['fechaEvento'],0,2,'L');
 	$pdf -> Cell(80,10,"Descripcion: ",0,2,'L');	
-	$pdf -> Cell(80,10,$str,0,2,'L');
+	$pdf -> MultiCell(0,8,$str, 0, 'J');
 	$pdf -> Cell(80,10,"Donde: HackerGarage, Vidrio #2188, entre Simon Bolivar y Gral. San Martin, Guadalajara.",0,2,'L');
 	$pdf -> Cell(120,10,"Precio: $".$fila['precio'].
 	".00     Categoria: ".$fila['categoria']."      Categoria: ".$fila['categoria'],0,2,'L');
