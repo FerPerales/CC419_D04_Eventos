@@ -30,7 +30,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="lord" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -77,9 +77,9 @@ else {
 					</div>
 					<div class="clearer"></div>
 					<div>
-						<label for="img_event" class="label-event" >Imagen:</label>
-						<img src="<?= $flyer ?>" alt="Imagen" width="90" height="90">
+						<label for="img_event" class="label-event" >Imagen:</label>						
 						<input type="file" name="file" class="registro" id="img_event" accept="image/*" value="<?= end(explode('/',$flyer)); ?>" />
+						<div class="portaImagen"><img src="<?= $flyer ?>" alt="Imagen"></div>
 					</div>
 				  <div class="clearer"></div>					
 					<div><label for="free_text" class="label-event" >Descripci&oacute;n del evento:</label></div>

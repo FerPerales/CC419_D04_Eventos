@@ -19,7 +19,13 @@ input
 	width: 70%;
 	margin: 0 10px; 
 }
-
+.portaImagen
+{float: left;}
+.portaImagen img
+{ 
+width: 10%;
+	margin: 5px 10px;
+}
 textarea 
 {
     margin-left: 7px;
