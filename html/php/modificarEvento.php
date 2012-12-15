@@ -44,25 +44,26 @@
 	$fecha = $mysqli -> real_escape_string($fecha);
 	
 	if(preg_match('/[0-9]*/',$id) == 0) {
-		header("LOCATION: panelMisEventos.php?error=10");	
+
+		header("LOCATION: panelAdministracion.php?error=10");	
 	}	
 	if(preg_match('/[A-Za-z0-9 _\-\#\@\.\,\:\&]{3,}/', $nomEvento) == 0) {
-		header("LOCATION: panelMisEventos.php?error=3");
+		header("LOCATION: panelAdministracion.php?error=3");
 	}
 	if(strlen($descripcion) <= 20){
-		header("LOCATION: panelMisEventos.php?error=4");	
+		header("LOCATION: panelAdministracion.php?error=4");	
 	}
 	if(preg_match('/[0-9]+/', $precio) == 0) {
-		header("LOCATION: panelMisEventos.php?error=5");
+		header("LOCATION: panelAdministracion.php?error=5");
 	}
 	if(preg_match('/[0-9]+/',$num_cap) == 0) {
-		header("LOCATION: panelMisEventos.php?error=6");	
+		header("LOCATION: panelAdministracion.php?error=6");	
 	}
 	if(preg_match('/[0-9]/', $categoria) == 0) {
-		header("LOCATION: panelMisEventos.php?error=7");
+		header("LOCATION: panelAdministracion.php?error=7");
 	}
 	if(preg_match('/(20[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/', $fecha) == 0) {
-		header("LOCATION: panelMisEventos.php?error=8");
+		header("LOCATION: panelAdministracion.php?error=8");
 	}
 	
 	//Se define el tamaño que se permitirá (en KB por eso lo multiplicamos por 1024)
@@ -138,5 +139,5 @@
 		header("LOCATION: altaEventos.php?error=9");	
 	}
 
-	header("Location: panelMisEventos.php?success=2");
+	header("Location: panelAdministracion.php?success=2");
 ?>
