@@ -10,7 +10,7 @@ else {
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-		<meta name="author" content="Manuel Alejandro Meza Olmedo" />
+		<meta name="author" content="Dr. Angel Meulenert" />
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -71,7 +71,7 @@ else {
 						<div class="radios">
 							<span>Capacidad:</span>
 								<div>
-									<input type="radio" name="cap" class="check" value="unlimited" id="radioIlimitado"/>		
+									<input type="radio" name="cap" class="check" value="unlimited" id="radioIlimitado" checked/>		
 									<span class="label-eventCheck">Ilimitado</span>
 								</div>
 								<div>
