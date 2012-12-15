@@ -30,11 +30,7 @@ else {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="keywords" lang="es" content="HackerGarage, Eventos, Programación Web" />
-<<<<<<< HEAD
 		<meta name="author" content="lord" />
-=======
-		<meta name="author" content="Dr. Angel Meulenert" />
->>>>>>> f1973487c48211f43c525b83c99476ce84e71f0b
 		<meta name="description" content="Registro de eventos de programación en linea" />
 		<title>Registro de nuevos eventos</title>
 		<link rel="stylesheet" type="text/css" href="../css/ui-lightness/jquery-ui-1.8.23.custom.css" />
@@ -81,12 +77,7 @@ else {
 					</div>
 					<div class="clearer"></div>
 					<div>
-<<<<<<< HEAD
 						<label for="img_event" class="label-event" >Imagen:</label>						
-=======
-						<label for="img_event" class="label-event" >Imagen:</label>
-						<img src="<?= $flyer ?>" alt="Imagen" width="17%" height="20%" />
->>>>>>> f1973487c48211f43c525b83c99476ce84e71f0b
 						<input type="file" name="file" class="registro" id="img_event" accept="image/*" value="<?= end(explode('/',$flyer)); ?>" />
 						<div class="portaImagen"><img src="<?= $flyer ?>" alt="Imagen"></div>
 					</div>
